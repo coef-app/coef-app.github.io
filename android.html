@@ -50,85 +50,209 @@ footer.site a{color:var(--discret)}
 
 .guide{max-width:520px}
 .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;margin-bottom:28px}
-.etapes{list-style:none;margin:22px 0 0;padding:0}
-.etape{display:flex;gap:14px;background:var(--surface);border-radius:24px;padding:18px;margin-bottom:12px;
+.progres-guide{display:flex;gap:6px;margin:20px 0 6px}
+.progres-guide i{flex:1;height:6px;border-radius:3px;background:var(--bordure-forte);transition:background .3s}
+.progres-guide i.fait{background:var(--vert)}
+.progres-guide i.courant{background:var(--encre)}
+.compte{font-size:14px;color:var(--discret);margin:0}
+.etapes{list-style:none;margin:16px 0 0;padding:0}
+.etape{background:var(--surface);border-radius:24px;padding:16px 18px;margin-bottom:12px;
   box-shadow:var(--ombre);border:1.5px solid transparent;transition:opacity .25s,border-color .25s,background .25s}
+.tete{display:flex;align-items:center;gap:14px}
 .pastille{flex:none;width:36px;height:36px;border-radius:18px;display:grid;place-items:center;font-weight:700;
   background:var(--plan);color:var(--encre);transition:background .25s,color .25s}
 .coche{display:none;font-size:19px}
-.contenu{flex:1;min-width:0}
-.contenu h2{font-size:17px;font-weight:600;margin:6px 0 6px}
-.contenu p{margin:0 0 10px;color:var(--encre2)}
+.tete h2{font-size:17px;font-weight:600;margin:0}
+.contenu{margin-top:12px}
+.consigne{margin:0 0 6px;color:var(--encre2)}
 .action{display:block;width:100%;text-align:center;background:var(--accent);color:var(--sur-accent);text-decoration:none;
-  font:inherit;font-weight:600;border:0;border-radius:28px;padding:14px 18px;margin-top:4px;cursor:pointer}
-.code{font-size:30px;font-weight:700;letter-spacing:4px;color:var(--encre)!important;margin:4px 0 8px!important}
-.fait{display:none;color:var(--vert)!important;font-weight:600;margin:2px 0 0!important}
+  font:inherit;font-weight:600;border:0;border-radius:28px;padding:15px 18px;margin-top:6px;cursor:pointer;
+  animation:appel 2.4s ease-in-out infinite}
+@keyframes appel{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.code{font-size:30px;font-weight:700;letter-spacing:4px;color:var(--encre);margin:4px 0 4px;text-align:center}
+.fait{display:none;color:var(--vert);font-weight:600;margin:10px 0 0 50px}
 .refaire{background:none;border:0;padding:0;font:inherit;color:var(--discret);text-decoration:underline;cursor:pointer}
 .etape.verrouillee{opacity:.42}
-.etape.verrouillee .action{pointer-events:none}
-.etape.verrouillee .contenu p:not(.code){display:none}
+.etape.verrouillee .contenu,.etape.faite .contenu{display:none}
 .etape.faite{border-color:var(--vert);background:var(--vert-fond)}
 .etape.faite .pastille{background:var(--vert);color:#fff}
 .etape.faite .numero{display:none}
 .etape.faite .coche{display:block}
-.etape.faite .action,.etape.faite .contenu p:not(.fait):not(.code){display:none}
 .etape.faite .fait{display:block}
-.fin{text-align:center;font-weight:600;font-size:18px;margin:22px 0 0}
+.etape.arrivee{animation:arrivee .45s ease-out}
+@keyframes arrivee{from{transform:translateY(8px);opacity:.4}to{transform:none;opacity:1}}
+.fin{text-align:center;font-weight:700;font-size:20px;margin:22px 0 0}
+.fin.vue-fin{animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
 .bugs{text-align:center;color:var(--encre2);margin:26px 0 0}
 .bugs a{color:var(--encre);font-weight:600}
-:root{--vert:#2F8F55;--vert-fond:#EAF5EE}
-@media (prefers-color-scheme:dark){:root{--vert:#5BC37E;--vert-fond:#13261A}}
+.confetti{position:fixed;top:-12px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:9;
+  animation:chute 1.9s cubic-bezier(.25,.6,.45,1) forwards}
+@keyframes chute{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
+:root{--vert:#2F8F55;--vert-fond:#EAF5EE;--bordure-forte:rgba(11,11,11,0.12)}
+@media (prefers-color-scheme:dark){:root{--vert:#5BC37E;--vert-fond:#13261A;--bordure-forte:rgba(255,255,255,0.16)}}
+
+/* le téléphone dessiné : toujours clair, comme les pages de Google qu'il esquisse */
+.demo{position:relative;width:236px;height:356px;margin:14px auto 12px;border-radius:34px;background:#141418;padding:8px;
+  box-shadow:0 14px 30px rgba(0,0,0,.18);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ecran{position:relative;width:100%;height:100%;border-radius:27px;background:#fff;overflow:hidden;color:#202124;
+  font-size:11px;line-height:1.3}
+.vue{position:absolute;inset:0;opacity:0;background:#fff}
+.vue.coef{background:#F3F1EC;color:#0A0A0B}
+.d1-v0,.d2-v0,.d3-v0,.d4-v0{opacity:1}
+.demo.joue .vue{opacity:0}
+.p{position:absolute;left:8%;right:8%}
+.p-barre{top:0;left:0;right:0;height:9%;padding:0 8%;display:flex;align-items:flex-end;padding-bottom:4px;
+  background:#f1f3f4;color:#5f6368;font-size:9.5px}
+.p-titre{font-size:15px;font-weight:600;letter-spacing:-.2px}
+.p-texte{color:#5f6368;font-size:10.5px;text-align:center}
+.vue.coef .p-texte{text-align:left;color:#6B6B74}
+.p-lignes i{display:block;height:6px;border-radius:3px;background:#e8eaed;margin-bottom:7px}
+.p-lignes i:nth-child(2n){width:78%}
+.p-icone{font-size:38px;line-height:1;text-align:center;color:#bdc1c6}
+.p-note{text-align:center}
+.p-note span{display:inline-block;background:#FFE58A;color:#3d3200;font-weight:700;font-size:10.5px;padding:3px 10px;
+  border-radius:10px;transform:rotate(-3deg)}
+.p-bouton{height:10%;right:auto;display:flex;align-items:center;justify-content:center;border-radius:20px;
+  font-weight:600;font-size:10.5px;white-space:nowrap}
+.b-google{background:#1a73e8;color:#fff}
+.b-contour{border:1px solid #dadce0;color:#1a73e8;background:#fff}
+.b-lien{color:#1a73e8}
+.b-play{background:#01875f;color:#fff}
+.b-coef{background:#0A0A0B;color:#fff}
+.p-champ{right:auto;height:11%;border:1px solid #dadce0;border-radius:8px;padding:2px 8px;display:flex;flex-direction:column;
+  justify-content:center;background:#fff}
+.p-champ small{font-size:8.5px;color:#5f6368}
+.p-champ span{font-size:11px}
+.p-champ .code-demo{font-weight:700;letter-spacing:2px}
+.p-cases i{display:block;height:6px;margin:0 0 9px 18px;border-radius:3px;background:#e8eaed;position:relative}
+.p-cases i::before{content:"";position:absolute;left:-18px;top:-3px;width:11px;height:11px;border-radius:2px;background:#5f6368}
+.p-appli{display:flex;align-items:center;gap:10px}
+.p-appli b{width:44px;height:44px;border-radius:11px;background:#0A0A0B;color:#fff;display:grid;place-items:center;
+  font-size:24px;font-weight:700}
+.p-appli span{display:flex;flex-direction:column;font-size:14px;font-weight:600}
+.p-appli small{font-size:9.5px;font-weight:400;color:#5f6368}
+.p-progres{height:5px;border-radius:3px;background:#e8eaed;overflow:hidden}
+.p-progres i{display:block;height:100%;width:0;background:#01875f}
+.p-anneau{display:grid;place-items:center}
+.p-anneau i{width:118px;height:118px;border-radius:50%;border:9px solid #0A0A0B;box-sizing:border-box}
+.p-anneau span{position:absolute;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+.p-onglets{top:auto;bottom:0;left:0;right:0;height:11%;display:flex;background:#fff;border-top:1px solid #e6e2da}
+.p-onglets span{flex:1;display:grid;place-items:center;font-size:8.5px;color:#8a8a92}
+.p-onglets span.actif{color:#0A0A0B;font-weight:700}
+.p-succes{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#EAF5EE}
+.p-succes b{width:64px;height:64px;border-radius:50%;background:#2F8F55;color:#fff;display:grid;place-items:center;font-size:32px}
+.p-succes span{font-size:13px;font-weight:700;color:#1f5c38;text-align:center;padding:0 10%}
+.doigt{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;opacity:0;
+  background:rgba(32,33,36,.32);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none}
+@keyframes d1-v0{0%{opacity:0}3.62%{opacity:1}37.68%{opacity:1}41.3%{opacity:0}100%{opacity:0}}
+.demo.joue .d1-v0{animation:d1-v0 6.9s linear infinite}
+@keyframes d1-v1{0%{opacity:0}37.68%{opacity:0}41.3%{opacity:1}75.36%{opacity:1}78.99%{opacity:0}100%{opacity:0}}
+.demo.joue .d1-v1{animation:d1-v1 6.9s linear infinite}
+@keyframes d1-v2{0%{opacity:0}75.36%{opacity:0}78.99%{opacity:1}96.38%{opacity:1}100%{opacity:0}}
+.demo.joue .d1-v2{animation:d1-v2 6.9s linear infinite}
+@keyframes d1-doigt{0%{left:56%;top:49%;opacity:0}4.52%{left:56%;top:49%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}9.04%{left:56%;top:49%;opacity:1;transform:scale(1)}19.59%{left:40%;top:29%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}22.61%{left:40%;top:29%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}26.38%{left:40%;top:29%;opacity:1;transform:scale(1)}33.91%{left:40%;top:29%;opacity:0;transform:scale(1)}42.2%{left:86%;top:92%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}46.72%{left:86%;top:92%;opacity:1;transform:scale(1)}57.28%{left:70%;top:81%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}60.29%{left:70%;top:81%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}64.06%{left:70%;top:81%;opacity:1;transform:scale(1)}71.59%{left:70%;top:81%;opacity:0;transform:scale(1)}100%{left:56%;top:49%;opacity:0}}
+.demo.joue .d1-doigt{animation:d1-doigt 6.9s ease-in-out infinite}
+@keyframes d2-v0{0%{opacity:0}5.81%{opacity:1}60.47%{opacity:1}66.28%{opacity:0}100%{opacity:0}}
+.demo.joue .d2-v0{animation:d2-v0 4.3s linear infinite}
+@keyframes d2-v1{0%{opacity:0}60.47%{opacity:0}66.28%{opacity:1}94.19%{opacity:1}100%{opacity:0}}
+.demo.joue .d2-v1{animation:d2-v1 4.3s linear infinite}
+@keyframes d2-doigt{0%{left:66%;top:77%;opacity:0}7.26%{left:66%;top:77%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}14.51%{left:66%;top:77%;opacity:1;transform:scale(1)}31.44%{left:50%;top:57%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}36.28%{left:50%;top:57%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}42.33%{left:50%;top:57%;opacity:1;transform:scale(1)}54.42%{left:50%;top:57%;opacity:0;transform:scale(1)}100%{left:66%;top:77%;opacity:0}}
+.demo.joue .d2-doigt{animation:d2-doigt 4.3s ease-in-out infinite}
+@keyframes d3-v0{0%{opacity:0}2.91%{opacity:1}30.23%{opacity:1}33.14%{opacity:0}100%{opacity:0}}
+.demo.joue .d3-v0{animation:d3-v0 8.6s linear infinite}
+@keyframes d3-v1{0%{opacity:0}30.23%{opacity:0}33.14%{opacity:1}50%{opacity:1}52.91%{opacity:0}100%{opacity:0}}
+.demo.joue .d3-v1{animation:d3-v1 8.6s linear infinite}
+@keyframes d3-p1{0%{width:0}33.14%{width:0}47.09%{width:100%}100%{width:100%}}
+.demo.joue .d3-v1 .p-progres i{animation:d3-p1 8.6s linear infinite}
+@keyframes d3-v2{0%{opacity:0}50%{opacity:0}52.91%{opacity:1}80.23%{opacity:1}83.14%{opacity:0}100%{opacity:0}}
+.demo.joue .d3-v2{animation:d3-v2 8.6s linear infinite}
+@keyframes d3-v3{0%{opacity:0}80.23%{opacity:0}83.14%{opacity:1}97.09%{opacity:1}100%{opacity:0}}
+.demo.joue .d3-v3{animation:d3-v3 8.6s linear infinite}
+@keyframes d3-doigt{0%{left:66%;top:59%;opacity:0}3.63%{left:66%;top:59%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}7.26%{left:66%;top:59%;opacity:1;transform:scale(1)}15.72%{left:50%;top:39%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}18.14%{left:50%;top:39%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}21.16%{left:50%;top:39%;opacity:1;transform:scale(1)}27.21%{left:50%;top:39%;opacity:0;transform:scale(1)}53.63%{left:88%;top:59%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}57.26%{left:88%;top:59%;opacity:1;transform:scale(1)}65.72%{left:72%;top:39%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}68.14%{left:72%;top:39%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}71.16%{left:72%;top:39%;opacity:1;transform:scale(1)}77.21%{left:72%;top:39%;opacity:0;transform:scale(1)}100%{left:66%;top:59%;opacity:0}}
+.demo.joue .d3-doigt{animation:d3-doigt 8.6s ease-in-out infinite}
+@keyframes d4-v0{0%{opacity:0}2.63%{opacity:1}27.37%{opacity:1}30%{opacity:0}100%{opacity:0}}
+.demo.joue .d4-v0{animation:d4-v0 9.5s linear infinite}
+@keyframes d4-v1{0%{opacity:0}27.37%{opacity:0}30%{opacity:1}54.74%{opacity:1}57.37%{opacity:0}100%{opacity:0}}
+.demo.joue .d4-v1{animation:d4-v1 9.5s linear infinite}
+@keyframes d4-v2{0%{opacity:0}54.74%{opacity:0}57.37%{opacity:1}82.11%{opacity:1}84.74%{opacity:0}100%{opacity:0}}
+.demo.joue .d4-v2{animation:d4-v2 9.5s linear infinite}
+@keyframes d4-v3{0%{opacity:0}82.11%{opacity:0}84.74%{opacity:1}97.37%{opacity:1}100%{opacity:0}}
+.demo.joue .d4-v3{animation:d4-v3 9.5s linear infinite}
+@keyframes d4-doigt{0%{left:86%;top:114.5%;opacity:0}3.28%{left:86%;top:92%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}6.57%{left:86%;top:92%;opacity:1;transform:scale(1)}14.23%{left:70%;top:94.5%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}16.42%{left:70%;top:94.5%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}19.16%{left:70%;top:94.5%;opacity:1;transform:scale(1)}24.63%{left:70%;top:94.5%;opacity:0;transform:scale(1)}30.65%{left:66%;top:57%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}33.94%{left:66%;top:57%;opacity:1;transform:scale(1)}41.6%{left:50%;top:37%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}43.79%{left:50%;top:37%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}46.53%{left:50%;top:37%;opacity:1;transform:scale(1)}52%{left:50%;top:37%;opacity:0;transform:scale(1)}58.02%{left:90%;top:53%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}61.31%{left:90%;top:53%;opacity:1;transform:scale(1)}68.97%{left:80%;top:33%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}71.16%{left:80%;top:33%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}73.89%{left:80%;top:33%;opacity:1;transform:scale(1)}79.37%{left:80%;top:33%;opacity:0;transform:scale(1)}100%{left:86%;top:114.5%;opacity:0}}
+.demo.joue .d4-doigt{animation:d4-doigt 9.5s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){
+  .demo.joue .vue,.demo.joue .doigt,.demo.joue .p-progres i,.action,.etape.arrivee,.fin.vue-fin{animation:none!important}
+  .demo .vue{opacity:0!important}
+  .demo .d1-v0,.demo .d2-v0,.demo .d3-v0,.demo .d4-v0{opacity:1!important}
+  .demo .cible{outline:3px solid #F9AB00;outline-offset:2px}
+  .confetti{display:none}
+}
 </style>
 </head>
 <body>
 <main class="guide">
 <div class="marque">Coef</div>
 <h1>Installe Coef</h1>
-<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
+<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
+<div class="progres-guide" id="progres" aria-hidden="true"></div>
+<p class="compte" id="compte" aria-live="polite"></p>
 <ol class="etapes">
   <li class="etape" data-ami="non">
-    <div class="pastille" aria-hidden="true"><span class="numero">1</span><span class="coche">✓</span></div>
-    <div class="contenu">
+    <div class="tete">
+      <div class="pastille" aria-hidden="true"><span class="numero">1</span><span class="coche">✓</span></div>
       <h2>Rejoins les testeurs</h2>
-      <p>Avec le compte Google de ce téléphone, touche « Rejoindre le groupe ».</p>
+    </div>
+    <div class="contenu">
+      <p class="consigne">La page dit « Vous ne pouvez pas voir les contenus de ce groupe » : c’est normal. Touche « Rejoindre le groupe », puis encore « Rejoindre le groupe » en bas de la fenêtre.</p>
+      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d1-v0"><div class="p p-barre">groups.google.com</div><div class="p p-titre" style="top:14%">Coef testeurs</div><div class="p p-bouton b-contour cible" style="top:24%;left:8%;width:64%">Rejoindre le groupe</div><div class="p p-icone" style="top:42%">⊘</div><div class="p p-texte" style="top:58%">Vous ne pouvez pas voir les contenus de ce groupe</div><div class="p p-note" style="top:72%"><span>C’est normal</span></div></div><div class="vue d1-v1"><div class="p p-titre" style="top:8%">Rejoindre Coef testeurs</div><div class="p p-champ" style="top:20%;left:8%;width:84%"><small>Nom à afficher</small><span>Ton prénom</span></div><div class="p p-cases" style="top:35%"><i></i><i></i></div><div class="p p-champ" style="top:48%;left:8%;width:84%"><small>Abonnement</small><span>Chaque e-mail</span></div><div class="p p-note" style="top:63%"><span>Laisse tout tel quel</span></div><div class="p p-bouton b-lien" style="top:76%;left:18%;width:28%">Annuler</div><div class="p p-bouton b-lien cible" style="top:76%;left:46%;width:48%">Rejoindre le groupe</div></div><div class="vue d1-v2"><div class="p p-succes"><b>✓</b><span>Tu fais partie des testeurs</span></div></div><div class="doigt d1-doigt"></div></div></div>
       
       <a class="action" href="https://groups.google.com/g/coef-testeurs" target="_blank" rel="noopener">Rejoindre les testeurs</a>
-      <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
     </div>
+    <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
   <li class="etape" data-ami="non">
-    <div class="pastille" aria-hidden="true"><span class="numero">2</span><span class="coche">✓</span></div>
-    <div class="contenu">
+    <div class="tete">
+      <div class="pastille" aria-hidden="true"><span class="numero">2</span><span class="coche">✓</span></div>
       <h2>Deviens testeur</h2>
-      <p>Touche « Devenir testeur ». Si la page dit que le test n’est pas disponible, attends une minute et réessaie.</p>
+    </div>
+    <div class="contenu">
+      <p class="consigne">Touche « Devenir testeur ». Si la page dit que le test n’est pas disponible, attends une minute et réessaie.</p>
+      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d2-v0"><div class="p p-barre">play.google.com</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Programme de test</small></span></div><div class="p p-lignes" style="top:31%"><i></i><i></i><i></i></div><div class="p p-bouton b-google cible" style="top:52%;left:18%;width:64%">Devenir testeur</div></div><div class="vue d2-v1"><div class="p p-succes"><b>✓</b><span>C’est bon, tu es testeur</span></div></div><div class="doigt d2-doigt"></div></div></div>
       
       <a class="action" href="https://play.google.com/apps/testing/fr.coef.app" target="_blank" rel="noopener">Devenir testeur</a>
-      <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
     </div>
+    <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
   <li class="etape" data-ami="non">
-    <div class="pastille" aria-hidden="true"><span class="numero">3</span><span class="coche">✓</span></div>
-    <div class="contenu">
+    <div class="tete">
+      <div class="pastille" aria-hidden="true"><span class="numero">3</span><span class="coche">✓</span></div>
       <h2>Installe Coef</h2>
-      <p>Google Play s’ouvre sur Coef : touche « Installer ».</p>
+    </div>
+    <div class="contenu">
+      <p class="consigne">Google Play s’ouvre sur Coef : touche « Installer », puis « Ouvrir ».</p>
+      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d3-v0"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Version de test</small></span></div><div class="p p-bouton b-play cible" style="top:34%;left:8%;width:84%">Installer</div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v1"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Installation…</small></span></div><div class="p p-progres" style="top:38%"><i></i></div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v2"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Version de test</small></span></div><div class="p p-bouton b-contour" style="top:34%;left:8%;width:40%">Désinstaller</div><div class="p p-bouton b-play cible" style="top:34%;left:52%;width:40%">Ouvrir</div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v3"><div class="p p-succes"><b>✓</b><span>Coef est installé</span></div></div><div class="doigt d3-doigt"></div></div></div>
       
       <a class="action" href="https://play.google.com/store/apps/details?id=fr.coef.app" target="_blank" rel="noopener">Ouvrir Google Play</a>
-      <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
     </div>
+    <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
   <li class="etape" data-ami="oui">
-    <div class="pastille" aria-hidden="true"><span class="numero">4</span><span class="coche">✓</span></div>
-    <div class="contenu">
+    <div class="tete">
+      <div class="pastille" aria-hidden="true"><span class="numero">4</span><span class="coche">✓</span></div>
       <h2>Ajoute ton ami</h2>
-      <p>Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code.</p>
+    </div>
+    <div class="contenu">
+      <p class="consigne">Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code dans « Son code ».</p>
+      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d4-v0 coef"><div class="p p-titre" style="top:9%">Focus</div><div class="p p-anneau" style="top:24%"><i></i><span>25:00</span></div><div class="p p-onglets"><span class="actif">Focus</span><span class="">Fiches</span><span class="">Notes</span><span class="cible">Amis</span><span class="">Stats</span></div></div><div class="vue d4-v1 coef"><div class="p p-titre" style="top:9%">Amis</div><div class="p p-texte" style="top:22%">Personne pour l’instant.</div><div class="p p-bouton b-coef cible" style="top:32%;left:8%;width:84%">Ajouter un ami</div><div class="p p-onglets"><span class="">Focus</span><span class="">Fiches</span><span class="">Notes</span><span class="actif">Amis</span><span class="">Stats</span></div></div><div class="vue d4-v2 coef"><div class="p p-titre" style="top:9%">Ajouter un ami</div><div class="p p-champ" style="top:26%;left:8%;width:56%"><small>Son code</small><span class="code-demo"></span></div><div class="p p-bouton b-coef cible" style="top:28%;left:68%;width:24%">Ajouter</div></div><div class="vue d4-v3"><div class="p p-succes"><b>✓</b><span>Vous êtes amis !</span></div></div><div class="doigt d4-doigt"></div></div></div>
       <p class="code" id="code"></p>
       <button class="action" type="button" id="copier">Copier le code</button>
-      <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
     </div>
+    <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
 </ol>
 <p class="fin" id="fin" hidden>C’est tout bon. Bonnes révisions !</p>
-<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
+<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
 <a href="mailto:coef.app.contact@gmail.com?subject=Bug%20sur%20Android">Signaler un bug</a></p>
 <footer class="site">
   Sur iPhone ? Coef est sur l’<a href="https://apps.apple.com/app/coef/id6805438755">App Store</a>.<br>
@@ -138,6 +262,7 @@ footer.site a{color:var(--discret)}
 <script>
 (function () {
   var CLE = 'coef-android-etapes';
+  var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var code = new URLSearchParams(location.search).get('code') || '';
   code = /^[A-Za-z0-9]{6}$/.test(code) ? code.toUpperCase() : '';
   var liste = document.querySelector('.etapes');
@@ -145,19 +270,59 @@ footer.site a{color:var(--discret)}
   // Sans code dans l'adresse, l'étape de l'ami n'a rien à montrer.
   if (code) {
     document.getElementById('code').textContent = code;
-    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
+    Array.prototype.forEach.call(document.querySelectorAll('.code-demo'), function (s) { s.textContent = code; });
+    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
   } else {
     etapes.filter(function (e) { return e.dataset.ami === 'oui'; }).forEach(function (e) { liste.removeChild(e); });
     etapes = etapes.filter(function (e) { return e.dataset.ami !== 'oui'; });
   }
+  var progres = document.getElementById('progres');
+  var segments = etapes.map(function () { var i = document.createElement('i'); progres.appendChild(i); return i; });
   var faites = 0;
   try { faites = Math.min(etapes.length, parseInt(localStorage.getItem(CLE) || '0', 10) || 0); } catch (e) {}
-  function dessiner() {
+
+  // Relancer la démonstration depuis son premier écran.
+  function rejouer(demo) {
+    demo.classList.remove('joue');
+    void demo.offsetWidth;
+    demo.classList.add('joue');
+  }
+  function confettis() {
+    if (calme) return;
+    var couleurs = ['#2F8F55', '#F9AB00', '#1a73e8', '#E8476A', '#5B4BD6'];
+    for (var k = 0; k < 36; k++) {
+      var c = document.createElement('span');
+      c.className = 'confetti';
+      c.style.left = (Math.random() * 100) + 'vw';
+      c.style.background = couleurs[k % couleurs.length];
+      c.style.animationDelay = (Math.random() * 0.5) + 's';
+      document.body.appendChild(c);
+      setTimeout(function (n) { return function () { n.remove(); }; }(c), 2600);
+    }
+  }
+  function dessiner(avance) {
     etapes.forEach(function (e, i) {
       e.classList.toggle('faite', i < faites);
       e.classList.toggle('verrouillee', i > faites);
+      var demo = e.querySelector('.demo');
+      if (i === faites) { if (!demo.classList.contains('joue')) rejouer(demo); } else demo.classList.remove('joue');
+      segments[i].className = i < faites ? 'fait' : (i === faites ? 'courant' : '');
     });
-    document.getElementById('fin').hidden = faites < etapes.length;
+    var fin = document.getElementById('fin');
+    fin.hidden = faites < etapes.length;
+    document.getElementById('compte').textContent = faites < etapes.length
+      ? 'Étape ' + (faites + 1) + ' sur ' + etapes.length
+      : 'Tout est fait';
+    if (avance) {
+      if (faites < etapes.length) {
+        var suivante = etapes[faites];
+        suivante.classList.remove('arrivee'); void suivante.offsetWidth; suivante.classList.add('arrivee');
+        suivante.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+      } else {
+        fin.classList.add('vue-fin');
+        confettis();
+      }
+    }
     try { localStorage.setItem(CLE, String(faites)); } catch (e) {}
   }
   etapes.forEach(function (e, i) {
@@ -166,13 +331,15 @@ footer.site a{color:var(--discret)}
       if (i !== faites) return;
       if (action.id === 'copier') {
         try { navigator.clipboard.writeText(code); } catch (err) {}
+        action.textContent = 'Code copié';
       }
       // Un temps pour que le lien s'ouvre avant que l'étape ne change d'aspect.
-      setTimeout(function () { faites = i + 1; dessiner(); }, 400);
+      setTimeout(function () { faites = i + 1; dessiner(true); }, 400);
     });
-    e.querySelector('.refaire').addEventListener('click', function () { faites = i; dessiner(); });
+    e.querySelector('.demo').addEventListener('click', function () { rejouer(this); });
+    e.querySelector('.refaire').addEventListener('click', function () { faites = i; dessiner(false); });
   });
-  dessiner();
+  dessiner(false);
 })();
 </script>
 </body>
