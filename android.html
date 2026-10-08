@@ -74,6 +74,8 @@ footer.site a{color:var(--discret)}
 .etape.faite .action,.etape.faite .contenu p:not(.fait):not(.code){display:none}
 .etape.faite .fait{display:block}
 .fin{text-align:center;font-weight:600;font-size:18px;margin:22px 0 0}
+.bugs{text-align:center;color:var(--encre2);margin:26px 0 0}
+.bugs a{color:var(--encre);font-weight:600}
 :root{--vert:#2F8F55;--vert-fond:#EAF5EE}
 @media (prefers-color-scheme:dark){:root{--vert:#5BC37E;--vert-fond:#13261A}}
 </style>
@@ -82,7 +84,7 @@ footer.site a{color:var(--discret)}
 <main class="guide">
 <div class="marque">Coef</div>
 <h1>Installe Coef</h1>
-<p class="intro" id="intro">Coef est en test sur Android : quelques étapes, une seule fois. Chacune s’allume en vert quand elle est faite.</p>
+<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
 <ol class="etapes">
   <li class="etape" data-ami="non">
     <div class="pastille" aria-hidden="true"><span class="numero">1</span><span class="coche">✓</span></div>
@@ -126,6 +128,8 @@ footer.site a{color:var(--discret)}
   </li>
 </ol>
 <p class="fin" id="fin" hidden>C’est tout bon. Bonnes révisions !</p>
+<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
+<a href="mailto:coef.app.contact@gmail.com?subject=Bug%20sur%20Android">Signaler un bug</a></p>
 <footer class="site">
   Sur iPhone ? Coef est sur l’<a href="https://apps.apple.com/app/coef/id6805438755">App Store</a>.<br>
   Une question : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a> · <a href="confidentialite.html">Confidentialité</a>
@@ -141,7 +145,7 @@ footer.site a{color:var(--discret)}
   // Sans code dans l'adresse, l'étape de l'ami n'a rien à montrer.
   if (code) {
     document.getElementById('code').textContent = code;
-    document.getElementById('intro').textContent = 'Ton ami t’invite sur Coef. Coef est en test sur Android : quelques étapes, une seule fois. Chacune s’allume en vert quand elle est faite.';
+    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
   } else {
     etapes.filter(function (e) { return e.dataset.ami === 'oui'; }).forEach(function (e) { liste.removeChild(e); });
     etapes = etapes.filter(function (e) { return e.dataset.ami !== 'oui'; });
