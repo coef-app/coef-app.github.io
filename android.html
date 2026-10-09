@@ -9,13 +9,15 @@
 <style>
 :root{
   --plan:#F3F1EC;--surface:#FFFFFF;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;
-  --bordure:rgba(11,11,11,0.07);--ombre:0 10px 28px rgba(74,68,58,0.10),0 1px 2px rgba(74,68,58,0.06);
-  --accent:#0A0A0B;--sur-accent:#FFFFFF;--premium:#5B4BD6;
+  --bordure:rgba(11,11,11,0.07);--bordure-forte:rgba(11,11,11,0.14);
+  --ombre:0 10px 28px rgba(74,68,58,0.10),0 1px 2px rgba(74,68,58,0.06);
+  --accent:#0A0A0B;--sur-accent:#FFFFFF;--vert:#2F8F55;--vert-fond:#EAF5EE;
 }
 @media (prefers-color-scheme:dark){
   :root{
     --plan:#000000;--surface:#1A1A1A;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#909090;
-    --bordure:rgba(255,255,255,0.055);--ombre:none;--accent:#FFFFFF;--sur-accent:#0A0A0B;--premium:#9C90F0;
+    --bordure:rgba(255,255,255,0.055);--bordure-forte:rgba(255,255,255,0.18);
+    --ombre:none;--accent:#FFFFFF;--sur-accent:#0A0A0B;--vert:#5BC37E;--vert-fond:#13261A;
   }
 }
 *{box-sizing:border-box}
@@ -23,40 +25,18 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--plan);color:var(--encre);
   font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased}
-main{max-width:680px;margin:0 auto;padding:28px 20px 64px}
-header.site{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
-header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
-header.site nav{display:flex;gap:16px;flex-wrap:wrap}
-header.site nav a{color:var(--discret);text-decoration:none;font-size:14.5px;font-weight:600}
-header.site nav a[aria-current]{color:var(--encre)}
+main{max-width:520px;margin:0 auto;padding:28px 16px 64px}
+a{color:inherit}
+.marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;margin-bottom:28px}
 h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 10px}
 .intro{color:var(--encre2);font-size:16.5px;margin:0 0 6px}
-.note{color:var(--discret);font-size:13.5px;margin:0 0 26px}
-.groupe{font-size:12.5px;font-weight:600;letter-spacing:0.3px;color:var(--discret);margin:26px 0 7px 18px}
-.carte{background:var(--surface);border-radius:24px;padding:18px 18px;box-shadow:var(--ombre);border:1px solid var(--bordure);margin-bottom:12px}
-@media (prefers-color-scheme:light){.carte{border-color:transparent}}
-.carte h2{font-size:17px;font-weight:600;margin:0 0 8px;letter-spacing:-0.2px}
-.carte p{margin:0 0 10px;color:var(--encre)}
-.carte p:last-child{margin-bottom:0}
-.carte ul{margin:0;padding-left:20px}
-.carte li{margin:4px 0}
-a{color:inherit}
-.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;
-  border-radius:28px;padding:13px 22px;margin:8px 0 4px}
-.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--bordure)}
-.pro{color:var(--premium);font-weight:600}
-footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
-footer.site a{color:var(--discret)}
-
-.guide{max-width:520px}
-.marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;margin-bottom:28px}
 .progres-guide{display:flex;gap:6px;margin:20px 0 6px}
 .progres-guide i{flex:1;height:6px;border-radius:3px;background:var(--bordure-forte);transition:background .3s}
 .progres-guide i.fait{background:var(--vert)}
 .progres-guide i.courant{background:var(--encre)}
 .compte{font-size:14px;color:var(--discret);margin:0}
 .etapes{list-style:none;margin:16px 0 0;padding:0}
-.etape{background:var(--surface);border-radius:24px;padding:16px 18px;margin-bottom:12px;
+.etape{background:var(--surface);border-radius:24px;padding:16px 16px;margin-bottom:12px;
   box-shadow:var(--ombre);border:1.5px solid transparent;transition:opacity .25s,border-color .25s,background .25s}
 .tete{display:flex;align-items:center;gap:14px}
 .pastille{flex:none;width:36px;height:36px;border-radius:18px;display:grid;place-items:center;font-weight:700;
@@ -66,10 +46,13 @@ footer.site a{color:var(--discret)}
 .contenu{margin-top:12px}
 .consigne{margin:0 0 6px;color:var(--encre2)}
 .action{display:block;width:100%;text-align:center;background:var(--accent);color:var(--sur-accent);text-decoration:none;
-  font:inherit;font-weight:600;border:0;border-radius:28px;padding:15px 18px;margin-top:6px;cursor:pointer;
+  font:inherit;font-weight:600;border:1.5px solid transparent;border-radius:28px;padding:14px 18px;margin-top:10px;cursor:pointer;
   animation:appel 2.4s ease-in-out infinite}
+.action.secondaire{background:transparent;color:var(--encre);border-color:var(--bordure-forte);animation:none}
+.action.reussie{color:var(--vert);border-color:var(--vert)}
 @keyframes appel{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
-.code{font-size:30px;font-weight:700;letter-spacing:4px;color:var(--encre);margin:4px 0 4px;text-align:center}
+.aparte{font-size:13.5px;color:var(--discret);margin:10px 4px 0;text-align:center}
+.code{font-size:30px;font-weight:700;letter-spacing:4px;color:var(--encre);margin:12px 0 4px;text-align:center}
 .fait{display:none;color:var(--vert);font-weight:600;margin:10px 0 0 50px}
 .refaire{background:none;border:0;padding:0;font:inherit;color:var(--discret);text-decoration:underline;cursor:pointer}
 .etape.verrouillee{opacity:.42}
@@ -86,173 +69,351 @@ footer.site a{color:var(--discret)}
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
 .bugs{text-align:center;color:var(--encre2);margin:26px 0 0}
 .bugs a{color:var(--encre);font-weight:600}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
 .confetti{position:fixed;top:-12px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:9;
   animation:chute 1.9s cubic-bezier(.25,.6,.45,1) forwards}
 @keyframes chute{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
-:root{--vert:#2F8F55;--vert-fond:#EAF5EE;--bordure-forte:rgba(11,11,11,0.12)}
-@media (prefers-color-scheme:dark){:root{--vert:#5BC37E;--vert-fond:#13261A;--bordure-forte:rgba(255,255,255,0.16)}}
 
-/* le téléphone dessiné : toujours clair, comme les pages de Google qu'il esquisse */
-.demo{position:relative;width:236px;height:356px;margin:14px auto 12px;border-radius:34px;background:#141418;padding:8px;
-  box-shadow:0 14px 30px rgba(0,0,0,.18);cursor:pointer;-webkit-tap-highlight-color:transparent}
-.ecran{position:relative;width:100%;height:100%;border-radius:27px;background:#fff;overflow:hidden;color:#202124;
-  font-size:11px;line-height:1.3}
-.vue{position:absolute;inset:0;opacity:0;background:#fff}
-.vue.coef{background:#F3F1EC;color:#0A0A0B}
-.d1-v0,.d2-v0,.d3-v0,.d4-v0{opacity:1}
-.demo.joue .vue{opacity:0}
-.p{position:absolute;left:8%;right:8%}
-.p-barre{top:0;left:0;right:0;height:9%;padding:0 8%;display:flex;align-items:flex-end;padding-bottom:4px;
-  background:#f1f3f4;color:#5f6368;font-size:9.5px}
-.p-titre{font-size:15px;font-weight:600;letter-spacing:-.2px}
-.p-texte{color:#5f6368;font-size:10.5px;text-align:center}
-.vue.coef .p-texte{text-align:left;color:#6B6B74}
-.p-lignes i{display:block;height:6px;border-radius:3px;background:#e8eaed;margin-bottom:7px}
-.p-lignes i:nth-child(2n){width:78%}
-.p-icone{font-size:38px;line-height:1;text-align:center;color:#bdc1c6}
-.p-note{text-align:center}
-.p-note span{display:inline-block;background:#FFE58A;color:#3d3200;font-weight:700;font-size:10.5px;padding:3px 10px;
-  border-radius:10px;transform:rotate(-3deg)}
-.p-bouton{height:10%;right:auto;display:flex;align-items:center;justify-content:center;border-radius:20px;
-  font-weight:600;font-size:10.5px;white-space:nowrap}
-.b-google{background:#1a73e8;color:#fff}
-.b-contour{border:1px solid #dadce0;color:#1a73e8;background:#fff}
-.b-lien{color:#1a73e8}
-.b-play{background:#01875f;color:#fff}
-.b-coef{background:#0A0A0B;color:#fff}
-.p-champ{right:auto;height:11%;border:1px solid #dadce0;border-radius:8px;padding:2px 8px;display:flex;flex-direction:column;
-  justify-content:center;background:#fff}
-.p-champ small{font-size:8.5px;color:#5f6368}
-.p-champ span{font-size:11px}
-.p-champ .code-demo{font-weight:700;letter-spacing:2px}
-.p-cases i{display:block;height:6px;margin:0 0 9px 18px;border-radius:3px;background:#e8eaed;position:relative}
-.p-cases i::before{content:"";position:absolute;left:-18px;top:-3px;width:11px;height:11px;border-radius:2px;background:#5f6368}
-.p-appli{display:flex;align-items:center;gap:10px}
-.p-appli b{width:44px;height:44px;border-radius:11px;background:#0A0A0B;color:#fff;display:grid;place-items:center;
-  font-size:24px;font-weight:700}
-.p-appli span{display:flex;flex-direction:column;font-size:14px;font-weight:600}
-.p-appli small{font-size:9.5px;font-weight:400;color:#5f6368}
-.p-progres{height:5px;border-radius:3px;background:#e8eaed;overflow:hidden}
-.p-progres i{display:block;height:100%;width:0;background:#01875f}
-.p-anneau{display:grid;place-items:center}
-.p-anneau i{width:118px;height:118px;border-radius:50%;border:9px solid #0A0A0B;box-sizing:border-box}
-.p-anneau span{position:absolute;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
-.p-onglets{top:auto;bottom:0;left:0;right:0;height:11%;display:flex;background:#fff;border-top:1px solid #e6e2da}
-.p-onglets span{flex:1;display:grid;place-items:center;font-size:8.5px;color:#8a8a92}
-.p-onglets span.actif{color:#0A0A0B;font-weight:700}
-.p-succes{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#EAF5EE}
-.p-succes b{width:64px;height:64px;border-radius:50%;background:#2F8F55;color:#fff;display:grid;place-items:center;font-size:32px}
-.p-succes span{font-size:13px;font-weight:700;color:#1f5c38;text-align:center;padding:0 10%}
-.doigt{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;opacity:0;
-  background:rgba(32,33,36,.32);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none}
-@keyframes d1-v0{0%{opacity:0}3.62%{opacity:1}37.68%{opacity:1}41.3%{opacity:0}100%{opacity:0}}
-.demo.joue .d1-v0{animation:d1-v0 6.9s linear infinite}
-@keyframes d1-v1{0%{opacity:0}37.68%{opacity:0}41.3%{opacity:1}75.36%{opacity:1}78.99%{opacity:0}100%{opacity:0}}
-.demo.joue .d1-v1{animation:d1-v1 6.9s linear infinite}
-@keyframes d1-v2{0%{opacity:0}75.36%{opacity:0}78.99%{opacity:1}96.38%{opacity:1}100%{opacity:0}}
-.demo.joue .d1-v2{animation:d1-v2 6.9s linear infinite}
-@keyframes d1-doigt{0%{left:56%;top:49%;opacity:0}4.52%{left:56%;top:49%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}9.04%{left:56%;top:49%;opacity:1;transform:scale(1)}19.59%{left:40%;top:29%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}22.61%{left:40%;top:29%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}26.38%{left:40%;top:29%;opacity:1;transform:scale(1)}33.91%{left:40%;top:29%;opacity:0;transform:scale(1)}42.2%{left:86%;top:92%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}46.72%{left:86%;top:92%;opacity:1;transform:scale(1)}57.28%{left:70%;top:81%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}60.29%{left:70%;top:81%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}64.06%{left:70%;top:81%;opacity:1;transform:scale(1)}71.59%{left:70%;top:81%;opacity:0;transform:scale(1)}100%{left:56%;top:49%;opacity:0}}
-.demo.joue .d1-doigt{animation:d1-doigt 6.9s ease-in-out infinite}
-@keyframes d2-v0{0%{opacity:0}5.81%{opacity:1}60.47%{opacity:1}66.28%{opacity:0}100%{opacity:0}}
-.demo.joue .d2-v0{animation:d2-v0 4.3s linear infinite}
-@keyframes d2-v1{0%{opacity:0}60.47%{opacity:0}66.28%{opacity:1}94.19%{opacity:1}100%{opacity:0}}
-.demo.joue .d2-v1{animation:d2-v1 4.3s linear infinite}
-@keyframes d2-doigt{0%{left:66%;top:77%;opacity:0}7.26%{left:66%;top:77%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}14.51%{left:66%;top:77%;opacity:1;transform:scale(1)}31.44%{left:50%;top:57%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}36.28%{left:50%;top:57%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}42.33%{left:50%;top:57%;opacity:1;transform:scale(1)}54.42%{left:50%;top:57%;opacity:0;transform:scale(1)}100%{left:66%;top:77%;opacity:0}}
-.demo.joue .d2-doigt{animation:d2-doigt 4.3s ease-in-out infinite}
-@keyframes d3-v0{0%{opacity:0}2.91%{opacity:1}30.23%{opacity:1}33.14%{opacity:0}100%{opacity:0}}
-.demo.joue .d3-v0{animation:d3-v0 8.6s linear infinite}
-@keyframes d3-v1{0%{opacity:0}30.23%{opacity:0}33.14%{opacity:1}50%{opacity:1}52.91%{opacity:0}100%{opacity:0}}
-.demo.joue .d3-v1{animation:d3-v1 8.6s linear infinite}
-@keyframes d3-p1{0%{width:0}33.14%{width:0}47.09%{width:100%}100%{width:100%}}
-.demo.joue .d3-v1 .p-progres i{animation:d3-p1 8.6s linear infinite}
-@keyframes d3-v2{0%{opacity:0}50%{opacity:0}52.91%{opacity:1}80.23%{opacity:1}83.14%{opacity:0}100%{opacity:0}}
-.demo.joue .d3-v2{animation:d3-v2 8.6s linear infinite}
-@keyframes d3-v3{0%{opacity:0}80.23%{opacity:0}83.14%{opacity:1}97.09%{opacity:1}100%{opacity:0}}
-.demo.joue .d3-v3{animation:d3-v3 8.6s linear infinite}
-@keyframes d3-doigt{0%{left:66%;top:59%;opacity:0}3.63%{left:66%;top:59%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}7.26%{left:66%;top:59%;opacity:1;transform:scale(1)}15.72%{left:50%;top:39%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}18.14%{left:50%;top:39%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}21.16%{left:50%;top:39%;opacity:1;transform:scale(1)}27.21%{left:50%;top:39%;opacity:0;transform:scale(1)}53.63%{left:88%;top:59%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}57.26%{left:88%;top:59%;opacity:1;transform:scale(1)}65.72%{left:72%;top:39%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}68.14%{left:72%;top:39%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}71.16%{left:72%;top:39%;opacity:1;transform:scale(1)}77.21%{left:72%;top:39%;opacity:0;transform:scale(1)}100%{left:66%;top:59%;opacity:0}}
-.demo.joue .d3-doigt{animation:d3-doigt 8.6s ease-in-out infinite}
-@keyframes d4-v0{0%{opacity:0}2.63%{opacity:1}27.37%{opacity:1}30%{opacity:0}100%{opacity:0}}
-.demo.joue .d4-v0{animation:d4-v0 9.5s linear infinite}
-@keyframes d4-v1{0%{opacity:0}27.37%{opacity:0}30%{opacity:1}54.74%{opacity:1}57.37%{opacity:0}100%{opacity:0}}
-.demo.joue .d4-v1{animation:d4-v1 9.5s linear infinite}
-@keyframes d4-v2{0%{opacity:0}54.74%{opacity:0}57.37%{opacity:1}82.11%{opacity:1}84.74%{opacity:0}100%{opacity:0}}
-.demo.joue .d4-v2{animation:d4-v2 9.5s linear infinite}
-@keyframes d4-v3{0%{opacity:0}82.11%{opacity:0}84.74%{opacity:1}97.37%{opacity:1}100%{opacity:0}}
-.demo.joue .d4-v3{animation:d4-v3 9.5s linear infinite}
-@keyframes d4-doigt{0%{left:86%;top:114.5%;opacity:0}3.28%{left:86%;top:92%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}6.57%{left:86%;top:92%;opacity:1;transform:scale(1)}14.23%{left:70%;top:94.5%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}16.42%{left:70%;top:94.5%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}19.16%{left:70%;top:94.5%;opacity:1;transform:scale(1)}24.63%{left:70%;top:94.5%;opacity:0;transform:scale(1)}30.65%{left:66%;top:57%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}33.94%{left:66%;top:57%;opacity:1;transform:scale(1)}41.6%{left:50%;top:37%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}43.79%{left:50%;top:37%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}46.53%{left:50%;top:37%;opacity:1;transform:scale(1)}52%{left:50%;top:37%;opacity:0;transform:scale(1)}58.02%{left:90%;top:53%;opacity:0;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,0)}61.31%{left:90%;top:53%;opacity:1;transform:scale(1)}68.97%{left:80%;top:33%;opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(26,115,232,.45)}71.16%{left:80%;top:33%;opacity:1;transform:scale(.78);box-shadow:0 0 0 12px rgba(26,115,232,0)}73.89%{left:80%;top:33%;opacity:1;transform:scale(1)}79.37%{left:80%;top:33%;opacity:0;transform:scale(1)}100%{left:86%;top:114.5%;opacity:0}}
-.demo.joue .d4-doigt{animation:d4-doigt 9.5s ease-in-out infinite}
+/*
+ * Le téléphone de la démonstration : un Android aux vraies proportions (360 × 780),
+ * dont l'écran est dessiné à taille réelle puis réduit d'un bloc. Les pages qu'il
+ * montre recopient celles de Google et de Coef ; toujours claires, comme elles.
+ */
+.demo{position:relative;width:232px;margin:16px auto 0;padding:7px;border-radius:38px;background:#1b1b1f;
+  box-shadow:0 16px 34px rgba(0,0,0,.20),inset 0 0 0 1.5px #3a3a40;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ecran{position:relative;width:218px;height:472px;border-radius:31px;overflow:hidden;background:#fff}
+.ecran::after{content:"";position:absolute;top:6px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;
+  background:#1b1b1f;z-index:9}
+.toile{position:absolute;left:0;top:0;width:360px;height:780px;transform:scale(.60556);transform-origin:0 0;
+  color:#202124;font:14px/1.4 Roboto,"Segoe UI",-apple-system,Arial,sans-serif;text-align:left}
+.statut{position:absolute;top:0;left:0;right:0;height:30px;padding:0 22px;display:flex;align-items:center;
+  justify-content:space-between;font-size:13px;font-weight:500;z-index:5}
+.statut svg{display:block}
+.poignee{position:absolute;bottom:9px;left:50%;width:108px;height:5px;margin-left:-54px;border-radius:3px;
+  background:rgba(0,0,0,.38);z-index:6}
+.legende{min-height:24px;margin:12px 0 0;text-align:center;font-size:15px;font-weight:600;color:var(--encre)}
+.vue{position:absolute;inset:0;padding-top:30px;background:#fff;opacity:0;transition:opacity .3s;overflow:hidden}
+.vue.active{opacity:1}
+.google{font-family:"Google Sans",Roboto,"Segoe UI",Arial,sans-serif}
+.enfonce{box-shadow:inset 0 0 0 999px rgba(0,0,0,.12)!important}
+.statique{outline:4px solid #1a73e8;outline-offset:3px}
+
+.doigt{position:absolute;left:0;top:0;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;opacity:0;z-index:8;
+  background:rgba(32,33,36,.30);border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.28);pointer-events:none;
+  transition:left .7s cubic-bezier(.4,0,.2,1),top .7s cubic-bezier(.4,0,.2,1),opacity .25s,transform .12s}
+.doigt.appuie{transform:scale(.8)}
+.doigt::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid transparent}
+.doigt.appuie::after{animation:onde .5s ease-out}
+@keyframes onde{from{transform:scale(.8);border-color:rgba(26,115,232,.6)}to{transform:scale(1.8);border-color:rgba(26,115,232,0)}}
+.retour{position:absolute;left:0;top:396px;width:0;height:68px;border-radius:0 34px 34px 0;background:#3c4043;
+  display:grid;place-items:center;overflow:hidden;z-index:7;transition:width .55s ease-out}
+.retour.tire{width:58px}
+
+/* la barre de Chrome sur Android */
+.chrome{height:56px;display:flex;align-items:center;gap:12px;padding:0 12px;background:#fff}
+.adresse{flex:1;height:42px;border-radius:21px;background:#eef1f6;display:flex;align-items:center;gap:9px;padding:0 14px;
+  font-size:15px;color:#202124;white-space:nowrap;overflow:hidden}
+.adresse span{overflow:hidden;text-overflow:ellipsis}
+.onglets{flex:none;width:23px;height:23px;border:2.2px solid #3c4043;border-radius:6px;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#3c4043}
+.avatar{flex:none;width:34px;height:34px;border-radius:50%;background:#e8710a;color:#fff;display:grid;place-items:center;
+  font-size:17px;font-weight:500}
+
+/* Google Groupes */
+.gg-tete{height:64px;display:flex;align-items:center;gap:14px;padding:0 14px}
+.gg-tete .nom{flex:1;font-size:22px;color:#5f6368}
+.gg-groupe{display:flex;align-items:center;gap:14px;padding:8px 16px}
+.gg-groupe .titre{font-size:22px;color:#202124}
+.gg-rejoindre{border:1px solid #c4c7c5;border-radius:4px;padding:8px 14px;color:#3b55b8;font-size:14px;font-weight:500}
+.gg-interdit{text-align:center;margin-top:84px;padding:0 20px}
+.gg-interdit h3{font-size:16px;font-weight:500;margin:20px 0 14px}
+.gg-interdit p{font-size:14px;color:#5f6368;margin:0 0 16px;line-height:1.5}
+.gg-interdit u{color:#3b55b8}
+.gg-vide{display:none;text-align:center;margin-top:150px;font-size:16px;color:#5f6368}
+.snack{display:none;position:absolute;left:16px;right:16px;bottom:44px;background:#323232;color:#fff;border-radius:4px;
+  padding:14px 16px;font-size:14px}
+.vue[data-etat=rejoint] .gg-interdit,.vue[data-etat=rejoint] .gg-rejoindre{display:none}
+.vue[data-etat=rejoint] .gg-vide,.vue[data-etat=rejoint] .snack{display:block}
+.gj-titre{font-size:21px;text-align:center;padding:16px 0 15px;border-bottom:1px solid #e0e0e0}
+.gj-corps{padding:22px 18px 0 16px}
+.gj-ligne{display:flex;align-items:flex-start;gap:14px}
+.gj-champ{flex:1;position:relative;border:1px solid #9aa0a6;border-radius:4px;height:54px;padding:15px 14px;font-size:16px;color:#3c4043}
+.gj-champ small{position:absolute;top:-9px;left:10px;padding:0 4px;background:#fff;font-size:12px;color:#5f6368}
+.case{flex:none;width:18px;height:18px;border-radius:2px;background:#5f6368;display:grid;place-items:center;margin:2px 13px 0 13px}
+.case.grise{background:#9aa0a6}
+.gj-texte{font-size:14px;color:#202124;line-height:1.45}
+.gj-libelle{font-size:12px;letter-spacing:.8px;color:#5f6368;margin:20px 0 6px 58px}
+.gj-liste{margin-left:58px;border:1px solid #dadce0;border-radius:4px;height:48px;padding:0 14px;display:flex;align-items:center;
+  justify-content:space-between;font-size:15px}
+.gj-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:30px}
+.gj-actions span{padding:10px 12px;border-radius:4px;font-size:15px;font-weight:500;color:#3c4043}
+.gj-actions .t-confirmer{color:#3b55b8}
+
+/* Google Play, la page du test */
+.vue.play{background:#f6f8fc}
+.gp-tete{display:flex;align-items:center;gap:12px;padding:14px 18px 12px}
+.gp-tete .nom{flex:1;font-size:25px;color:#5f6368;letter-spacing:-.3px}
+.gp-carte{margin:2px 12px 0;background:#fff;border-radius:24px;padding:18px 20px 20px}
+.gp-icone{display:block;width:62px;height:62px;border-radius:14px;margin:0 auto;border:1px solid #ececec}
+.gp-app{font-size:21px;text-align:center;margin:12px 0 2px;line-height:1.25}
+.gp-dev{font-size:14px;text-align:center;color:#3c4043;margin:0 0 18px}
+.gp-carte p{font-size:13px;line-height:1.45;margin:0 0 9px}
+.gp-lien{color:#0b57d0}
+.gp-bouton{display:inline-block;margin-top:6px;background:#0b57d0;color:#fff;border-radius:22px;padding:11px 22px;
+  font-size:15px;font-weight:500}
+.gp-testeur{display:none}
+.gp-testeur h3{font-size:20px;font-weight:400;margin:4px 0 12px}
+.gp-quitter{display:inline-block;margin-top:8px;border:1px solid #747775;color:#0b57d0;border-radius:22px;padding:10px 20px;
+  font-size:14px;font-weight:500}
+.vue[data-etat=testeur] .gp-invite{display:none}
+.vue[data-etat=testeur] .gp-testeur{display:block}
+
+/* Google Play, l'application */
+.st-barre{height:56px;display:flex;align-items:center;gap:20px;padding:0 16px}
+.st-barre .vide{flex:1}
+.st-app{display:flex;gap:18px;padding:10px 24px 0;align-items:center}
+.st-app img{width:74px;height:74px;border-radius:17px;border:1px solid #ececec}
+.st-nom{font-size:21px;line-height:1.25}
+.st-dev{font-size:14px;font-weight:500;color:#01875f;margin-top:5px}
+.st-progres{display:none;height:4px;border-radius:2px;background:#d7efe4;margin-top:9px;overflow:hidden}
+.st-progres i{display:block;height:100%;width:0;background:#01875f}
+.st-boutons{padding:24px 24px 0}
+.st-boutons>div{display:none;gap:10px}
+.st-boutons span{flex:1;height:40px;border-radius:20px;display:grid;place-items:center;font-size:14px;font-weight:500}
+.vert{background:#01875f;color:#fff}
+.contour{border:1px solid #dadce0;color:#01875f}
+.eteint{background:#e8eaed;color:#9aa0a6}
+.vue .st-a{display:flex}
+.vue[data-etat=installation] .st-a,.vue[data-etat=installe] .st-a{display:none}
+.vue[data-etat=installation] .st-b,.vue[data-etat=installe] .st-c{display:flex}
+.vue[data-etat=installation] .st-progres{display:block}
+.vue[data-etat=installation] .st-progres i{animation:remplir 1.7s ease-in forwards}
+@keyframes remplir{to{width:100%}}
+.st-captures{display:flex;gap:8px;padding:26px 0 0 24px;overflow:hidden}
+.st-captures img{flex:none;width:112px;height:224px;border-radius:10px;object-fit:cover;border:1px solid #ececec}
+.st-propos{padding:24px 24px 0}
+.st-propos h3{display:flex;justify-content:space-between;font-size:18px;font-weight:500;margin:0 0 10px}
+.st-propos p{font-size:14px;color:#5f6368;margin:0 0 16px}
+.st-puce{display:inline-block;border:1px solid #dadce0;border-radius:8px;padding:6px 12px;font-size:13px;color:#3c4043}
+
+/* Coef */
+.vue.coef{background:#F3F1EC;color:#0A0A0B;font-family:Roboto,-apple-system,"Segoe UI",Arial,sans-serif}
+.cf-pilule{position:absolute;top:44px;right:16px;width:104px;height:52px;border-radius:26px;background:rgba(255,255,255,.75);
+  border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-around}
+.cf-titre{font-size:36px;font-weight:700;letter-spacing:-.8px;margin:84px 20px 0}
+.cf-groupe{font-size:15px;font-weight:600;color:#6B6B74;margin:26px 20px 8px}
+.cf-note{font-size:15px;color:#6B6B74;margin:0 20px;line-height:1.45}
+.cf-bouton{height:52px;border-radius:26px;background:#0A0A0B;color:#fff;display:flex;align-items:center;justify-content:center;
+  gap:8px;font-size:16px;font-weight:600}
+.cf-onglets{position:absolute;left:14px;right:14px;bottom:24px;height:64px;border-radius:32px;background:rgba(255,255,255,.94);
+  border:1px solid rgba(0,0,0,.06);display:flex;align-items:center;padding:0 6px}
+.cf-onglets span{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:#3a3a40;
+  border-radius:26px;padding:6px 0}
+.cf-onglets span.actif{background:#e9e7e2;font-weight:700;color:#0A0A0B}
+.cf-entete{height:56px;display:flex;align-items:center;gap:14px;padding:0 14px;font-size:20px;font-weight:600}
+.cf-carte{background:#fff;border-radius:24px;margin:0 14px;padding:16px}
+.cf-code{background:#F7F6F3;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:12px;text-align:center;font-size:28px;
+  font-weight:700;letter-spacing:6px}
+.cf-saisie{display:flex;gap:10px;align-items:center}
+.cf-champ{flex:1;height:50px;border-radius:14px;background:#F3F1EC;border:1px solid rgba(0,0,0,.08);padding:0 14px;
+  display:flex;align-items:center;font-size:18px;font-weight:700;letter-spacing:3px}
+.cf-champ .indice{color:#a5a5ac;font-weight:500}
+.cf-champ .saisie:not(:empty)+.indice{display:none}
+.cf-ajouter{height:50px;padding:0 18px;border-radius:25px;background:#0A0A0B;color:#fff;display:grid;place-items:center;
+  font-size:16px;font-weight:600}
+.vue[data-etat=""] .cf-ajouter{opacity:.4}
+.cf-message{display:none;font-size:14.5px;color:#2F8F55;margin:12px 4px 0;line-height:1.4}
+.vue[data-etat=envoye] .cf-message{display:block}
+
 @media (prefers-reduced-motion:reduce){
-  .demo.joue .vue,.demo.joue .doigt,.demo.joue .p-progres i,.action,.etape.arrivee,.fin.vue-fin{animation:none!important}
-  .demo .vue{opacity:0!important}
-  .demo .d1-v0,.demo .d2-v0,.demo .d3-v0,.demo .d4-v0{opacity:1!important}
-  .demo .cible{outline:3px solid #F9AB00;outline-offset:2px}
+  .action,.etape.arrivee,.fin.vue-fin,.vue,.doigt,.retour{animation:none!important;transition:none!important}
+  .vue[data-etat=installation] .st-progres i{animation:none;width:60%}
   .confetti{display:none}
 }
 </style>
 </head>
 <body>
-<main class="guide">
+<main>
 <div class="marque">Coef</div>
 <h1>Installe Coef</h1>
-<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
+<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
 <div class="progres-guide" id="progres" aria-hidden="true"></div>
 <p class="compte" id="compte" aria-live="polite"></p>
 <ol class="etapes">
   <li class="etape" data-ami="non">
     <div class="tete">
       <div class="pastille" aria-hidden="true"><span class="numero">1</span><span class="coche">✓</span></div>
-      <h2>Rejoins les testeurs</h2>
+      <h2>Deviens testeur</h2>
     </div>
     <div class="contenu">
-      <p class="consigne">La page dit « Vous ne pouvez pas voir les contenus de ce groupe » : c’est normal. Touche « Rejoindre le groupe », puis encore « Rejoindre le groupe » en bas de la fenêtre.</p>
-      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d1-v0"><div class="p p-barre">groups.google.com</div><div class="p p-titre" style="top:14%">Coef testeurs</div><div class="p p-bouton b-contour cible" style="top:24%;left:8%;width:64%">Rejoindre le groupe</div><div class="p p-icone" style="top:42%">⊘</div><div class="p p-texte" style="top:58%">Vous ne pouvez pas voir les contenus de ce groupe</div><div class="p p-note" style="top:72%"><span>C’est normal</span></div></div><div class="vue d1-v1"><div class="p p-titre" style="top:8%">Rejoindre Coef testeurs</div><div class="p p-champ" style="top:20%;left:8%;width:84%"><small>Nom à afficher</small><span>Ton prénom</span></div><div class="p p-cases" style="top:35%"><i></i><i></i></div><div class="p p-champ" style="top:48%;left:8%;width:84%"><small>Abonnement</small><span>Chaque e-mail</span></div><div class="p p-note" style="top:63%"><span>Laisse tout tel quel</span></div><div class="p p-bouton b-lien" style="top:76%;left:18%;width:28%">Annuler</div><div class="p p-bouton b-lien cible" style="top:76%;left:46%;width:48%">Rejoindre le groupe</div></div><div class="vue d1-v2"><div class="p p-succes"><b>✓</b><span>Tu fais partie des testeurs</span></div></div><div class="doigt d1-doigt"></div></div></div>
-      
-      <a class="action" href="https://groups.google.com/g/coef-testeurs" target="_blank" rel="noopener">Rejoindre les testeurs</a>
+      <p class="consigne">Rejoins d’abord le groupe des testeurs, reviens ici, puis deviens testeur.</p>
+      <div class="demo" data-demo="testeur" role="img" aria-label="Démonstration : rejoindre le groupe des testeurs, revenir sur cette page, puis devenir testeur sur Google Play. Touche pour la revoir.">
+        <div class="ecran"><div class="toile">
+          <div class="statut"><span>9:41</span><svg width="38" height="12" viewBox="0 0 38 12"><path d="M1 4.5a9 9 0 0 1 12 0l-6 6.5z" fill="#202124"/><rect x="18" y="1.5" width="17" height="9" rx="2" fill="none" stroke="#202124" stroke-width="1.4"/><rect x="20" y="3.5" width="11" height="5" rx="1" fill="#202124"/><rect x="35.6" y="4.5" width="1.6" height="3" rx=".8" fill="#202124"/></svg></div>
+
+          <div class="vue coef" data-vue="guide">
+            <div class="chrome google"><div class="adresse"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 4h7M12 4h2M2 12h2M7 12h7" stroke="#444" stroke-width="1.6" stroke-linecap="round"/><circle cx="10.5" cy="4" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/><circle cx="5.5" cy="12" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/></svg><span>coef-app.github.io/android.html</span></div><div class="onglets">2</div><svg width="4" height="18" viewBox="0 0 4 18"><circle cx="2" cy="2" r="2" fill="#3c4043"/><circle cx="2" cy="9" r="2" fill="#3c4043"/><circle cx="2" cy="16" r="2" fill="#3c4043"/></svg></div>
+            <div style="padding:0 20px;font-family:-apple-system,Roboto,'Segoe UI',Arial,sans-serif">
+              <div style="font-size:20px;font-weight:700;margin:22px 0 22px">Coef</div>
+              <div style="font-size:31px;font-weight:700;letter-spacing:-.8px;line-height:1.15">Installe Coef</div>
+              <div class="g-progres" style="display:flex;gap:6px;margin:18px 0 6px"><i style="flex:1;height:6px;border-radius:3px;background:#0A0A0B"></i><i style="flex:1;height:6px;border-radius:3px;background:rgba(11,11,11,.14)"></i><i style="flex:1;height:6px;border-radius:3px;background:rgba(11,11,11,.14)"></i></div>
+              <div class="g-compte" style="font-size:14px;color:#6B6B74">Étape 1 sur 3</div>
+              <div style="background:#fff;border-radius:24px;padding:16px;margin-top:16px;box-shadow:0 10px 28px rgba(74,68,58,.10)">
+                <div style="display:flex;align-items:center;gap:14px"><b style="width:36px;height:36px;border-radius:18px;background:#F3F1EC;display:grid;place-items:center">1</b><span style="font-size:17px;font-weight:600">Deviens testeur</span></div>
+                <p style="margin:12px 0 4px;color:#44444B;font-size:15.5px;line-height:1.5">Rejoins d’abord le groupe des testeurs, reviens ici, puis deviens testeur.</p>
+                <div class="t-groupe g-bouton" style="height:52px;border-radius:26px;display:grid;place-items:center;font-weight:600;margin-top:12px"><span class="avant">Rejoindre le groupe</span><span class="apres">✓ Groupe rejoint</span></div>
+                <div class="t-test g-bouton" style="height:52px;border-radius:26px;display:grid;place-items:center;font-weight:600;margin-top:10px">Devenir testeur</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vue google" data-vue="groupe">
+            <div class="chrome"><div class="adresse"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 4h7M12 4h2M2 12h2M7 12h7" stroke="#444" stroke-width="1.6" stroke-linecap="round"/><circle cx="10.5" cy="4" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/><circle cx="5.5" cy="12" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/></svg><span>groups.google.com/g/coef-testeurs</span></div><div class="onglets">3</div><svg width="4" height="18" viewBox="0 0 4 18"><circle cx="2" cy="2" r="2" fill="#3c4043"/><circle cx="2" cy="9" r="2" fill="#3c4043"/><circle cx="2" cy="16" r="2" fill="#3c4043"/></svg></div>
+            <div class="gg-tete"><svg width="22" height="16" viewBox="0 0 22 16"><path d="M1 1h20M1 8h20M1 15h20" stroke="#5f6368" stroke-width="2.2" stroke-linecap="round"/></svg><svg width="36" height="30" viewBox="0 0 36 30"><circle cx="12" cy="7" r="6" fill="#4285f4"/><circle cx="25" cy="7" r="6" fill="#4285f4"/><path d="M2 29c0-9 4-14 10-14s10 5 10 14z" fill="#1a56db"/><path d="M15 29c0-9 4-14 10-14s10 5 10 14z" fill="#4285f4"/></svg><span class="nom">Groupes</span><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="9" cy="9" r="7" fill="none" stroke="#5f6368" stroke-width="2.2"/><path d="M14 14l6 6" stroke="#5f6368" stroke-width="2.4" stroke-linecap="round"/></svg><svg width="20" height="20" viewBox="0 0 20 20" fill="#5f6368"><circle cx="3" cy="3" r="2.2"/><circle cx="10" cy="3" r="2.2"/><circle cx="17" cy="3" r="2.2"/><circle cx="3" cy="10" r="2.2"/><circle cx="10" cy="10" r="2.2"/><circle cx="17" cy="10" r="2.2"/><circle cx="3" cy="17" r="2.2"/><circle cx="10" cy="17" r="2.2"/><circle cx="17" cy="17" r="2.2"/></svg><span class="avatar">L</span></div>
+            <div class="gg-groupe"><span class="titre">Coef testeurs</span><span class="gg-rejoindre t-rejoindre">Rejoindre le groupe</span></div>
+            <div class="gg-interdit">
+              <svg width="62" height="62" viewBox="0 0 62 62"><circle cx="31" cy="31" r="27" fill="none" stroke="#bdc1c6" stroke-width="5"/><path d="M12 50L50 12" stroke="#bdc1c6" stroke-width="5"/></svg>
+              <h3>Vous ne pouvez pas voir les contenus de ce groupe</h3>
+              <p>Pour y accéder, <u>rejoignez le groupe</u> ou <u>contactez les propriétaires et les gestionnaires du groupe</u></p>
+              <p>Si vous êtes abonné à ce groupe et constatez une utilisation abusive, <u>signalez-le</u>.</p>
+            </div>
+            <div class="gg-vide">Aucune conversation</div>
+            <div class="snack">Vous avez rejoint le groupe.</div>
+          </div>
+
+          <div class="vue google" data-vue="rejoindre">
+            <div class="chrome"><div class="adresse"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 4h7M12 4h2M2 12h2M7 12h7" stroke="#444" stroke-width="1.6" stroke-linecap="round"/><circle cx="10.5" cy="4" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/><circle cx="5.5" cy="12" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/></svg><span>groups.google.com/g/coef-testeurs</span></div><div class="onglets">3</div><svg width="4" height="18" viewBox="0 0 4 18"><circle cx="2" cy="2" r="2" fill="#3c4043"/><circle cx="2" cy="9" r="2" fill="#3c4043"/><circle cx="2" cy="16" r="2" fill="#3c4043"/></svg></div>
+            <div class="gj-titre">Rejoindre Coef testeurs</div>
+            <div class="gj-corps">
+              <div class="gj-ligne"><span class="avatar" style="width:44px;height:44px;font-size:21px">L</span><div class="gj-champ"><small>Nom à afficher</small>Léa</div></div>
+              <div class="gj-ligne" style="margin-top:16px"><span class="case"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" fill="none"/></svg></span><span class="gj-texte" style="padding-left:12px">Associer au profil de mon compte Google ⓘ</span></div>
+              <div class="gj-libelle">ABONNEMENT</div>
+              <div class="gj-liste"><span>Chaque e-mail</span><svg width="10" height="6" viewBox="0 0 10 6"><path d="M0 0h10L5 6z" fill="#5f6368"/></svg></div>
+              <div class="gj-ligne" style="margin-top:18px"><span class="case grise"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" fill="none"/></svg></span><span class="gj-texte" style="padding-left:12px">M’abonner aux mises à jour par e-mail lorsque je publie un message dans une conversation</span></div>
+              <div class="gj-actions"><span>Annuler</span><span class="t-confirmer">Rejoindre le groupe</span></div>
+            </div>
+          </div>
+
+          <div class="vue google play" data-vue="play">
+            <div class="chrome"><div class="adresse"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 4h7M12 4h2M2 12h2M7 12h7" stroke="#444" stroke-width="1.6" stroke-linecap="round"/><circle cx="10.5" cy="4" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/><circle cx="5.5" cy="12" r="1.8" fill="none" stroke="#444" stroke-width="1.5"/></svg><span>play.google.com/apps/testing/fr.coef.app</span></div><div class="onglets">3</div><svg width="4" height="18" viewBox="0 0 4 18"><circle cx="2" cy="2" r="2" fill="#3c4043"/><circle cx="2" cy="9" r="2" fill="#3c4043"/><circle cx="2" cy="16" r="2" fill="#3c4043"/></svg></div>
+            <div class="gp-tete"><svg width="32" height="36" viewBox="0 0 32 36"><path d="M2 2l15 16L2 34z" fill="#4285f4"/><path d="M2 2l21 11.5L17 18z" fill="#34a853"/><path d="M23 13.5l7 4.5-7 4.5-6-4.5z" fill="#fbbc04"/><path d="M17 18l6 4.5L2 34z" fill="#ea4335"/></svg><span class="nom">Google Play</span><svg width="20" height="20" viewBox="0 0 20 20" fill="#5f6368"><circle cx="3" cy="3" r="2.2"/><circle cx="10" cy="3" r="2.2"/><circle cx="17" cy="3" r="2.2"/><circle cx="3" cy="10" r="2.2"/><circle cx="10" cy="10" r="2.2"/><circle cx="17" cy="10" r="2.2"/><circle cx="3" cy="17" r="2.2"/><circle cx="10" cy="17" r="2.2"/><circle cx="17" cy="17" r="2.2"/></svg><span class="avatar" style="width:38px;height:38px">L</span></div>
+            <div class="gp-carte">
+              <img class="gp-icone" src="icone.png" alt="">
+              <div class="gp-app">Coef : révisions et moyennes</div>
+              <div class="gp-dev">Coef</div>
+              <div class="gp-invite">
+                <p>Hello,</p>
+                <p><b>Coef</b> has invited you to a testing program for an unreleased version of the Coef : révisions et moyennes app. As a tester, you’ll receive an update that includes a testing version of the Coef : révisions et moyennes app, which may also include unreleased versions of its instant app.</p>
+                <p><b>Note:</b> testing versions may be unstable.</p>
+                <p>Certain data on your use of the app will be collected and shared with the developer to help improve the app</p>
+                <p>Send your feedback to <b>Coef</b> using the contact information: <u>coef.app.contact@gmail.com</u> or using the Google group: <span class="gp-lien">coef-testeurs@googlegroups.com</span>.</p>
+                <span class="gp-bouton t-become">Become a tester</span>
+              </div>
+              <div class="gp-testeur">
+                <h3>You are now a tester</h3>
+                <p>It may take some time for the testing version to be available.</p>
+                <p><span class="gp-lien">Download it on Google Play</span></p>
+                <span class="gp-quitter">Leave the program</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="retour"><svg width="14" height="24" viewBox="0 0 14 24"><path d="M12 2L3 12l9 10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="doigt"></div>
+          <div class="poignee"></div>
+        </div></div>
+      </div>
+      <p class="legende" aria-hidden="true"></p>
+      <a class="action" id="lien-groupe" href="https://groups.google.com/g/coef-testeurs" target="_blank" rel="noopener"><span class="libelle">Rejoindre le groupe</span></a>
+      <a class="action secondaire" id="lien-test" data-fin href="https://play.google.com/apps/testing/fr.coef.app" target="_blank" rel="noopener">Devenir testeur</a>
+      <p class="aparte">Google dit que le test n’est pas disponible ? Attends une minute, puis réessaie.</p>
     </div>
     <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
   <li class="etape" data-ami="non">
     <div class="tete">
       <div class="pastille" aria-hidden="true"><span class="numero">2</span><span class="coche">✓</span></div>
-      <h2>Deviens testeur</h2>
-    </div>
-    <div class="contenu">
-      <p class="consigne">Touche « Devenir testeur ». Si la page dit que le test n’est pas disponible, attends une minute et réessaie.</p>
-      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d2-v0"><div class="p p-barre">play.google.com</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Programme de test</small></span></div><div class="p p-lignes" style="top:31%"><i></i><i></i><i></i></div><div class="p p-bouton b-google cible" style="top:52%;left:18%;width:64%">Devenir testeur</div></div><div class="vue d2-v1"><div class="p p-succes"><b>✓</b><span>C’est bon, tu es testeur</span></div></div><div class="doigt d2-doigt"></div></div></div>
-      
-      <a class="action" href="https://play.google.com/apps/testing/fr.coef.app" target="_blank" rel="noopener">Devenir testeur</a>
-    </div>
-    <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
-  </li>
-  <li class="etape" data-ami="non">
-    <div class="tete">
-      <div class="pastille" aria-hidden="true"><span class="numero">3</span><span class="coche">✓</span></div>
       <h2>Installe Coef</h2>
     </div>
     <div class="contenu">
-      <p class="consigne">Google Play s’ouvre sur Coef : touche « Installer », puis « Ouvrir ».</p>
-      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d3-v0"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Version de test</small></span></div><div class="p p-bouton b-play cible" style="top:34%;left:8%;width:84%">Installer</div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v1"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Installation…</small></span></div><div class="p p-progres" style="top:38%"><i></i></div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v2"><div class="p p-barre">Google Play</div><div class="p p-appli" style="top:14%"><b>C</b><span>Coef<small>Version de test</small></span></div><div class="p p-bouton b-contour" style="top:34%;left:8%;width:40%">Désinstaller</div><div class="p p-bouton b-play cible" style="top:34%;left:52%;width:40%">Ouvrir</div><div class="p p-lignes" style="top:52%"><i></i><i></i><i></i><i></i></div></div><div class="vue d3-v3"><div class="p p-succes"><b>✓</b><span>Coef est installé</span></div></div><div class="doigt d3-doigt"></div></div></div>
-      
-      <a class="action" href="https://play.google.com/store/apps/details?id=fr.coef.app" target="_blank" rel="noopener">Ouvrir Google Play</a>
+      <p class="consigne">Google Play s’ouvre sur Coef : touche « Installer », puis « Ouvrir ».</p>
+      <div class="demo" data-demo="installer" role="img" aria-label="Démonstration : installer Coef depuis Google Play, puis l’ouvrir. Touche pour la revoir.">
+        <div class="ecran"><div class="toile">
+          <div class="statut"><span>9:42</span><svg width="38" height="12" viewBox="0 0 38 12"><path d="M1 4.5a9 9 0 0 1 12 0l-6 6.5z" fill="#202124"/><rect x="18" y="1.5" width="17" height="9" rx="2" fill="none" stroke="#202124" stroke-width="1.4"/><rect x="20" y="3.5" width="11" height="5" rx="1" fill="#202124"/><rect x="35.6" y="4.5" width="1.6" height="3" rx=".8" fill="#202124"/></svg></div>
+          <div class="vue google" data-vue="store">
+            <div class="st-barre"><svg width="20" height="18" viewBox="0 0 20 18"><path d="M19 9H2M9 1L1 9l8 8" stroke="#202124" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="vide"></span><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="9" cy="9" r="7" fill="none" stroke="#202124" stroke-width="2.2"/><path d="M14 14l6 6" stroke="#202124" stroke-width="2.4" stroke-linecap="round"/></svg><svg width="4" height="18" viewBox="0 0 4 18"><circle cx="2" cy="2" r="2" fill="#202124"/><circle cx="2" cy="9" r="2" fill="#202124"/><circle cx="2" cy="16" r="2" fill="#202124"/></svg></div>
+            <div class="st-app"><img src="icone.png" alt=""><div style="flex:1"><div class="st-nom">Coef : révisions et moyennes</div><div class="st-dev">Coef</div><div class="st-progres"><i></i></div></div></div>
+            <div class="st-boutons">
+              <div class="st-a"><span class="vert t-installer">Installer</span></div>
+              <div class="st-b"><span class="contour">Annuler</span><span class="eteint">Ouvrir</span></div>
+              <div class="st-c"><span class="contour">Désinstaller</span><span class="vert t-ouvrir">Ouvrir</span></div>
+            </div>
+            <div class="st-captures"><img src="capture-focus.jpg" alt=""><img src="capture-notes.jpg" alt=""><img src="capture-stats.jpg" alt=""></div>
+            <div class="st-propos">
+              <h3><span>À propos de cette appli</span><span>→</span></h3>
+              <p>Le chrono qui sait quoi te faire réviser, tes moyennes, tes fiches et tes amis</p>
+              <span class="st-puce">Enseignement</span>
+            </div>
+          </div>
+          <div class="doigt"></div>
+          <div class="retour"></div>
+          <div class="poignee"></div>
+        </div></div>
+      </div>
+      <p class="legende" aria-hidden="true"></p>
+      <a class="action" data-fin href="https://play.google.com/store/apps/details?id=fr.coef.app" target="_blank" rel="noopener">Ouvrir Google Play</a>
     </div>
     <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
   <li class="etape" data-ami="oui">
     <div class="tete">
-      <div class="pastille" aria-hidden="true"><span class="numero">4</span><span class="coche">✓</span></div>
+      <div class="pastille" aria-hidden="true"><span class="numero">3</span><span class="coche">✓</span></div>
       <h2>Ajoute ton ami</h2>
     </div>
     <div class="contenu">
-      <p class="consigne">Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code dans « Son code ».</p>
-      <div class="demo" role="img" aria-label="Démonstration animée : où toucher sur chaque écran. Touche pour la revoir."><div class="ecran"><div class="vue d4-v0 coef"><div class="p p-titre" style="top:9%">Focus</div><div class="p p-anneau" style="top:24%"><i></i><span>25:00</span></div><div class="p p-onglets"><span class="actif">Focus</span><span class="">Fiches</span><span class="">Notes</span><span class="cible">Amis</span><span class="">Stats</span></div></div><div class="vue d4-v1 coef"><div class="p p-titre" style="top:9%">Amis</div><div class="p p-texte" style="top:22%">Personne pour l’instant.</div><div class="p p-bouton b-coef cible" style="top:32%;left:8%;width:84%">Ajouter un ami</div><div class="p p-onglets"><span class="">Focus</span><span class="">Fiches</span><span class="">Notes</span><span class="actif">Amis</span><span class="">Stats</span></div></div><div class="vue d4-v2 coef"><div class="p p-titre" style="top:9%">Ajouter un ami</div><div class="p p-champ" style="top:26%;left:8%;width:56%"><small>Son code</small><span class="code-demo"></span></div><div class="p p-bouton b-coef cible" style="top:28%;left:68%;width:24%">Ajouter</div></div><div class="vue d4-v3"><div class="p p-succes"><b>✓</b><span>Vous êtes amis !</span></div></div><div class="doigt d4-doigt"></div></div></div>
+      <p class="consigne">Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code dans « Son code ». Ton ami n’aura plus qu’à accepter.</p>
+      <div class="demo" data-demo="ami" role="img" aria-label="Démonstration : dans Coef, onglet Amis, ajouter un ami avec son code. Touche pour la revoir.">
+        <div class="ecran"><div class="toile">
+          <div class="statut"><span>9:44</span><svg width="38" height="12" viewBox="0 0 38 12"><path d="M1 4.5a9 9 0 0 1 12 0l-6 6.5z" fill="#202124"/><rect x="18" y="1.5" width="17" height="9" rx="2" fill="none" stroke="#202124" stroke-width="1.4"/><rect x="20" y="3.5" width="11" height="5" rx="1" fill="#202124"/><rect x="35.6" y="4.5" width="1.6" height="3" rx=".8" fill="#202124"/></svg></div>
+          <div class="vue coef" data-vue="amis">
+            <div class="cf-pilule"><svg width="26" height="24" viewBox="0 0 26 24"><circle cx="14" cy="7" r="5" fill="none" stroke="#0A0A0B" stroke-width="2"/><path d="M5 23c0-6 4-9 9-9s9 3 9 9" fill="none" stroke="#0A0A0B" stroke-width="2"/><path d="M1 9h7M4.5 5.5v7" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round"/></svg><svg width="24" height="24" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9" fill="none" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round"/><path d="M18 2v5h-5" fill="none" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="cf-titre">Amis</div>
+            <div class="cf-groupe">Cette semaine</div>
+            <p class="cf-note">Personne pour l’instant. Envoie ton code à quelqu’un de ta classe — à deux, on tient une série bien plus longtemps.</p>
+            <div class="cf-bouton t-ajouter-ami" style="margin:16px 20px 0"><svg width="22" height="20" viewBox="0 0 26 24"><circle cx="14" cy="7" r="5" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M5 23c0-6 4-9 9-9s9 3 9 9" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M1 9h7M4.5 5.5v7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>Ajouter un ami</div>
+            <div class="cf-onglets">
+              <span><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 13l4-4M10 2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Focus</span>
+              <span><svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 4h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Fiches</span>
+              <span><svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 13h7M9 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Notes</span>
+              <span class="actif"><svg width="26" height="24" viewBox="0 0 26 24"><circle cx="9" cy="7" r="4.5" fill="currentColor"/><circle cx="19" cy="8" r="3.5" fill="currentColor"/><path d="M1 21c0-5 3.5-8 8-8s8 3 8 8z" fill="currentColor"/><path d="M15 21c0-4 1.8-6.5 4.5-6.5S25 17 25 21z" fill="currentColor"/></svg>Amis</span>
+              <span><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Stats</span>
+            </div>
+          </div>
+          <div class="vue coef" data-vue="ajout">
+            <div class="cf-entete"><svg width="20" height="18" viewBox="0 0 20 18"><path d="M19 9H2M9 1L1 9l8 8" stroke="#0A0A0B" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Ajouter un ami</div>
+            <div class="cf-groupe" style="margin-top:14px">Mon code</div>
+            <div class="cf-carte"><div class="cf-code">R4TQ8L</div><div class="cf-bouton" style="margin-top:14px;height:48px;font-size:15px">Partager mon code</div></div>
+            <div class="cf-groupe">Son code</div>
+            <div class="cf-carte">
+              <div class="cf-saisie"><div class="cf-champ t-champ"><span class="saisie"></span><span class="indice">ABC123</span></div><span class="cf-ajouter t-ajouter">Ajouter</span></div>
+              <p class="cf-message">Demande envoyée. Il ne reste plus qu’à la faire accepter.</p>
+            </div>
+          </div>
+          <div class="doigt"></div>
+          <div class="retour"></div>
+          <div class="poignee"></div>
+        </div></div>
+      </div>
+      <p class="legende" aria-hidden="true"></p>
       <p class="code" id="code"></p>
-      <button class="action" type="button" id="copier">Copier le code</button>
+      <button class="action" type="button" id="copier" data-fin>Copier le code</button>
     </div>
     <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
 </ol>
 <p class="fin" id="fin" hidden>C’est tout bon. Bonnes révisions !</p>
-<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
+<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
 <a href="mailto:coef.app.contact@gmail.com?subject=Bug%20sur%20Android">Signaler un bug</a></p>
 <footer class="site">
   Sur iPhone ? Coef est sur l’<a href="https://apps.apple.com/app/coef/id6805438755">App Store</a>.<br>
@@ -261,8 +422,11 @@ footer.site a{color:var(--discret)}
 </main>
 <script>
 (function () {
-  var CLE = 'coef-android-etapes';
+  var CLE = 'coef-android-etapes-v2';
+  var CLE_GROUPE = 'coef-android-groupe';
   var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function lire(cle) { try { return localStorage.getItem(cle); } catch (e) { return null; } }
+  function ecrire(cle, valeur) { try { localStorage.setItem(cle, valeur); } catch (e) {} }
   var code = new URLSearchParams(location.search).get('code') || '';
   code = /^[A-Za-z0-9]{6}$/.test(code) ? code.toUpperCase() : '';
   var liste = document.querySelector('.etapes');
@@ -270,23 +434,195 @@ footer.site a{color:var(--discret)}
   // Sans code dans l'adresse, l'étape de l'ami n'a rien à montrer.
   if (code) {
     document.getElementById('code').textContent = code;
-    Array.prototype.forEach.call(document.querySelectorAll('.code-demo'), function (s) { s.textContent = code; });
-    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
+    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
   } else {
     etapes.filter(function (e) { return e.dataset.ami === 'oui'; }).forEach(function (e) { liste.removeChild(e); });
     etapes = etapes.filter(function (e) { return e.dataset.ami !== 'oui'; });
   }
+  // La page dessinée dans le téléphone compte les mêmes étapes que celle-ci.
+  Array.prototype.forEach.call(document.querySelectorAll('.g-compte'), function (s) { s.textContent = 'Étape 1 sur ' + etapes.length; });
+  Array.prototype.forEach.call(document.querySelectorAll('.g-progres'), function (p) {
+    while (p.children.length > etapes.length) p.removeChild(p.lastElementChild);
+  });
+
+  /*
+   * Les démonstrations : une suite d'écrans, et sur chacun le doigt qui va
+   * toucher le vrai bouton (sa place se mesure sur l'écran dessiné, rien n'est
+   * écrit en dur). `etat` change ce qu'un même écran montre ; `retour` est le
+   * geste de retour d'Android, du bord gauche vers le milieu.
+   */
+  var SCENES = {
+    testeur: [
+      { vue: 'guide', toucher: '.t-groupe', legende: 'Touche « Rejoindre le groupe »' },
+      { vue: 'groupe', toucher: '.t-rejoindre', legende: 'Chez Google : « Rejoindre le groupe »' },
+      { vue: 'rejoindre', toucher: '.t-confirmer', legende: 'Encore « Rejoindre le groupe »' },
+      { vue: 'groupe', etat: 'rejoint', retour: true, legende: 'Reviens en arrière' },
+      { vue: 'guide', etat: 'groupe-fait', toucher: '.t-test', legende: 'Touche « Devenir testeur »' },
+      { vue: 'play', toucher: '.t-become', legende: 'Puis « Become a tester »' },
+      { vue: 'play', etat: 'testeur', duree: 2200, legende: 'C’est bon, tu es testeur' }
+    ],
+    installer: [
+      { vue: 'store', toucher: '.t-installer', legende: 'Touche « Installer »' },
+      { vue: 'store', etat: 'installation', duree: 2100, legende: 'Coef s’installe…' },
+      { vue: 'store', etat: 'installe', toucher: '.t-ouvrir', legende: 'Puis « Ouvrir »' }
+    ],
+    ami: [
+      { vue: 'amis', toucher: '.t-ajouter-ami', legende: 'Onglet Amis : « Ajouter un ami »' },
+      { vue: 'ajout', toucher: '.t-champ', saisir: true, legende: 'Colle son code dans « Son code »' },
+      { vue: 'ajout', etat: 'saisi', toucher: '.t-ajouter', legende: 'Puis « Ajouter »' },
+      { vue: 'ajout', etat: 'envoye', duree: 2400, legende: 'Ton ami n’a plus qu’à accepter' }
+    ]
+  };
+
+  function Demo(el) {
+    var toile = el.querySelector('.toile');
+    var doigt = el.querySelector('.doigt');
+    var retour = el.querySelector('.retour');
+    var legende = el.nextElementSibling;
+    var scenes = SCENES[el.dataset.demo];
+    var vues = {};
+    Array.prototype.forEach.call(el.querySelectorAll('.vue'), function (v) { vues[v.dataset.vue] = v; });
+    var jeton = 0;
+    var pas = 0;
+
+    function montrer(s) {
+      Object.keys(vues).forEach(function (n) { vues[n].classList.toggle('active', n === s.vue); });
+      vues[s.vue].dataset.etat = s.etat || '';
+      dessinerGuide(vues[s.vue], s.etat);
+      legende.textContent = s.legende || '';
+    }
+    function cible(s) { return s.toucher ? vues[s.vue].querySelector(s.toucher) : null; }
+    function centre(e) {
+      var r = e.getBoundingClientRect();
+      var t = toile.getBoundingClientRect();
+      var k = t.width / 360 || 1;
+      return { x: (r.left - t.left + r.width / 2) / k, y: (r.top - t.top + r.height / 2) / k };
+    }
+    function poser(x, y, visible, anime) {
+      if (!anime) doigt.style.transition = 'none';
+      doigt.style.left = x + 'px';
+      doigt.style.top = y + 'px';
+      doigt.style.opacity = visible ? '1' : '0';
+      if (!anime) { void doigt.offsetWidth; doigt.style.transition = ''; }
+    }
+    function attendre(ms, j) {
+      return new Promise(function (fini) { setTimeout(function () { fini(j === jeton); }, ms); });
+    }
+    function champ(s) { return vues[s.vue].querySelector('.saisie'); }
+    async function taper(s, j) {
+      var c = champ(s);
+      for (var i = 0; i < code.length; i++) {
+        if (!await attendre(110, j)) return false;
+        c.textContent = code.slice(0, i + 1);
+      }
+      return true;
+    }
+    async function scene(s, j) {
+      if (s.saisir) champ(s).textContent = '';
+      montrer(s);
+      var e = cible(s);
+      if (e) {
+        var c = centre(e);
+        poser(c.x + 50, c.y + 96, false, false);
+        if (!await attendre(900, j)) return false;
+        poser(c.x, c.y, true, true);
+        if (!await attendre(850, j)) return false;
+        doigt.classList.add('appuie');
+        e.classList.add('enfonce');
+        if (!await attendre(350, j)) return false;
+        doigt.classList.remove('appuie');
+        e.classList.remove('enfonce');
+        if (s.saisir && !await taper(s, j)) return false;
+        if (!await attendre(450, j)) return false;
+        poser(c.x, c.y, false, true);
+        return attendre(260, j);
+      }
+      if (s.retour) {
+        poser(4, 430, false, false);
+        if (!await attendre(700, j)) return false;
+        poser(10, 430, true, true);
+        if (!await attendre(300, j)) return false;
+        poser(130, 430, true, true);
+        retour.classList.add('tire');
+        if (!await attendre(800, j)) return false;
+        poser(130, 430, false, true);
+        retour.classList.remove('tire');
+        return attendre(250, j);
+      }
+      return attendre(s.duree || 1800, j);
+    }
+    async function boucle(j) {
+      while (j === jeton) {
+        for (var i = 0; i < scenes.length; i++) {
+          if (!await scene(scenes[i], j)) return;
+        }
+        if (!await attendre(1400, j)) return;
+      }
+    }
+    // Mouvement réduit : rien ne bouge, chaque toucher passe à l'écran suivant.
+    function statique() {
+      var s = scenes[pas];
+      montrer(s);
+      Array.prototype.forEach.call(el.querySelectorAll('.statique'), function (n) { n.classList.remove('statique'); });
+      var c = champ(s);
+      if (c) c.textContent = s.etat ? code : '';
+      var e = cible(s);
+      if (e) e.classList.add('statique');
+    }
+    function arreter() {
+      jeton++;
+      doigt.style.opacity = '0';
+      doigt.classList.remove('appuie');
+      retour.classList.remove('tire');
+      Array.prototype.forEach.call(el.querySelectorAll('.enfonce'), function (n) { n.classList.remove('enfonce'); });
+      pas = 0;
+      montrer(scenes[0]);
+    }
+    function jouer() {
+      arreter();
+      if (calme) { statique(); return; }
+      boucle(jeton);
+    }
+    el.addEventListener('click', function () {
+      if (calme) { pas = (pas + 1) % scenes.length; statique(); } else jouer();
+    });
+    arreter();
+    return { jouer: jouer, arreter: arreter };
+  }
+
+  // Le guide dessiné dans la démonstration : ses deux boutons, avant et après le groupe.
+  function dessinerGuide(vue, etat) {
+    var g = vue.querySelector('.t-groupe');
+    if (!g) return;
+    var fait = etat === 'groupe-fait';
+    var t = vue.querySelector('.t-test');
+    g.style.background = fait ? 'transparent' : '#0A0A0B';
+    g.style.color = fait ? '#2F8F55' : '#fff';
+    g.style.border = fait ? '1.5px solid #2F8F55' : '1.5px solid transparent';
+    g.querySelector('.avant').style.display = fait ? 'none' : '';
+    g.querySelector('.apres').style.display = fait ? '' : 'none';
+    t.style.background = fait ? '#0A0A0B' : 'transparent';
+    t.style.color = fait ? '#fff' : '#0A0A0B';
+    t.style.border = fait ? '1.5px solid transparent' : '1.5px solid rgba(11,11,11,.14)';
+  }
+
   var progres = document.getElementById('progres');
   var segments = etapes.map(function () { var i = document.createElement('i'); progres.appendChild(i); return i; });
-  var faites = 0;
-  try { faites = Math.min(etapes.length, parseInt(localStorage.getItem(CLE) || '0', 10) || 0); } catch (e) {}
+  var faites = Math.min(etapes.length, parseInt(lire(CLE) || '0', 10) || 0);
+  var groupe = lire(CLE_GROUPE) === '1';
+  var demos = etapes.map(function (e) { return Demo(e.querySelector('.demo')); });
+  var enScene = -1;
+  var lienGroupe = document.getElementById('lien-groupe');
+  var lienTest = document.getElementById('lien-test');
 
-  // Relancer la démonstration depuis son premier écran.
-  function rejouer(demo) {
-    demo.classList.remove('joue');
-    void demo.offsetWidth;
-    demo.classList.add('joue');
+  // Le groupe rejoint, le bouton du test passe devant.
+  function dessinerGroupe() {
+    lienGroupe.classList.toggle('secondaire', groupe);
+    lienGroupe.classList.toggle('reussie', groupe);
+    lienGroupe.querySelector('.libelle').textContent = groupe ? '✓ Groupe rejoint' : 'Rejoindre le groupe';
+    lienTest.classList.toggle('secondaire', !groupe);
   }
+
   function confettis() {
     if (calme) return;
     var couleurs = ['#2F8F55', '#F9AB00', '#1a73e8', '#E8476A', '#5B4BD6'];
@@ -304,10 +640,14 @@ footer.site a{color:var(--discret)}
     etapes.forEach(function (e, i) {
       e.classList.toggle('faite', i < faites);
       e.classList.toggle('verrouillee', i > faites);
-      var demo = e.querySelector('.demo');
-      if (i === faites) { if (!demo.classList.contains('joue')) rejouer(demo); } else demo.classList.remove('joue');
       segments[i].className = i < faites ? 'fait' : (i === faites ? 'courant' : '');
     });
+    // Seule la démonstration de l'étape en cours joue.
+    if (enScene !== faites) {
+      if (demos[enScene]) demos[enScene].arreter();
+      enScene = faites;
+      if (demos[faites]) demos[faites].jouer();
+    }
     var fin = document.getElementById('fin');
     fin.hidden = faites < etapes.length;
     document.getElementById('compte').textContent = faites < etapes.length
@@ -323,22 +663,32 @@ footer.site a{color:var(--discret)}
         confettis();
       }
     }
-    try { localStorage.setItem(CLE, String(faites)); } catch (e) {}
+    ecrire(CLE, String(faites));
   }
+
+  lienGroupe.addEventListener('click', function () {
+    groupe = true;
+    ecrire(CLE_GROUPE, '1');
+    // Un temps pour que le lien s'ouvre avant que le bouton ne change.
+    setTimeout(dessinerGroupe, 400);
+  });
   etapes.forEach(function (e, i) {
-    var action = e.querySelector('.action');
+    var action = e.querySelector('.action[data-fin]');
     action.addEventListener('click', function () {
       if (i !== faites) return;
       if (action.id === 'copier') {
         try { navigator.clipboard.writeText(code); } catch (err) {}
         action.textContent = 'Code copié';
       }
-      // Un temps pour que le lien s'ouvre avant que l'étape ne change d'aspect.
       setTimeout(function () { faites = i + 1; dessiner(true); }, 400);
     });
-    e.querySelector('.demo').addEventListener('click', function () { rejouer(this); });
-    e.querySelector('.refaire').addEventListener('click', function () { faites = i; dessiner(false); });
+    e.querySelector('.refaire').addEventListener('click', function () {
+      faites = i;
+      if (i === 0) { groupe = false; ecrire(CLE_GROUPE, '0'); dessinerGroupe(); }
+      dessiner(false);
+    });
   });
+  dessinerGroupe();
   dessiner(false);
 })();
 </script>
