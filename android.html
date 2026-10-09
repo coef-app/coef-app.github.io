@@ -237,7 +237,7 @@ footer.site a{color:var(--discret)}
 <main>
 <div class="marque">Coef</div>
 <h1>Installe Coef</h1>
-<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
+<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
 <div class="progres-guide" id="progres" aria-hidden="true"></div>
 <p class="compte" id="compte" aria-live="polite"></p>
 <ol class="etapes">
@@ -327,7 +327,7 @@ footer.site a{color:var(--discret)}
       <p class="legende" aria-hidden="true"></p>
       <a class="action" id="lien-groupe" href="https://groups.google.com/g/coef-testeurs" target="_blank" rel="noopener"><span class="libelle">Rejoindre le groupe</span></a>
       <a class="action secondaire" id="lien-test" data-fin href="https://play.google.com/apps/testing/fr.coef.app" target="_blank" rel="noopener">Devenir testeur</a>
-      <p class="aparte">Google dit que le test n’est pas disponible ? Attends une minute, puis réessaie.</p>
+      <p class="aparte">Google dit que le test n’est pas disponible ? Attends une minute, puis réessaie.</p>
     </div>
     <p class="fait">C’est fait · <button class="refaire" type="button">Refaire</button></p>
   </li>
@@ -337,7 +337,7 @@ footer.site a{color:var(--discret)}
       <h2>Installe Coef</h2>
     </div>
     <div class="contenu">
-      <p class="consigne">Google Play s’ouvre sur Coef : touche « Installer », puis « Ouvrir ».</p>
+      <p class="consigne">Google Play s’ouvre sur Coef : touche « Installer », puis « Ouvrir ».</p>
       <div class="demo" data-demo="installer" role="img" aria-label="Démonstration : installer Coef depuis Google Play, puis l’ouvrir. Touche pour la revoir.">
         <div class="ecran"><div class="toile">
           <div class="statut"><span>9:42</span><svg width="38" height="12" viewBox="0 0 38 12"><path d="M1 4.5a9 9 0 0 1 12 0l-6 6.5z" fill="#202124"/><rect x="18" y="1.5" width="17" height="9" rx="2" fill="none" stroke="#202124" stroke-width="1.4"/><rect x="20" y="3.5" width="11" height="5" rx="1" fill="#202124"/><rect x="35.6" y="4.5" width="1.6" height="3" rx=".8" fill="#202124"/></svg></div>
@@ -372,7 +372,7 @@ footer.site a{color:var(--discret)}
       <h2>Ajoute ton ami</h2>
     </div>
     <div class="contenu">
-      <p class="consigne">Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code dans « Son code ». Ton ami n’aura plus qu’à accepter.</p>
+      <p class="consigne">Dans Coef, crée ton compte, puis onglet Amis, « Ajouter un ami » : colle ce code dans « Son code ». Ton ami n’aura plus qu’à accepter.</p>
       <div class="demo" data-demo="ami" role="img" aria-label="Démonstration : dans Coef, onglet Amis, ajouter un ami avec son code. Touche pour la revoir.">
         <div class="ecran"><div class="toile">
           <div class="statut"><span>9:44</span><svg width="38" height="12" viewBox="0 0 38 12"><path d="M1 4.5a9 9 0 0 1 12 0l-6 6.5z" fill="#202124"/><rect x="18" y="1.5" width="17" height="9" rx="2" fill="none" stroke="#202124" stroke-width="1.4"/><rect x="20" y="3.5" width="11" height="5" rx="1" fill="#202124"/><rect x="35.6" y="4.5" width="1.6" height="3" rx=".8" fill="#202124"/></svg></div>
@@ -413,7 +413,7 @@ footer.site a{color:var(--discret)}
   </li>
 </ol>
 <p class="fin" id="fin" hidden>C’est tout bon. Bonnes révisions !</p>
-<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
+<p class="bugs">Tu trouves un bug dans l’app ? Merci de le signaler : ça aidera grandement à améliorer Coef sur Android !<br>
 <a href="mailto:coef.app.contact@gmail.com?subject=Bug%20sur%20Android">Signaler un bug</a></p>
 <footer class="site">
   Sur iPhone ? Coef est sur l’<a href="https://apps.apple.com/app/coef/id6805438755">App Store</a>.<br>
@@ -434,7 +434,7 @@ footer.site a{color:var(--discret)}
   // Sans code dans l'adresse, l'étape de l'ami n'a rien à montrer.
   if (code) {
     document.getElementById('code').textContent = code;
-    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
+    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
   } else {
     etapes.filter(function (e) { return e.dataset.ami === 'oui'; }).forEach(function (e) { liste.removeChild(e); });
     etapes = etapes.filter(function (e) { return e.dataset.ami !== 'oui'; });
