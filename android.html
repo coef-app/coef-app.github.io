@@ -237,7 +237,7 @@ footer.site a{color:var(--discret)}
 <main>
 <div class="marque">Coef</div>
 <h1>Installe Coef</h1>
-<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.</p>
+<p class="intro" id="intro">Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Être testeur te fera gagner automatiquement, juste en créant ton compte, 6 mois de Coef Max.</p>
 <div class="progres-guide" id="progres" aria-hidden="true"></div>
 <p class="compte" id="compte" aria-live="polite"></p>
 <ol class="etapes">
@@ -434,7 +434,7 @@ footer.site a{color:var(--discret)}
   // Sans code dans l'adresse, l'étape de l'ami n'a rien à montrer.
   if (code) {
     document.getElementById('code').textContent = code;
-    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Ajoute ensuite ton ami pour recevoir tous les deux votre cadeau : 1 mois de Coef Max chacun.";
+    document.getElementById('intro').textContent = "Ton ami t’invite sur Coef. Coef est encore en cours de déploiement sur Android : pour installer l’application, deviens testeur. Être testeur te fera gagner automatiquement, juste en créant ton compte, 6 mois de Coef Max.";
   } else {
     etapes.filter(function (e) { return e.dataset.ami === 'oui'; }).forEach(function (e) { liste.removeChild(e); });
     etapes = etapes.filter(function (e) { return e.dataset.ami !== 'oui'; });
