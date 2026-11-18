@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Calcule la note qu’il te faut au prochain contrôle pour atteindre la moyenne que tu vises, avec les coefficients. La formule, un exemple et un calculateur gratuit.">
+<link rel="canonical" href="https://coef-app.github.io/note-a-avoir.html">
+<title>Quelle note il me faut au prochain contrôle ? — Coef</title>
+<style>
+:root{
+  --plan:#F3F1EC;--surface:#FFFFFF;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;
+  --bordure:rgba(11,11,11,0.07);--ombre:0 10px 28px rgba(74,68,58,0.10),0 1px 2px rgba(74,68,58,0.06);
+  --accent:#0A0A0B;--sur-accent:#FFFFFF;--premium:#5B4BD6;--champ:rgba(11,11,11,0.12);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plan:#000000;--surface:#1A1A1A;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#909090;
+    --bordure:rgba(255,255,255,0.055);--ombre:none;--accent:#FFFFFF;--sur-accent:#0A0A0B;--premium:#9C90F0;--champ:rgba(255,255,255,0.14);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:28px 20px 64px}
+header.site{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site nav{display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:var(--discret);text-decoration:none;font-size:14.5px;font-weight:600}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 10px}
+.intro{color:var(--encre2);font-size:16.5px;margin:0 0 6px}
+.note{color:var(--discret);font-size:13.5px;margin:0 0 26px}
+.groupe{font-size:12.5px;font-weight:600;letter-spacing:0.3px;color:var(--discret);margin:26px 0 7px 18px}
+.carte{background:var(--surface);border-radius:24px;padding:18px 18px;box-shadow:var(--ombre);border:1px solid var(--bordure);margin-bottom:12px}
+@media (prefers-color-scheme:light){.carte{border-color:transparent}}
+.carte p{margin:0 0 10px;color:var(--encre)}
+.carte p:last-child{margin-bottom:0}
+a{color:inherit}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;
+  border-radius:28px;padding:13px 22px;margin:8px 0 4px}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--bordure)}
+.formule{font-variant-numeric:tabular-nums;background:var(--plan);border-radius:14px;padding:10px 12px}
+.calc .ligne{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) 40px;gap:8px;align-items:end;margin-bottom:8px}
+.calc .ligne>div{min-width:0}
+.calc .deux{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.calc label{display:block;font-size:12.5px;font-weight:600;color:var(--discret);margin:0 0 4px}
+.calc input{width:100%;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--champ);background:var(--plan);color:var(--encre)}
+.calc .retirer{height:46px;border:0;background:transparent;color:var(--discret);font-size:24px;line-height:1;cursor:pointer}
+.calc .ajouter{font:inherit;font-weight:600;background:transparent;color:var(--encre);border:1.5px solid var(--champ);border-radius:22px;padding:9px 16px;cursor:pointer;margin-top:4px}
+.resultat{font-size:24px;font-weight:700;letter-spacing:-0.4px;margin:16px 0 2px !important;font-variant-numeric:tabular-nums}
+.detail{color:var(--discret);font-size:13.5px}
+.voir a{display:block;padding:10px 0;font-weight:600;text-decoration:none;border-top:1px solid var(--bordure)}
+.voir a:first-child{border-top:0;padding-top:0}
+.voir a:last-child{padding-bottom:0}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="./">Coef</a>
+  <nav><a href="./">Accueil</a><a href="confidentialite.html">Confidentialité</a><a href="conditions.html">Conditions</a><a href="aide.html">Aide et contact</a></nav>
+</header>
+
+<h1>Quelle note il me faut au prochain contrôle ?</h1>
+<p class="intro">Tu as 11 de moyenne et tu vises 12 ? La note qu’il te faut dépend de deux choses :
+le poids des notes déjà comptées, et le coefficient du prochain contrôle.</p>
+
+<div class="groupe">La formule</div>
+<section class="carte">
+  <p class="formule">note à avoir = (moyenne visée × (coefs déjà comptés + coef du contrôle) − moyenne actuelle × coefs déjà comptés) ÷ coef du contrôle</p>
+  <p><strong>Exemple</strong> : tu as 11 de moyenne, avec des notes qui font 6 coefficients en tout. Tu vises 12,
+  et le prochain contrôle est coefficient 2.<br>
+  (12 × 8 − 11 × 6) ÷ 2 = (96 − 66) ÷ 2 = <strong>15</strong>. Il te faut 15.</p>
+  <p>Plus le coefficient du contrôle est gros, plus il est facile de remonter : avec un coefficient 6, 13 suffirait.</p>
+</section>
+
+<div class="groupe">Calcule ta note à avoir</div>
+<section class="carte calc">
+  <p class="detail">Remplace l’exemple par tes chiffres. Le calcul se fait sur ton téléphone : rien n’est envoyé.</p>
+  <div class="ligne deux">
+    <div><label for="moyenne">Ta moyenne actuelle</label><input id="moyenne" inputmode="decimal" autocomplete="off" value="11"></div>
+    <div><label for="coefs">Coefs déjà comptés</label><input id="coefs" inputmode="decimal" autocomplete="off" value="6"></div>
+  </div>
+  <div class="ligne deux">
+    <div><label for="coef">Coef du prochain contrôle</label><input id="coef" inputmode="decimal" autocomplete="off" value="2"></div>
+    <div><label for="visee">Moyenne visée</label><input id="visee" inputmode="decimal" autocomplete="off" value="12"></div>
+  </div>
+  <p class="resultat" id="resultat" aria-live="polite">—</p>
+  <p class="detail" id="detail"></p>
+</section>
+
+<div class="groupe">Tes coefficients déjà comptés ?</div>
+<section class="carte">
+  <p>Additionne les coefficients des notes déjà comptées dans ta moyenne. Si toutes tes notes ont le coefficient 1,
+  c’est simplement ton nombre de notes.</p>
+</section>
+
+<div class="groupe">Avec Coef</div>
+<section class="carte">
+  <p>Dans Coef, « Il me faut combien ? » fait ce calcul avec tes vraies notes, pour chaque matière et pour ta moyenne
+  générale. Et « Et si j’ai… ? » te montre ce que deviendrait ta moyenne avec la note que tu imagines.</p>
+  <p>Coef est gratuit et sans publicité.</p>
+  <p><a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&amp;ct=site&amp;mt=8">Télécharger Coef sur l’App Store</a><br>
+  <a class="bouton contour" href="android.html">Sur Android : rejoindre le test</a></p>
+</section>
+
+<div class="groupe">Voir aussi</div>
+<section class="carte voir">
+  <a href="calculer-sa-moyenne.html">Calculer sa moyenne avec les coefficients</a>
+  <a href="moyenne-pronote-ecole-directe.html">Ta moyenne Pronote ou École Directe, calculée pour toi</a>
+</section>
+
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="confidentialite.html">Politique de confidentialité</a> · <a href="conditions.html">Conditions d’utilisation</a> · <a href="aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+(() => {
+  const lire = (id) => { const n = parseFloat(String(document.getElementById(id).value).trim().replace(',', '.')); return Number.isFinite(n) ? n : null; };
+  const fr = (n) => n.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+  const resultat = document.getElementById('resultat');
+  const detail = document.getElementById('detail');
+  function calculer() {
+    const moyenne = lire('moyenne'), coefs = lire('coefs'), coef = lire('coef'), visee = lire('visee');
+    if (moyenne === null || coefs === null || coefs < 0 || !coef || coef <= 0 || visee === null) {
+      resultat.textContent = '—';
+      detail.textContent = 'Remplis les quatre cases.';
+      return;
+    }
+    const note = (visee * (coefs + coef) - moyenne * coefs) / coef;
+    if (note > 20) {
+      resultat.textContent = 'Plus de 20';
+      detail.textContent = 'Il te faudrait ' + fr(Math.ceil(note * 100) / 100) + ' : pas possible en un seul contrôle. Avec 20, tu arriverais à ' + fr((moyenne * coefs + 20 * coef) / (coefs + coef)) + '.';
+    } else if (note <= 0) {
+      resultat.textContent = 'C’est déjà gagné';
+      detail.textContent = 'Même avec 0, tu resterais à ' + fr((moyenne * coefs) / (coefs + coef)) + '.';
+    } else {
+      resultat.textContent = 'Il te faut ' + fr(Math.ceil(note * 100) / 100) + ' / 20';
+      detail.textContent = 'pour arriver à ' + fr(visee) + ' de moyenne.';
+    }
+  }
+  for (const id of ['moyenne', 'coefs', 'coef', 'visee']) document.getElementById(id).addEventListener('input', calculer);
+  calculer();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Retrouve tes notes Pronote ou École Directe dans Coef et vois ta moyenne avec les coefficients, même quand ton établissement ne l’affiche pas. Relier son école (bêta) ou une capture d’écran.">
+<link rel="canonical" href="https://coef-app.github.io/moyenne-pronote-ecole-directe.html">
+<title>Ta moyenne Pronote ou École Directe, avec les coefficients — Coef</title>
+<style>
+:root{
+  --plan:#F3F1EC;--surface:#FFFFFF;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;
+  --bordure:rgba(11,11,11,0.07);--ombre:0 10px 28px rgba(74,68,58,0.10),0 1px 2px rgba(74,68,58,0.06);
+  --accent:#0A0A0B;--sur-accent:#FFFFFF;--premium:#5B4BD6;--champ:rgba(11,11,11,0.12);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plan:#000000;--surface:#1A1A1A;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#909090;
+    --bordure:rgba(255,255,255,0.055);--ombre:none;--accent:#FFFFFF;--sur-accent:#0A0A0B;--premium:#9C90F0;--champ:rgba(255,255,255,0.14);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:28px 20px 64px}
+header.site{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site nav{display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:var(--discret);text-decoration:none;font-size:14.5px;font-weight:600}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 10px}
+.intro{color:var(--encre2);font-size:16.5px;margin:0 0 6px}
+.note{color:var(--discret);font-size:13.5px;margin:0 0 26px}
+.groupe{font-size:12.5px;font-weight:600;letter-spacing:0.3px;color:var(--discret);margin:26px 0 7px 18px}
+.carte{background:var(--surface);border-radius:24px;padding:18px 18px;box-shadow:var(--ombre);border:1px solid var(--bordure);margin-bottom:12px}
+@media (prefers-color-scheme:light){.carte{border-color:transparent}}
+.carte p{margin:0 0 10px;color:var(--encre)}
+.carte p:last-child{margin-bottom:0}
+a{color:inherit}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;
+  border-radius:28px;padding:13px 22px;margin:8px 0 4px}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--bordure)}
+.formule{font-variant-numeric:tabular-nums;background:var(--plan);border-radius:14px;padding:10px 12px}
+.calc .ligne{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) 40px;gap:8px;align-items:end;margin-bottom:8px}
+.calc .ligne>div{min-width:0}
+.calc .deux{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.calc label{display:block;font-size:12.5px;font-weight:600;color:var(--discret);margin:0 0 4px}
+.calc input{width:100%;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--champ);background:var(--plan);color:var(--encre)}
+.calc .retirer{height:46px;border:0;background:transparent;color:var(--discret);font-size:24px;line-height:1;cursor:pointer}
+.calc .ajouter{font:inherit;font-weight:600;background:transparent;color:var(--encre);border:1.5px solid var(--champ);border-radius:22px;padding:9px 16px;cursor:pointer;margin-top:4px}
+.resultat{font-size:24px;font-weight:700;letter-spacing:-0.4px;margin:16px 0 2px !important;font-variant-numeric:tabular-nums}
+.detail{color:var(--discret);font-size:13.5px}
+.voir a{display:block;padding:10px 0;font-weight:600;text-decoration:none;border-top:1px solid var(--bordure)}
+.voir a:first-child{border-top:0;padding-top:0}
+.voir a:last-child{padding-bottom:0}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="./">Coef</a>
+  <nav><a href="./">Accueil</a><a href="confidentialite.html">Confidentialité</a><a href="conditions.html">Conditions</a><a href="aide.html">Aide et contact</a></nav>
+</header>
+
+<h1>Ta moyenne Pronote ou École Directe, calculée pour toi</h1>
+<p class="intro">Pronote et École Directe te montrent tes notes. Ta moyenne, c’est selon ton établissement :
+certains l’affichent, d’autres la gardent pour le bulletin. Coef la calcule avec les coefficients, à partir de tes notes.</p>
+
+<div class="groupe">Relier ton école à Coef (bêta)</div>
+<section class="carte">
+  <p>Avec un compte Coef, à partir de 15 ans, Coef se connecte à ton Pronote ou à ton École Directe et récupère tes
+  matières et tes notes. Tu vois ce qui arrive avant de l’ajouter, et tu choisis de garder ou de remplacer ce que tu
+  avais déjà saisi.</p>
+  <p>Ton mot de passe ne part qu’à Pronote ou à École Directe, jamais aux serveurs de Coef, et Coef ne le garde pas :
+  ton téléphone garde seulement de quoi te reconnecter.</p>
+  <p>C’est une bêta : ça peut ne pas marcher avec ton établissement.</p>
+</section>
+
+<div class="groupe">Ou une capture d’écran</div>
+<section class="carte">
+  <p>Fais une capture d’écran de ta page de notes : l’IA de Coef la lit et te propose chaque note dans sa matière.
+  Tu vérifies, puis tu ajoutes.</p>
+</section>
+
+<div class="groupe">Et ensuite</div>
+<section class="carte">
+  <p>Coef calcule ta moyenne dans chaque matière et ta moyenne générale, avec les coefficients, par trimestre ou par
+  semestre. Il te dit aussi la note qu’il te faut au prochain contrôle pour atteindre la moyenne que tu vises.</p>
+  <p>Coef est gratuit et sans publicité.</p>
+  <p><a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&amp;ct=site&amp;mt=8">Télécharger Coef sur l’App Store</a><br>
+  <a class="bouton contour" href="android.html">Sur Android : rejoindre le test</a></p>
+</section>
+<p class="note" style="margin:10px 18px 0">Coef n’est lié ni à Pronote ni à École Directe.</p>
+
+<div class="groupe">Voir aussi</div>
+<section class="carte voir">
+  <a href="calculer-sa-moyenne.html">Calculer sa moyenne avec les coefficients</a>
+  <a href="note-a-avoir.html">Quelle note il me faut au prochain contrôle ?</a>
+</section>
+
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="confidentialite.html">Politique de confidentialité</a> · <a href="conditions.html">Conditions d’utilisation</a> · <a href="aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+</body>
+</html>

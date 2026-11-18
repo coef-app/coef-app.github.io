@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Comment calculer ta moyenne avec les coefficients : la règle, un exemple, un calculateur gratuit, et la moyenne générale. Par Coef, l’app de révisions et de moyennes.">
+<link rel="canonical" href="https://coef-app.github.io/calculer-sa-moyenne.html">
+<title>Calculer sa moyenne avec les coefficients — Coef</title>
+<style>
+:root{
+  --plan:#F3F1EC;--surface:#FFFFFF;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;
+  --bordure:rgba(11,11,11,0.07);--ombre:0 10px 28px rgba(74,68,58,0.10),0 1px 2px rgba(74,68,58,0.06);
+  --accent:#0A0A0B;--sur-accent:#FFFFFF;--premium:#5B4BD6;--champ:rgba(11,11,11,0.12);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plan:#000000;--surface:#1A1A1A;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#909090;
+    --bordure:rgba(255,255,255,0.055);--ombre:none;--accent:#FFFFFF;--sur-accent:#0A0A0B;--premium:#9C90F0;--champ:rgba(255,255,255,0.14);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:28px 20px 64px}
+header.site{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site nav{display:flex;gap:16px;flex-wrap:wrap}
+header.site nav a{color:var(--discret);text-decoration:none;font-size:14.5px;font-weight:600}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 10px}
+.intro{color:var(--encre2);font-size:16.5px;margin:0 0 6px}
+.note{color:var(--discret);font-size:13.5px;margin:0 0 26px}
+.groupe{font-size:12.5px;font-weight:600;letter-spacing:0.3px;color:var(--discret);margin:26px 0 7px 18px}
+.carte{background:var(--surface);border-radius:24px;padding:18px 18px;box-shadow:var(--ombre);border:1px solid var(--bordure);margin-bottom:12px}
+@media (prefers-color-scheme:light){.carte{border-color:transparent}}
+.carte p{margin:0 0 10px;color:var(--encre)}
+.carte p:last-child{margin-bottom:0}
+a{color:inherit}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;
+  border-radius:28px;padding:13px 22px;margin:8px 0 4px}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--bordure)}
+.formule{font-variant-numeric:tabular-nums;background:var(--plan);border-radius:14px;padding:10px 12px}
+.calc .ligne{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) 40px;gap:8px;align-items:end;margin-bottom:8px}
+.calc .ligne>div{min-width:0}
+.calc .deux{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.calc label{display:block;font-size:12.5px;font-weight:600;color:var(--discret);margin:0 0 4px}
+.calc input{width:100%;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--champ);background:var(--plan);color:var(--encre)}
+.calc .retirer{height:46px;border:0;background:transparent;color:var(--discret);font-size:24px;line-height:1;cursor:pointer}
+.calc .ajouter{font:inherit;font-weight:600;background:transparent;color:var(--encre);border:1.5px solid var(--champ);border-radius:22px;padding:9px 16px;cursor:pointer;margin-top:4px}
+.resultat{font-size:24px;font-weight:700;letter-spacing:-0.4px;margin:16px 0 2px !important;font-variant-numeric:tabular-nums}
+.detail{color:var(--discret);font-size:13.5px}
+.voir a{display:block;padding:10px 0;font-weight:600;text-decoration:none;border-top:1px solid var(--bordure)}
+.voir a:first-child{border-top:0;padding-top:0}
+.voir a:last-child{padding-bottom:0}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="./">Coef</a>
+  <nav><a href="./">Accueil</a><a href="confidentialite.html">Confidentialité</a><a href="conditions.html">Conditions</a><a href="aide.html">Aide et contact</a></nav>
+</header>
+
+<h1>Calculer sa moyenne avec les coefficients</h1>
+<p class="intro">Ta moyenne n’est pas la moyenne de tes notes : chaque contrôle compte autant que son
+coefficient. Un devoir coefficient 3 pèse trois fois plus qu’une interro coefficient 1.</p>
+
+<div class="groupe">La règle</div>
+<section class="carte">
+  <p>Multiplie chaque note par son coefficient, additionne le tout, puis divise par la somme des coefficients.</p>
+  <p class="formule">moyenne = (note × coef + note × coef + …) ÷ (somme des coefs)</p>
+  <p><strong>Exemple</strong> : 12 (coefficient 1), 15 (coefficient 2) et 8 (coefficient 3).<br>
+  (12 × 1 + 15 × 2 + 8 × 3) ÷ (1 + 2 + 3) = 66 ÷ 6 = <strong>11 sur 20</strong>.</p>
+  <p>Sans les coefficients, tu aurais trouvé 11,67 : le devoir raté, coefficient 3, tire la moyenne vers le bas.</p>
+</section>
+
+<div class="groupe">Une note sur 10 ou sur 40 ?</div>
+<section class="carte">
+  <p>Ramène-la d’abord sur 20 : divise-la par son barème, puis multiplie par 20. 7 sur 10 devient 14 sur 20,
+  et 26 sur 40 devient 13 sur 20.</p>
+</section>
+
+<div class="groupe">Calcule ta moyenne</div>
+<section class="carte calc" aria-labelledby="titre-calcul">
+  <p id="titre-calcul" class="detail">Remplace l’exemple par tes notes. Le calcul se fait sur ton téléphone : rien n’est envoyé.</p>
+  <div id="lignes"></div>
+  <button class="ajouter" id="ajouter" type="button">+ Ajouter une note</button>
+  <p class="resultat" id="resultat" aria-live="polite">—</p>
+  <p class="detail" id="detail"></p>
+</section>
+
+<div class="groupe">Et la moyenne générale ?</div>
+<section class="carte">
+  <p>La même règle, avec les matières : la moyenne de chaque matière, multipliée par le coefficient de la matière.
+  Selon les établissements, toutes les matières pèsent pareil sur le bulletin, ou chacune a son coefficient.</p>
+</section>
+
+<div class="groupe">Avec Coef</div>
+<section class="carte">
+  <p>Coef fait ce calcul pour toi, matière par matière et pour ta moyenne générale, par trimestre ou par semestre.
+  Il te dit aussi la note qu’il te faut au prochain contrôle pour atteindre la moyenne que tu vises.</p>
+  <p>Tes notes peuvent venir de Pronote ou d’École Directe (en bêta, avec un compte), d’une capture d’écran lue
+  par l’IA de Coef, ou de ta saisie. Coef est gratuit et sans publicité.</p>
+  <p><a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&amp;ct=site&amp;mt=8">Télécharger Coef sur l’App Store</a><br>
+  <a class="bouton contour" href="android.html">Sur Android : rejoindre le test</a></p>
+</section>
+
+<div class="groupe">Voir aussi</div>
+<section class="carte voir">
+  <a href="note-a-avoir.html">Quelle note il me faut au prochain contrôle ?</a>
+  <a href="moyenne-pronote-ecole-directe.html">Ta moyenne Pronote ou École Directe, calculée pour toi</a>
+</section>
+
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="confidentialite.html">Politique de confidentialité</a> · <a href="conditions.html">Conditions d’utilisation</a> · <a href="aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+(() => {
+  const zone = document.getElementById('lignes');
+  const resultat = document.getElementById('resultat');
+  const detail = document.getElementById('detail');
+  const lire = (v) => { const n = parseFloat(String(v).trim().replace(',', '.')); return Number.isFinite(n) ? n : null; };
+  const fr = (n) => n.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+  let numero = 0;
+
+  function champ(id, libelle, valeur, exemple) {
+    const bloc = document.createElement('div');
+    const etiquette = document.createElement('label');
+    etiquette.htmlFor = id; etiquette.textContent = libelle;
+    const entree = document.createElement('input');
+    entree.id = id; entree.inputMode = 'decimal'; entree.autocomplete = 'off';
+    entree.value = valeur; entree.placeholder = exemple;
+    bloc.append(etiquette, entree);
+    return bloc;
+  }
+
+  function ajouterLigne(note, sur, coef) {
+    numero += 1;
+    const ligne = document.createElement('div');
+    ligne.className = 'ligne';
+    ligne.append(
+      champ('note' + numero, 'Note', note, '12'),
+      champ('sur' + numero, 'Sur', sur, '20'),
+      champ('coef' + numero, 'Coefficient', coef, '1'),
+    );
+    const retirer = document.createElement('button');
+    retirer.type = 'button'; retirer.className = 'retirer';
+    retirer.setAttribute('aria-label', 'Retirer cette note'); retirer.textContent = '×';
+    retirer.addEventListener('click', () => { ligne.remove(); calculer(); });
+    ligne.append(retirer);
+    ligne.addEventListener('input', calculer);
+    zone.append(ligne);
+    return ligne;
+  }
+
+  function calculer() {
+    let somme = 0, coefs = 0, notes = 0;
+    for (const ligne of zone.querySelectorAll('.ligne')) {
+      const [note, sur, coef] = [...ligne.querySelectorAll('input')].map((e) => lire(e.value));
+      if (note === null || !sur || sur <= 0 || !coef || coef <= 0) continue;
+      somme += (note / sur) * 20 * coef; coefs += coef; notes += 1;
+    }
+    if (!coefs) {
+      resultat.textContent = '—';
+      detail.textContent = 'Entre au moins une note et son coefficient.';
+      return;
+    }
+    resultat.textContent = 'Ta moyenne : ' + fr(somme / coefs) + ' / 20';
+    detail.textContent = notes + (notes > 1 ? ' notes, ' : ' note, ') + fr(coefs) + (coefs > 1 ? ' coefficients en tout.' : ' coefficient en tout.');
+  }
+
+  document.getElementById('ajouter').addEventListener('click', () => {
+    ajouterLigne('', '20', '1').querySelector('input').focus();
+    calculer();
+  });
+  ajouterLigne('12', '20', '1');
+  ajouterLigne('15', '20', '2');
+  ajouterLigne('8', '20', '3');
+  calculer();
+})();
+</script>
+</body>
+</html>

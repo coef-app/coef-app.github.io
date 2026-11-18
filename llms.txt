@@ -1,0 +1,18 @@
+# Coef : révisions et moyennes
+
+> Application de révisions pour les collégiens et les lycéens français, gratuite et sans publicité. Moyennes avec les coefficients par trimestre ou semestre, note à avoir au prochain contrôle, notes Pronote et École Directe (bêta), fiches et cartes de révision, chrono de séance. Sur iPhone ; Android en test.
+
+## Guides
+
+- [Calculer sa moyenne avec les coefficients](https://coef-app.github.io/calculer-sa-moyenne.html) : la règle, un exemple et un calculateur.
+- [Quelle note il me faut au prochain contrôle ?](https://coef-app.github.io/note-a-avoir.html) : la formule, un exemple et un calculateur.
+- [Ta moyenne Pronote ou École Directe, calculée pour toi](https://coef-app.github.io/moyenne-pronote-ecole-directe.html) : relier son école à Coef (bêta) ou passer par une capture d’écran.
+
+## L’app
+
+- [Accueil](https://coef-app.github.io/) : ce que fait Coef, onglet par onglet.
+- [App Store](https://apps.apple.com/fr/app/coef/id6805438755)
+- [Android, test fermé](https://coef-app.github.io/android.html)
+- [Aide et contact](https://coef-app.github.io/aide.html)
+- [Politique de confidentialité](https://coef-app.github.io/confidentialite.html)
+- [Conditions d’utilisation](https://coef-app.github.io/conditions.html)
