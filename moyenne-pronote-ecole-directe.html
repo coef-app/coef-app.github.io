@@ -109,8 +109,9 @@ certains l’affichent, d’autres la gardent pour le bulletin. Coef la calcule 
 </footer>
 </main>
 <script>
-/* Mesure d’audience du site (voir la politique de confidentialité) : une visite comptée par page, avec sa
-   provenance (un moteur, une IA, un réseau, ou rien). Ni cookie, ni identifiant, ni appareil. */
+/* Mesure d’audience du site (voir la politique de confidentialité) : des totaux par jour et par page — la visite et sa
+   provenance, téléphone ou ordinateur, la langue du navigateur en deux cases, les boutons vers l’app, le calcul fait,
+   la page lue jusqu’en bas. Ni cookie, ni identifiant, ni modèle d’appareil. */
 (() => {
   try {
     if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
@@ -135,12 +136,35 @@ certains l’affichent, d’autres la gardent pour le bulletin. Coef la calcule 
       ['coef', /coef-app\.github\.io/],
     ];
     const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
-    fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/compter_visite_site', {
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
       method: 'POST',
       keepalive: true,
       headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
-      body: JSON.stringify({ p_page: page, p_source: source }),
+      body: JSON.stringify(corps),
     }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    document.addEventListener('input', (e) => {
+      if (e.target && e.target.closest && e.target.closest('.calc')) une('calcul');
+    }, true);
+    // « Lu jusqu’en bas » : le bas atteint en faisant défiler, pas une page qui tient sans défiler.
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
   } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
 })();
 </script>

@@ -155,7 +155,7 @@ footer.site a{color:var(--discret)}
   <p><strong>Jamais ce que tu écris</strong> : ni tes matières, ni tes notes, ni un titre, ni ton prénom, ni ton pseudo. Ces comptes portent un identifiant tiré au hasard sur ton téléphone, qui <strong>n’est pas celui de ton compte</strong> et n’y est jamais relié. Il change au moins tous les 13 mois, et les comptes sont effacés du serveur au bout de 13 mois.</p>
   <p>Ils vont au serveur de Coef, en Europe, et à personne d’autre. Seuls des chiffres d’ensemble en sont tirés : combien reviennent, ce qui est utilisé, où l’on décroche en découvrant l’app. <strong>Rien si tu indiques avoir moins de 15 ans</strong> (Réglages → Âge) : Coef part du principe que tu as 15 ans ou plus tant que tu ne l’as pas changé.</p>
   <p><strong>Tu peux t’y opposer</strong> quand tu veux : Réglages → À propos → « Mesure d’audience anonyme », ou en bas de la page Confidentialité de l’app. Éteinte, plus rien ne part, et ce qui attendait sur ton téléphone est effacé.</p>
-  <p><strong>Le site coef-app.github.io</strong> compte aussi ses visites, sans cookie : pour chaque jour, combien de fois chaque page a été ouverte, et d’où l’on venait (un moteur de recherche, une IA, un réseau social, ou rien). Seuls ces totaux sont gardés : ni appareil, ni adresse, ni identifiant. Un navigateur qui demande à ne pas être suivi n’est pas compté.</p>
+  <p><strong>Le site coef-app.github.io</strong> compte aussi ses visites, sans cookie : pour chaque jour et chaque page, combien de fois elle a été ouverte, d’où l’on venait (un moteur de recherche, une IA, un réseau social, ou rien), sur téléphone ou sur ordinateur, avec un navigateur en français ou dans une autre langue, si le bas de la page a été atteint, si son calcul a servi, et combien de fois on a touché le bouton vers l’App Store ou vers Android. Seuls ces totaux sont gardés : ni modèle d’appareil, ni adresse, ni identifiant. Un navigateur qui demande à ne pas être suivi n’est pas compté.</p>
 </section>
 <section class="carte">
   <h2>Notifications</h2>
@@ -238,8 +238,9 @@ footer.site a{color:var(--discret)}
 </footer>
 </main>
 <script>
-/* Mesure d’audience du site (voir la politique de confidentialité) : une visite comptée par page, avec sa
-   provenance (un moteur, une IA, un réseau, ou rien). Ni cookie, ni identifiant, ni appareil. */
+/* Mesure d’audience du site (voir la politique de confidentialité) : des totaux par jour et par page — la visite et sa
+   provenance, téléphone ou ordinateur, la langue du navigateur en deux cases, les boutons vers l’app, le calcul fait,
+   la page lue jusqu’en bas. Ni cookie, ni identifiant, ni modèle d’appareil. */
 (() => {
   try {
     if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
@@ -264,12 +265,35 @@ footer.site a{color:var(--discret)}
       ['coef', /coef-app\.github\.io/],
     ];
     const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
-    fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/compter_visite_site', {
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
       method: 'POST',
       keepalive: true,
       headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
-      body: JSON.stringify({ p_page: page, p_source: source }),
+      body: JSON.stringify(corps),
     }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    document.addEventListener('input', (e) => {
+      if (e.target && e.target.closest && e.target.closest('.calc')) une('calcul');
+    }, true);
+    // « Lu jusqu’en bas » : le bas atteint en faisant défiler, pas une page qui tient sans défiler.
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
   } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
 })();
 </script>
