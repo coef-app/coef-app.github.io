@@ -694,5 +694,34 @@ footer.site a{color:var(--discret)}
   dessiner(false);
 })();
 </script>
+<script>
+/* Mesure d’audience du site (voir la politique de confidentialité) : une visite comptée par page, avec sa
+   provenance (un moteur, une IA, un réseau, ou rien). Ni cookie, ni identifiant, ni appareil. */
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|facebookexternalhit/i.test(navigator.userAgent)) return;
+    const page = location.pathname.replace(/\/index\.html$/, '/').replace(/^.*\//, '/') || '/';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/compter_visite_site', {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify({ p_page: page, p_source: source }),
+    }).catch(() => {});
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
 </body>
 </html>

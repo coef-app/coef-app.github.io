@@ -58,7 +58,7 @@ footer.site a{color:var(--discret)}
 
 <h1>Politique de confidentialité</h1>
 <p class="intro">Coef est une application de révisions pour élèves. Cette page explique ce que l’app fait de tes données : ce qui reste sur ton téléphone, ce qui part quand tu crées un compte, et ce que tu peux demander. Le principe : Coef fonctionne sans compte (seule la moyenne générale en demande un, à partir du 30 octobre 2026), et sans compte, rien de ce que tu saisis ne sort de ton appareil.</p>
-<p class="note">Version du 16 novembre 2026. Le même texte est lisible dans l’app : Réglages → À propos.</p>
+<p class="note">Version du 18 novembre 2026. Le même texte est lisible dans l’app : Réglages → À propos.</p>
 <section class="carte">
   <h2>À qui écrire</h2>
   <p>Pour toute question, toute demande sur tes données, ou pour signaler quelque chose : coef.app.contact@gmail.com.</p>
@@ -155,6 +155,7 @@ footer.site a{color:var(--discret)}
   <p><strong>Jamais ce que tu écris</strong> : ni tes matières, ni tes notes, ni un titre, ni ton prénom, ni ton pseudo. Ces comptes portent un identifiant tiré au hasard sur ton téléphone, qui <strong>n’est pas celui de ton compte</strong> et n’y est jamais relié. Il change au moins tous les 13 mois, et les comptes sont effacés du serveur au bout de 13 mois.</p>
   <p>Ils vont au serveur de Coef, en Europe, et à personne d’autre. Seuls des chiffres d’ensemble en sont tirés : combien reviennent, ce qui est utilisé, où l’on décroche en découvrant l’app. <strong>Rien si tu indiques avoir moins de 15 ans</strong> (Réglages → Âge) : Coef part du principe que tu as 15 ans ou plus tant que tu ne l’as pas changé.</p>
   <p><strong>Tu peux t’y opposer</strong> quand tu veux : Réglages → À propos → « Mesure d’audience anonyme », ou en bas de la page Confidentialité de l’app. Éteinte, plus rien ne part, et ce qui attendait sur ton téléphone est effacé.</p>
+  <p><strong>Le site coef-app.github.io</strong> compte aussi ses visites, sans cookie : pour chaque jour, combien de fois chaque page a été ouverte, et d’où l’on venait (un moteur de recherche, une IA, un réseau social, ou rien). Seuls ces totaux sont gardés : ni appareil, ni adresse, ni identifiant. Un navigateur qui demande à ne pas être suivi n’est pas compté.</p>
 </section>
 <section class="carte">
   <h2>Notifications</h2>
@@ -221,7 +222,7 @@ footer.site a{color:var(--discret)}
 </section>
 <section class="carte">
   <h2>Modifications</h2>
-  <p>Si cette politique change, la nouvelle version sera publiée dans l’app et sur cette page, avec sa date. La version en vigueur est celle du 16/11/2026.</p>
+  <p>Si cette politique change, la nouvelle version sera publiée dans l’app et sur cette page, avec sa date. La version en vigueur est celle du 18/11/2026.</p>
 </section>
 <section class="carte">
   <h2>Qui est responsable</h2>
@@ -236,5 +237,34 @@ footer.site a{color:var(--discret)}
   Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
 </footer>
 </main>
+<script>
+/* Mesure d’audience du site (voir la politique de confidentialité) : une visite comptée par page, avec sa
+   provenance (un moteur, une IA, un réseau, ou rien). Ni cookie, ni identifiant, ni appareil. */
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|facebookexternalhit/i.test(navigator.userAgent)) return;
+    const page = location.pathname.replace(/\/index\.html$/, '/').replace(/^.*\//, '/') || '/';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/compter_visite_site', {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify({ p_page: page, p_source: source }),
+    }).catch(() => {});
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
 </body>
 </html>
