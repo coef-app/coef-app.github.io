@@ -114,6 +114,13 @@ certains l’affichent, d’autres la gardent pour le bulletin. Coef la calcule 
 (() => {
   try {
     if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    // « ?mesure=non » une fois : ce navigateur n'est plus compté (Noé, ses propres visites) ; « ?mesure=oui » le rallume.
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
     if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
     const page = location.pathname.replace(/\/index\.html$/, '/').replace(/^.*\//, '/') || '/';
     const utm = new URLSearchParams(location.search).get('utm_source') || '';
