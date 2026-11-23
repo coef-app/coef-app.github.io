@@ -1,4 +1,4 @@
-var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="b109ec1e-a2d4-4c41-9676-fc7418cb3337",_sentryDebugIdIdentifier="sentry-dbid-b109ec1e-a2d4-4c41-9676-fc7418cb3337")}catch(e){}
+var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="d8d728d2-3090-4b3c-98ed-91b4a85318f7",_sentryDebugIdIdentifier="sentry-dbid-d8d728d2-3090-4b3c-98ed-91b4a85318f7")}catch(e){}
 __d(function(g,r,i,a,m,_e,d){"use strict";function e(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return N}});var t=r(d[0]),n=r(d[1]);r(d[2]);var o=e(r(d[3])),s=r(d[4]),l=(r(d[5]),e(r(d[6]))),u=r(d[7]),c=r(d[8]),f=r(d[9]),b=r(d[10]),h=r(d[11]),p=r(d[12]),v=r(d[13]),B=r(d[14]),_=r(d[15]),S=r(d[16]),C=r(d[17]),E=r(d[18]),O=r(d[19]),x=r(d[20]),L=r(d[21]),T=r(d[22]),F=r(d[23]),M=r(d[24]),y=r(d[25]);const A=[{name:'(focus)',titre:'Focus',sf:{default:'timer',selected:'timer'},io:{default:'timer-outline',selected:'timer'}},{name:'fiches',titre:'Fiches',sf:{default:'rectangle.stack',selected:'rectangle.stack.fill'},io:{default:'albums-outline',selected:'albums'}},{name:'moyennes',titre:'Notes',sf:{default:'doc.text',selected:'doc.text.fill'},io:{default:'document-text-outline',selected:'document-text'}},{name:'amis',titre:'Amis',sf:{default:'person.2',selected:'person.2.fill'},io:{default:'people-outline',selected:'people'}},{name:'stats',titre:'Stats',sf:{default:'chart.bar',selected:'chart.bar.fill'},io:{default:'bar-chart-outline',selected:'bar-chart'}},{name:'ecole',titre:'Mon \xe9cole',sf:{default:'graduationcap',selected:'graduationcap.fill'},io:{default:'school-outline',selected:'school'}}],j=[],I=['(focus)','fiches','moyennes','amis','stats'];function U(){const e=(0,s.useNavigation)(),n=(0,t.useRef)(0),o=(0,t.useCallback)(()=>{n.current+=1,e.setOptions({headerShown:!1,title:n.current%2?'':' '})},[e]);(0,s.useFocusEffect)((0,t.useCallback)(()=>{o();const e=setTimeout(o,700);return()=>clearTimeout(e)},[o]))}function N(){const{c:e}=(0,c.useTheme)();(0,u.useStore)(e=>e.configure);U();const N=(0,f.useEncouragementsNonLus)().length;(0,b.useRepriseSeance)(),(0,h.useNouveautesAuLancement)(),(0,p.useBetaAuLancement)(),(0,v.useSondageAuLancement)(),(0,B.useCoefWebAuLancement)();const R=(0,_.useEcoleEnOnglet)(),k=(0,S.useFonctionOuverte)('hubRevision'),P=e=>'(focus)'===e.name&&!0,D=e=>P(e)?'Accueil':'fiches'===e.name&&k?C.TITRE_HUB:e.titre,w=e=>P(e)?E.ICONE_ACCUEIL:'fiches'===e.name&&k?E.ICONE_HUB:e,z=(0,_.useCompteOngletEcole)(),H=(0,F.useDisposition)(),W=(0,x.avecMenuDeGauche)(H),G=(0,L.usePanneauReplie)('menu')&&'tablette'!==H,{width:V}=(0,o.default)(),q=Math.max(0,V-(0,x.largeurDuMenu)(H,G)),J='ici'===(0,M.useEcoleSurLeSite)().etat,K=(0,S.useFonctionOuverte)('ecoleSurOrdinateur'),Q=J?[...I,'ecole']:I,X=(0,t.useRef)(!1);return(0,t.useEffect)(()=>{W&&!X.current&&(X.current=!0,'tablette'===H?(0,n.voirUneFois)('site/fenetre_rail'):'portable'===H?(0,n.voirUneFois)('site/fenetre_portable'):'grand'===H&&(0,n.voirUneFois)('site/fenetre_grand'),G&&(0,n.voirUneFois)('site/menu_replie_vu'))},[W,H,G]),(0,y.jsx)(s.Tabs,{tabBar:W?e=>(0,y.jsx)(O.MenuOrdi,{...e,rail:'tablette'===H,replie:G,visibles:Q,aVenir:j,telephone:J||!R&&!K?[]:[{nom:'ecole',titre:'Mon \xe9cole',icone:'school-outline',...K?{appuyer:M.montrerMonEcoleIci}:{}}]}):void 0,screenLayout:({children:e})=>(0,y.jsx)(T.LargeurDisponible.Provider,{value:W?q:null,children:e}),screenOptions:{headerShown:!1,tabBarActiveTintColor:e.encre,tabBarInactiveTintColor:e.discret,tabBarStyle:{backgroundColor:e.plan,borderTopColor:e.bordure,height:56},tabBarLabelStyle:{fontSize:11,fontWeight:'600'},...W?{tabBarPosition:'left'}:{}},children:A.map(e=>{return(0,y.jsx)(s.Tabs.Screen,{name:e.name,options:{title:D(e),tabBarIcon:({color:t,size:n,focused:o})=>(0,y.jsx)(l.default,{name:o?w(e).io.selected:w(e).io.default,size:n,color:t}),...'amis'===e.name&&N>0?{tabBarBadge:N}:{},...'ecole'===e.name&&z>0?{tabBarBadge:z}:{},...(t=e.name,!Q.includes(t)||!W&&j.includes(t)?{href:null}:{})}},e.name);var t})})}},754,[13,1022,105,270,981,1094,984,985,986,1002,1125,1126,1127,1128,1129,1034,1023,1130,1123,1124,1131,1132,1051,1049,1092,7]);
 __d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),(function(t,n){for(var o in n)Object.defineProperty(t,o,{enumerable:!0,get:Object.getOwnPropertyDescriptor(n,o).get})})(e,{get NativeTabTrigger(){return t.NativeTabTrigger},get NativeTabs(){return n.NativeTabs},get createNativeTabsProps(){return o.createNativeTabsProps}});const t=r(d[0]),n=r(d[1]),o=r(d[2])},1094,[687,1095,1096]);
 __d(function(g,r,i,a,m,e,d){"use strict";function t(){const n=r(d[0]);return t=function(){return n},n}Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"NativeTabs",{enumerable:!0,get:function(){return b}});const n=r(d[1]),s=r(d[2]),c=r(d[3]),o=r(d[4]),u=Object.assign(c.NativeTabsBottomAccessory,{usePlacement:o.usePlacement}),b=Object.assign(s=>(0,t().jsx)(n.NativeTabsNavigatorWrapper,{...s}),{Trigger:s.NativeTabTrigger,BottomAccessory:u})},1095,[7,1096,687,688,1122]);
@@ -28,25 +28,25 @@ __d(function(g,r,_i,a,m,e,d){"use strict";var n,t=Object.create,o=Object.defineP
 __d(function (global, require, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, dependencyMap) {
   module.exports = Object.assign({
     "tabContent": "EFtDwW_tabContent",
-    "tabBadge": "EFtDwW_tabBadge",
-    "navigationMenuTrigger": "EFtDwW_navigationMenuTrigger",
+    "navigationMenuRoot": "EFtDwW_navigationMenuRoot",
+    "tabText": "EFtDwW_tabText",
     "emptyTabBadge": "EFtDwW_emptyTabBadge",
     "nativeTabsContainer": "EFtDwW_nativeTabsContainer",
-    "navigationMenuRoot": "EFtDwW_navigationMenuRoot",
-    "tabText": "EFtDwW_tabText"
+    "navigationMenuTrigger": "EFtDwW_navigationMenuTrigger",
+    "tabBadge": "EFtDwW_tabBadge"
   }, {
     unstable_styles: {
       "tabContent": {
         "$$css": true,
         "_": "EFtDwW_tabContent"
       },
-      "tabBadge": {
+      "navigationMenuRoot": {
         "$$css": true,
-        "_": "EFtDwW_tabBadge"
+        "_": "EFtDwW_navigationMenuRoot"
       },
-      "navigationMenuTrigger": {
+      "tabText": {
         "$$css": true,
-        "_": "EFtDwW_navigationMenuTrigger"
+        "_": "EFtDwW_tabText"
       },
       "emptyTabBadge": {
         "$$css": true,
@@ -56,13 +56,13 @@ __d(function (global, require, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, expor
         "$$css": true,
         "_": "EFtDwW_nativeTabsContainer"
       },
-      "navigationMenuRoot": {
+      "navigationMenuTrigger": {
         "$$css": true,
-        "_": "EFtDwW_navigationMenuRoot"
+        "_": "EFtDwW_navigationMenuTrigger"
       },
-      "tabText": {
+      "tabBadge": {
         "$$css": true,
-        "_": "EFtDwW_tabText"
+        "_": "EFtDwW_tabBadge"
       }
     }
   }, {});
