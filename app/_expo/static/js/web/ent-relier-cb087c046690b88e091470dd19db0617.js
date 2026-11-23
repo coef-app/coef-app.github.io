@@ -1,0 +1,2 @@
+var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="d4b8b632-be63-4c6f-810f-08b974f0bf97",_sentryDebugIdIdentifier="sentry-dbid-d4b8b632-be63-4c6f-810f-08b974f0bf97")}catch(e){}
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return u}});var t=r(d[0]),n=r(d[1]);function u(){return(0,n.jsx)(t.RelierEcole,{mode:"reglages"})}},864,[1395,7]);
