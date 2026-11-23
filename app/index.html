@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Coef</title>
+    <!--
+      Le site publié vit sous /app sur GitHub Pages, qui ne sait pas renvoyer toutes les adresses vers
+      cette page : une adresse profonde (/app/stats) tombe sur la page 404 du site public, qui revient
+      ici avec le chemin dans `?__chemin=` (`scripts/site/404.html`). Le chemin est remis dans la barre
+      avant que Coef démarre : le routeur le lit comme si on l'avait ouvert directement.
+    -->
+    <script>
+      (function () {
+        try {
+          var chemin = new URLSearchParams(location.search).get('__chemin');
+          if (chemin && chemin.charAt(0) === '/' && chemin.charAt(1) !== '/') {
+            history.replaceState(null, '', location.pathname.replace(/\/$/, '') + chemin + location.hash);
+          }
+        } catch (e) { /* l'accueil du site s'ouvre, faute de mieux */ }
+      })();
+    </script>
+    <!--
+      Le modèle d'Expo, au fond près (l'audit de performance du 23/11) : le sien laissait la page
+      blanche, même en sombre, le temps que tout Coef arrive. Le fond de Coef d'emblée (`plan`, clair
+      ou sombre selon l'ordinateur), et rien d'autre : pas de texte, qu'il faudrait faire valider.
+    -->
+    <meta name="color-scheme" content="light dark" />
+    <!--
+      L'icône de Coef dans l'onglet, que le rond d'une séance remplace le temps de la séance
+      (`src/site/seance.ts`). L'installation de Coef (le manifeste, le service worker) est retirée
+      le 23/11 (Noé : « on la fera plus tard ») : elle est dans l'historique, au commit e25923ff.
+    -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/app/icones/coef-32.png" />
+    <link rel="apple-touch-icon" href="/app/icones/coef-180.png" />
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+        background-color: #F3F1EC;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #121212;
+        }
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <link rel="preload" href="/app/_expo/static/css/native-tabs.module-78b0f59737571f455720970791a36bdd.css" as="style">
+<link rel="stylesheet" href="/app/_expo/static/css/native-tabs.module-78b0f59737571f455720970791a36bdd.css"></head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/app/_expo/static/js/web/__expo-metro-runtime-97703ae02682710149335928b974f18d.js" defer></script><script src="/app/_expo/static/js/web/__common-b6ca6f69b6f503ec7cad324ca0cc3c58.js" defer></script><script src="/app/_expo/static/js/web/index-462ad1e92b3fc042586db4d642a56833.js" defer></script>
+</body>
+</html>

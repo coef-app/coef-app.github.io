@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coef</title>
+    <!--
+      La page 404 de coef-app.github.io (23/11), posée à la racine du site public par
+      `scripts/site/exporter.mjs`. GitHub Pages n'a pas de réécriture d'adresses : une adresse profonde
+      de Coef Web (/app/stats) arrive ici. Elle repart vers /app/ avec son chemin dans `?__chemin=`,
+      que `public/index.html` remet dans la barre avant que Coef démarre. Toute autre adresse inconnue
+      revient à l'accueil du site : pas de texte ici, donc rien à faire valider.
+    -->
+    <script>
+      (function () {
+        var base = '/app';
+        var l = window.location;
+        if (l.pathname === base || l.pathname.indexOf(base + '/') === 0) {
+          var reste = l.pathname.slice(base.length) || '/';
+          l.replace(base + '/?__chemin=' + encodeURIComponent(reste + l.search) + l.hash);
+        } else {
+          l.replace('/');
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
