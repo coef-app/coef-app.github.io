@@ -743,6 +743,7 @@ footer.site a{color:var(--discret)}
       if (!lien) return;
       if (/apps\.apple\.com/.test(lien.href)) une('app_store');
       else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+      else if (/^\/app(\/|$)/.test(lien.pathname)) une('coef_web');
     }, true);
     document.addEventListener('input', (e) => {
       if (e.target && e.target.closest && e.target.closest('.calc')) une('calcul');
