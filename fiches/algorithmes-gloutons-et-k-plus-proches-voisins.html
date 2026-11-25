@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Algorithmes gloutons et k plus proches voisins · Fiche de révision NSI, Première · Coef</title>
+<meta name="description" content="Un algorithme glouton fait à chaque étape le choix qui semble le meilleur sur le moment, sans revenir en arrière : simple et rapide, il ne donne pas toujours…">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/algorithmes-gloutons-et-k-plus-proches-voisins">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-pnsi-8&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/algorithmes-gloutons-et-k-plus-proches-voisins">
+<meta property="og:title" content="Algorithmes gloutons et k plus proches voisins">
+<meta property="og:description" content="Fiche de révision · NSI · Première · 11 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Algorithmes gloutons et k plus proches voisins","description":"Un algorithme glouton fait à chaque étape le choix qui semble le meilleur sur le moment, sans revenir en arrière : simple et rapide, il ne donne pas toujours…","url":"https://coef-app.github.io/fiches/algorithmes-gloutons-et-k-plus-proches-voisins","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"NSI","educationalLevel":"Première","timeRequired":"PT11M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · NSI · Première · 11 min</p>
+<h1>Algorithmes gloutons et k plus proches voisins</h1>
+<p class="essentiel">Un algorithme glouton fait à chaque étape le choix qui semble le meilleur sur le moment, sans revenir en arrière : simple et rapide, il ne donne pas toujours la meilleure solution. L’algorithme des k plus proches voisins classe une donnée nouvelle d’après les données connues qui lui ressemblent le plus.</p>
+<section>
+<h2>Les algorithmes gloutons</h2>
+<p>Pour rendre la monnaie, on prend à chaque fois la plus grande pièce qui ne dépasse pas ce qui reste à rendre. Avec les euros, un système dit canonique, on obtient toujours le moins de pièces possible.</p>
+<pre><code>def rendu(somme, pieces):
+    &quot;&quot;&quot;pieces est triée dans l'ordre décroissant.&quot;&quot;&quot;
+    rendues = []
+    for p in pieces:
+        while somme &gt;= p:
+            somme = somme - p
+            rendues.append(p)
+    return rendues
+
+print(rendu(8, [5, 2, 1]))     # [5, 2, 1]</code></pre>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Avec des pièces de 4, 3 et 1, rends 6. L’algorithme glouton est-il optimal ?</p><p>Le glouton prend 4, puis 1, puis 1 : trois pièces. Or 3 + 3 n’en utilise que deux. Dans ce système, qui n’est pas canonique, le glouton n’est pas optimal.</p></div>
+</section>
+<section>
+<h2>Les k plus proches voisins</h2>
+<ul><li>On dispose de données dont on connaît la classe, chacune décrite par des caractéristiques (taille, poids…).</li><li>Pour une donnée nouvelle, on calcule sa distance à toutes les données connues, on garde les <math><mi>k</mi></math> plus proches, et on lui donne la classe la plus fréquente parmi elles.</li><li>Le résultat dépend du choix de <math><mi>k</mi></math> et de la distance ; on choisit souvent <math><mi>k</mi></math> impair, pour éviter les égalités entre deux classes.</li></ul>
+<figure class="schema" style="max-width:375px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="Des données de deux classes, des ronds et des triangles, placées selon deux caractéristiques. Un point inconnu est entouré d’un cercle en pointillés qui contient ses trois plus proches voisins, k = 3 : deux triangles et un rond. La majorité l’emporte : il est classé triangle." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><line x1="16" y1="186" x2="286.9" y2="186" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polygon points="292,186 286,188.8 286,183.2" fill="currentColor"/><line x1="16" y1="190" x2="16" y2="13.1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polygon points="16,8 18.8,14 13.2,14" fill="currentColor"/><circle cx="50" cy="50" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="80" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="64" cy="86" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="104" cy="72" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="120" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="128" cy="104" r="6" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="196,129 203,141 189,141" fill="#acce57"/><polygon points="230,103 237,115 223,115" fill="#acce57"/><polygon points="250,143 257,155 243,155" fill="#acce57"/><polygon points="212,161 219,173 205,173" fill="#acce57"/><polygon points="176,153 183,165 169,165" fill="#acce57"/><polygon points="262,89 269,101 255,101" fill="#acce57"/><circle cx="156" cy="128" r="49.8" fill="none" stroke="#d15c3e" stroke-width="1.3" stroke-dasharray="5 4"/><line x1="156" y1="128" x2="128" y2="104" stroke="#d15c3e" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3"/><line x1="156" y1="128" x2="176" y2="160" stroke="#d15c3e" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3"/><line x1="156" y1="128" x2="196" y2="136" stroke="#d15c3e" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3"/><circle cx="156" cy="128" r="5" fill="currentColor"/><text x="160" y="118" font-size="13" text-anchor="start" fill="currentColor" font-weight="bold">?</text><text x="286" y="22" font-size="11" text-anchor="end" fill="#d15c3e" font-weight="bold">k = 3</text></svg><figcaption>Avec k = 3, le point inconnu a deux triangles et un rond parmi ses voisins : il est classé triangle.</figcaption></figure>
+<pre><code>from math import dist
+
+def knn(donnees, nouveau, k):
+    &quot;&quot;&quot;donnees : liste de couples (point, classe).&quot;&quot;&quot;
+    tries = sorted(donnees, key=lambda d: dist(d[0], nouveau))
+    voisins = [classe for point, classe in tries[:k]]
+    return max(set(voisins), key=voisins.count)</code></pre>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li>Glouton : le meilleur choix immédiat, sans retour en arrière.</li><li>Optimal pour rendre la monnaie en euros, pas dans tout système.</li><li>kNN : distances, les <math><mi>k</mi></math> plus proches, vote majoritaire.</li><li>Le résultat dépend de <math><mi>k</mi></math> et de la distance.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-pnsi-8&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · NSI · Première</h2>
+  <a href="/fiches/representer-les-nombres-les-booleens-et-le-texte">Représenter les nombres, les booléens et le texte</a>
+  <a href="/fiches/tuples-listes-et-dictionnaires">Tuples, listes et dictionnaires</a>
+  <a href="/fiches/traiter-des-donnees-en-tables">Traiter des données en tables</a>
+  <a href="/fiches/l-homme-et-la-machine-sur-le-web">L’homme et la machine sur le Web</a>
+  <a href="/fiches/architecture-systeme-d-exploitation-et-reseaux">Architecture, système d’exploitation et réseaux</a>
+  <a href="/fiches/programmer-proprement-specifier-tester-corriger">Programmer proprement : spécifier, tester, corriger</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Primitives et équations différentielles · Fiche de révision Mathématiques, Terminale · Coef</title>
+<meta name="description" content="Une primitive de f est une fonction dont la dérivée est f. Une équation différentielle a pour inconnue une fonction : celles de la forme y' = ay + b ont des…">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/primitives-et-equations-differentielles">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-tm-6&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/primitives-et-equations-differentielles">
+<meta property="og:title" content="Primitives et équations différentielles">
+<meta property="og:description" content="Fiche de révision · Mathématiques · Terminale · 12 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Primitives et équations différentielles","description":"Une primitive de f est une fonction dont la dérivée est f. Une équation différentielle a pour inconnue une fonction : celles de la forme y' = ay + b ont des…","url":"https://coef-app.github.io/fiches/primitives-et-equations-differentielles","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"Mathématiques","educationalLevel":"Terminale","timeRequired":"PT12M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · Mathématiques · Terminale · 12 min</p>
+<h1>Primitives et équations différentielles</h1>
+<p class="essentiel">Une primitive de <math><mi>f</mi></math> est une fonction dont la dérivée est <math><mi>f</mi></math>. Une équation différentielle a pour inconnue une fonction : celles de la forme <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math> ont des solutions exponentielles, et une condition initiale en désigne une seule.</p>
+<section>
+<h2>Les primitives</h2>
+<div class="encadre"><strong>Définition</strong><math><mi>F</mi></math> est une primitive de <math><mi>f</mi></math> sur un intervalle si <math><mi>F</mi><mo>′</mo><mo>=</mo><mi>f</mi></math>. Deux primitives d’une même fonction diffèrent d’une constante.</div>
+<div class="tableau"><table><thead><tr><th>Fonction</th><th>Une primitive</th></tr></thead><tbody><tr><td><math><msup><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msup></math> (<math><mi>n</mi><mo>≠</mo><mo>−</mo><mn>1</mn></math>)</td><td><math><mfrac><mrow><msup><mrow><mi>x</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac></math></td></tr><tr><td><math><mfrac><mrow><mn>1</mn></mrow><mrow><mi>x</mi></mrow></mfrac></math> (<math><mi>x</mi><mo>&gt;</mo><mn>0</mn></math>)</td><td><math><mrow><mi mathvariant="normal">ln</mi><mi>x</mi></mrow></math></td></tr><tr><td><math><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup></math></td><td><math><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mi>a</mi></mrow></mfrac><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup></mrow></math></td></tr><tr><td><math><mrow><mi>u</mi><mo>′</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>u</mi></mrow></msup></mrow></math></td><td><math><msup><mrow><mi>e</mi></mrow><mrow><mi>u</mi></mrow></msup></math></td></tr><tr><td><math><mfrac><mrow><mi>u</mi><mo>′</mo></mrow><mrow><mi>u</mi></mrow></mfrac></math> (<math><mi>u</mi><mo>&gt;</mo><mn>0</mn></math>)</td><td><math><mrow><mi mathvariant="normal">ln</mi><mi>u</mi></mrow></math></td></tr><tr><td><math><mrow><mi>u</mi><mo>′</mo><msup><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msup></mrow></math></td><td><math><mfrac><mrow><msup><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac></math></td></tr><tr><td><math><mrow><mi mathvariant="normal">cos</mi><mi>x</mi></mrow></math></td><td><math><mrow><mi mathvariant="normal">sin</mi><mi>x</mi></mrow></math></td></tr><tr><td><math><mrow><mi mathvariant="normal">sin</mi><mi>x</mi></mrow></math></td><td><math><mrow><mo>−</mo><mi mathvariant="normal">cos</mi><mi>x</mi></mrow></math></td></tr></tbody></table></div>
+</section>
+<section>
+<h2>Les équations différentielles</h2>
+<div class="encadre"><strong>y' = ay</strong>Les solutions de <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi></math> sont les fonctions <math><mrow><mi>x</mi><mo>↦</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup></mrow></math>, où <math><mi>C</mi></math> est un réel quelconque.</div>
+<div class="encadre"><strong>y' = ay + b</strong>Pour <math><mi>a</mi><mo>≠</mo><mn>0</mn></math>, les solutions de <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math> sont les fonctions <math><mrow><mi>x</mi><mo>↦</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>. La fonction constante <math><mrow><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math> en est la solution particulière.</div>
+<p>Pour <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>f</mi></math>, on cherche une solution particulière <math><mi>g</mi></math> (souvent de la forme suggérée par l’énoncé) ; les solutions sont alors <math><mrow><mi>x</mi><mo>↦</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup><mo>+</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></math>.</p>
+</section>
+<section>
+<h2>Avec une condition initiale</h2>
+<figure class="schema" style="max-width:375px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="Plusieurs courbes de solutions de l’équation y′ = −2y + 6, de la forme C e puissance −2x, plus 3. Toutes se rapprochent de la droite horizontale y = 3. Celle qui passe par le point (0 ; 1) est surlignée." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220"><line x1="19" y1="190" x2="286.4" y2="190" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="292,190 285.7,193 285.7,187" fill="currentColor"/><line x1="40" y1="205" x2="40" y2="27.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="40,22 43,28.3 37,28.3" fill="currentColor"/><text x="288" y="183" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">x</text><text x="50" y="26" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">y</text><line x1="110" y1="187" x2="110" y2="193" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="110" y="206" font-size="11" text-anchor="middle" fill="#d15c3e">1</text><line x1="180" y1="187" x2="180" y2="193" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="180" y="206" font-size="11" text-anchor="middle" fill="#d15c3e">2</text><line x1="250" y1="187" x2="250" y2="193" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="250" y="206" font-size="11" text-anchor="middle" fill="#d15c3e">3</text><line x1="37" y1="160" x2="43" y2="160" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="164" font-size="11" text-anchor="end" fill="#d15c3e">1</text><line x1="37" y1="130" x2="43" y2="130" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="134" font-size="11" text-anchor="end" fill="#d15c3e">2</text><line x1="37" y1="100" x2="43" y2="100" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="104" font-size="11" text-anchor="end" fill="#d15c3e">3</text><line x1="37" y1="70" x2="43" y2="70" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="74" font-size="11" text-anchor="end" fill="#d15c3e">4</text><line x1="37" y1="40" x2="43" y2="40" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="44" font-size="11" text-anchor="end" fill="#d15c3e">5</text><text x="33" y="205" font-size="11" text-anchor="end" fill="#d15c3e">0</text><line x1="40" y1="100" x2="285" y2="100" stroke="#d15c3e" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="5 4"/><polyline points="40,40 43,44.9 46,49.4 48.9,53.5 51.9,57.3 54.9,60.8 57.9,64 60.8,66.9 63.8,69.6 66.8,72.1 69.8,74.4 72.7,76.4 75.7,78.4 78.7,80.1 81.7,81.7 84.6,83.2 87.6,84.6 90.6,85.9 93.5,87 96.5,88.1 99.5,89 102.5,89.9 105.5,90.8 108.4,91.5 111.4,92.2 114.4,92.8 117.3,93.4 120.3,94 123.3,94.4 126.3,94.9 129.2,95.3 132.2,95.7 135.2,96 138.2,96.4 141.1,96.7 144.1,96.9 147.1,97.2 150.1,97.4 153,97.6 156,97.8 159,98 162,98.2 164.9,98.3 167.9,98.4 170.9,98.6 173.9,98.7 176.8,98.8 179.8,98.9 182.8,99 185.8,99.1 188.8,99.1 191.7,99.2 194.7,99.3 197.7,99.3 200.7,99.4 203.6,99.4 206.6,99.5 209.6,99.5 212.5,99.6 215.5,99.6 218.5,99.6 221.5,99.7 224.4,99.7 227.4,99.7 230.4,99.7 233.4,99.8 236.4,99.8 239.3,99.8 242.3,99.8 245.3,99.8 248.2,99.8 251.2,99.9 254.2,99.9 257.2,99.9 260.1,99.9 263.1,99.9 266.1,99.9 269.1,99.9 272,99.9 275,99.9 278,99.9" fill="none" stroke="#d15c3e" stroke-width="1.3" stroke-linejoin="round"/><polyline points="40,70 43,72.4 46,74.7 48.9,76.8 51.9,78.6 54.9,80.4 57.9,82 60.8,83.5 63.8,84.8 66.8,86 69.8,87.2 72.7,88.2 75.7,89.2 78.7,90.1 81.7,90.9 84.6,91.6 87.6,92.3 90.6,92.9 93.5,93.5 96.5,94 99.5,94.5 102.5,95 105.5,95.4 108.4,95.8 111.4,96.1 114.4,96.4 117.3,96.7 120.3,97 123.3,97.2 126.3,97.4 129.2,97.7 132.2,97.8 135.2,98 138.2,98.2 141.1,98.3 144.1,98.5 147.1,98.6 150.1,98.7 153,98.8 156,98.9 159,99 162,99.1 164.9,99.2 167.9,99.2 170.9,99.3 173.9,99.3 176.8,99.4 179.8,99.4 182.8,99.5 185.8,99.5 188.8,99.6 191.7,99.6 194.7,99.6 197.7,99.7 200.7,99.7 203.6,99.7 206.6,99.7 209.6,99.8 212.5,99.8 215.5,99.8 218.5,99.8 221.5,99.8 224.4,99.8 227.4,99.9 230.4,99.9 233.4,99.9 236.4,99.9 239.3,99.9 242.3,99.9 245.3,99.9 248.2,99.9 251.2,99.9 254.2,99.9 257.2,99.9 260.1,99.9 263.1,99.9 266.1,100 269.1,100 272,100 275,100 278,100" fill="none" stroke="#d15c3e" stroke-width="1.3" stroke-linejoin="round"/><polyline points="40,130 43,127.6 46,125.3 48.9,123.2 51.9,121.4 54.9,119.6 57.9,118 60.8,116.5 63.8,115.2 66.8,114 69.8,112.8 72.7,111.8 75.7,110.8 78.7,109.9 81.7,109.1 84.6,108.4 87.6,107.7 90.6,107.1 93.5,106.5 96.5,106 99.5,105.5 102.5,105 105.5,104.6 108.4,104.2 111.4,103.9 114.4,103.6 117.3,103.3 120.3,103 123.3,102.8 126.3,102.6 129.2,102.3 132.2,102.2 135.2,102 138.2,101.8 141.1,101.7 144.1,101.5 147.1,101.4 150.1,101.3 153,101.2 156,101.1 159,101 162,100.9 164.9,100.8 167.9,100.8 170.9,100.7 173.9,100.7 176.8,100.6 179.8,100.6 182.8,100.5 185.8,100.5 188.8,100.4 191.7,100.4 194.7,100.4 197.7,100.3 200.7,100.3 203.6,100.3 206.6,100.3 209.6,100.2 212.5,100.2 215.5,100.2 218.5,100.2 221.5,100.2 224.4,100.2 227.4,100.1 230.4,100.1 233.4,100.1 236.4,100.1 239.3,100.1 242.3,100.1 245.3,100.1 248.2,100.1 251.2,100.1 254.2,100.1 257.2,100.1 260.1,100.1 263.1,100.1 266.1,100 269.1,100 272,100 275,100 278,100" fill="none" stroke="#d15c3e" stroke-width="1.3" stroke-linejoin="round"/><polyline points="40,190 43,182.7 46,175.9 48.9,169.7 51.9,164.1 54.9,158.8 57.9,154 60.8,149.6 63.8,145.6 66.8,141.9 69.8,138.5 72.7,135.3 75.7,132.5 78.7,129.8 81.7,127.4 84.6,125.1 87.6,123.1 90.6,121.2 93.5,119.5 96.5,117.9 99.5,116.4 102.5,115.1 105.5,113.9 108.4,112.7 111.4,111.7 114.4,110.7 117.3,109.9 120.3,109.1 123.3,108.3 126.3,107.7 129.2,107 132.2,106.5 135.2,105.9 138.2,105.4 141.1,105 144.1,104.6 147.1,104.2 150.1,103.9 153,103.6 156,103.3 159,103 162,102.8 164.9,102.5 167.9,102.3 170.9,102.1 173.9,102 176.8,101.8 179.8,101.7 182.8,101.5 185.8,101.4 188.8,101.3 191.7,101.2 194.7,101.1 197.7,101 200.7,100.9 203.6,100.8 206.6,100.8 209.6,100.7 212.5,100.7 215.5,100.6 218.5,100.5 221.5,100.5 224.4,100.5 227.4,100.4 230.4,100.4 233.4,100.4 236.4,100.3 239.3,100.3 242.3,100.3 245.3,100.3 248.2,100.2 251.2,100.2 254.2,100.2 257.2,100.2 260.1,100.2 263.1,100.2 266.1,100.1 269.1,100.1 272,100.1 275,100.1 278,100.1" fill="none" stroke="#d15c3e" stroke-width="1.3" stroke-linejoin="round"/><polyline points="40,160 43,155.1 46,150.6 48.9,146.5 51.9,142.7 54.9,139.2 57.9,136 60.8,133.1 63.8,130.4 66.8,127.9 69.8,125.6 72.7,123.6 75.7,121.6 78.7,119.9 81.7,118.3 84.6,116.8 87.6,115.4 90.6,114.1 93.5,113 96.5,111.9 99.5,111 102.5,110.1 105.5,109.2 108.4,108.5 111.4,107.8 114.4,107.2 117.3,106.6 120.3,106 123.3,105.6 126.3,105.1 129.2,104.7 132.2,104.3 135.2,104 138.2,103.6 141.1,103.3 144.1,103.1 147.1,102.8 150.1,102.6 153,102.4 156,102.2 159,102 162,101.8 164.9,101.7 167.9,101.6 170.9,101.4 173.9,101.3 176.8,101.2 179.8,101.1 182.8,101 185.8,100.9 188.8,100.9 191.7,100.8 194.7,100.7 197.7,100.7 200.7,100.6 203.6,100.6 206.6,100.5 209.6,100.5 212.5,100.4 215.5,100.4 218.5,100.4 221.5,100.3 224.4,100.3 227.4,100.3 230.4,100.3 233.4,100.2 236.4,100.2 239.3,100.2 242.3,100.2 245.3,100.2 248.2,100.2 251.2,100.1 254.2,100.1 257.2,100.1 260.1,100.1 263.1,100.1 266.1,100.1 269.1,100.1 272,100.1 275,100.1 278,100.1" fill="none" stroke="#acce57" stroke-width="2.4" stroke-linejoin="round"/><circle cx="40" cy="160" r="4" fill="#acce57"/><text x="285" y="93" font-size="11" text-anchor="end" fill="#d15c3e">y = 3</text><text x="49" y="164" font-size="11" text-anchor="start" fill="#acce57" font-weight="bold">(0 ; 1)</text></svg><figcaption>Les solutions de y' = −2y + 6 tendent toutes vers 3 ; une seule passe par (0 ; 1).</figcaption></figure>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Résous <math><mi>y</mi><mo>′</mo><mo>=</mo><mo>−</mo><mn>2</mn><mi>y</mi><mo>+</mo><mn>6</mn></math> avec <math><mi>y</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></math>.</p><p>Ici <math><mi>a</mi><mo>=</mo><mo>−</mo><mn>2</mn></math> et <math><mi>b</mi><mo>=</mo><mn>6</mn></math> : les solutions sont <math><mrow><mi>y</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>2</mn><mi>x</mi></mrow></msup><mo>+</mo><mn>3</mn></mrow></math>. La condition <math><mi>y</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mi>C</mi><mo>+</mo><mn>3</mn><mo>=</mo><mn>1</mn></math> donne <math><mi>C</mi><mo>=</mo><mo>−</mo><mn>2</mn></math>, donc <math><mrow><mi>y</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><mn>2</mn><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>2</mn><mi>x</mi></mrow></msup><mo>+</mo><mn>3</mn></mrow></math>. Vérification : <math><mrow><mi>y</mi><mo>′</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>4</mn><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>2</mn><mi>x</mi></mrow></msup></mrow></math> et <math><mrow><mo>−</mo><mn>2</mn><mi>y</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mn>6</mn><mo>=</mo><mn>4</mn><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>2</mn><mi>x</mi></mrow></msup><mo>−</mo><mn>6</mn><mo>+</mo><mn>6</mn><mo>=</mo><mn>4</mn><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>2</mn><mi>x</mi></mrow></msup></mrow></math>.</p></div>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li><math><mi>F</mi><mo>′</mo><mo>=</mo><mi>f</mi></math> ; deux primitives diffèrent d’une constante.</li><li><math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi></math> : <math><mrow><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup></mrow></math>.</li><li><math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math> : <math><mrow><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>x</mi></mrow></msup><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>.</li><li>La condition initiale fixe <math><mi>C</mi></math> ; on vérifie en dérivant.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-tm-6&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · Mathématiques · Terminale</h2>
+  <a href="/fiches/le-calcul-integral-bac-mathematiques">Le calcul intégral</a>
+  <a href="/fiches/les-probabilites-conditionnelles-bac-mathematiques">Les probabilités conditionnelles</a>
+  <a href="/fiches/variables-aleatoires-et-loi-binomiale">Variables aléatoires et loi binomiale</a>
+  <a href="/fiches/sommes-de-variables-aleatoires-et-loi-des-grands-nombres">Sommes de variables aléatoires et loi des grands nombres</a>
+  <a href="/fiches/le-denombrement">Le dénombrement</a>
+  <a href="/fiches/vecteurs-droites-et-plans-de-l-espace">Vecteurs, droites et plans de l’espace</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>

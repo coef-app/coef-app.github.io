@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Les équations différentielles y′ = ay + b · Fiche de révision Physique-chimie et mathématiques, Terminale STI2D · Coef</title>
+<meta name="description" content="Une équation différentielle relie une fonction à sa dérivée. Celles de la forme y' = ay + b décrivent le refroidissement, la charge d’un condensateur, la…">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/les-equations-differentielles-y-ay-b">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-tpcm-3&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/les-equations-differentielles-y-ay-b">
+<meta property="og:title" content="Les équations différentielles y′ = ay + b">
+<meta property="og:description" content="Fiche de révision · Physique-chimie et mathématiques · Terminale STI2D · 11 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Les équations différentielles y′ = ay + b","description":"Une équation différentielle relie une fonction à sa dérivée. Celles de la forme y' = ay + b décrivent le refroidissement, la charge d’un condensateur, la…","url":"https://coef-app.github.io/fiches/les-equations-differentielles-y-ay-b","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"Physique-chimie et mathématiques","educationalLevel":"Terminale STI2D","timeRequired":"PT11M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · Physique-chimie et mathématiques · Terminale STI2D · 11 min</p>
+<h1>Les équations différentielles y′ = ay + b</h1>
+<p class="essentiel">Une équation différentielle relie une fonction à sa dérivée. Celles de la forme <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math> décrivent le refroidissement, la charge d’un condensateur, la vidange d’une cuve : leurs solutions sont des exponentielles qui tendent vers un régime permanent.</p>
+<section>
+<h2>La solution</h2>
+<div class="encadre"><strong>Le théorème</strong>Les solutions de <math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math>, avec <math><mi>a</mi><mo>≠</mo><mn>0</mn></math>, sont les fonctions <math><mrow><mi>y</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>t</mi></mrow></msup><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>, où <math><mi>C</mi></math> est une constante. La condition initiale <math><mrow><mi>y</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><msub><mrow><mi>y</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math> la fixe : <math><mrow><mi>C</mi><mo>=</mo><msub><mrow><mi>y</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>+</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>.</div>
+<ul><li>Si <math><mi>a</mi><mo>&lt;</mo><mn>0</mn></math>, <math><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>t</mi></mrow></msup></math> tend vers 0 : <math><mi>y</mi></math> tend vers <math><mrow><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>, le régime permanent. La constante de temps <math><mrow><mi>τ</mi><mo>=</mo><mo>−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math> ; au bout de <math><mn>5</mn><mi>τ</mi></math>, on y est à 1 % près.</li></ul>
+</section>
+<section>
+<h2>Le refroidissement</h2>
+<ul><li>Selon la loi de Newton, <math><mrow><mi>θ</mi><mo>′</mo><mo>=</mo><mo>−</mo><mi>k</mi><mo stretchy="false">(</mo><mi>θ</mi><mo>−</mo><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> : la température se rapproche de celle du milieu d’autant plus vite que l’écart est grand. Ici <math><mi>a</mi><mo>=</mo><mo>−</mo><mi>k</mi></math> et <math><mrow><mi>b</mi><mo>=</mo><mi>k</mi><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub></mrow></math>, d’où <math><mrow><mi>θ</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo>+</mo><mo stretchy="false">(</mo><msub><mrow><mi>θ</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>−</mo><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mi>k</mi><mi>t</mi></mrow></msup></mrow></math>.</li></ul>
+<figure class="schema" style="max-width:375px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="La température d’une boisson qui refroidit, solution de l’équation différentielle : partie de 80 °C, elle descend vite, puis de plus en plus lentement, vers la température extérieure, 20 °C, une asymptote en pointillés. À 10 minutes, elle vaut environ 42 °C." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><line x1="33.6" y1="168" x2="290.5" y2="168" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="296,168 289.5,171 289.5,165" fill="currentColor"/><line x1="40" y1="173.1" x2="40" y2="20.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="40,15 43,21.5 37,21.5" fill="currentColor"/><line x1="104" y1="165" x2="104" y2="171" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="104" y="184" font-size="11" text-anchor="middle" fill="#d15c3e">10</text><line x1="168" y1="165" x2="168" y2="171" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="168" y="184" font-size="11" text-anchor="middle" fill="#d15c3e">20</text><line x1="232" y1="165" x2="232" y2="171" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="232" y="184" font-size="11" text-anchor="middle" fill="#d15c3e">30</text><line x1="37" y1="134" x2="43" y2="134" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="138" font-size="11" text-anchor="end" fill="#d15c3e">20</text><line x1="37" y1="32" x2="43" y2="32" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><text x="33" y="36" font-size="11" text-anchor="end" fill="#d15c3e">80</text><text x="296" y="198" font-size="10" text-anchor="end" fill="#d15c3e">t (min)</text><text x="48" y="14" font-size="10" text-anchor="start" fill="#d15c3e">θ (°C)</text><line x1="40" y1="134" x2="283.2" y2="134" stroke="#d15c3e" stroke-width="1" stroke-linecap="round" stroke-dasharray="5 4"/><polyline points="40,32 42.7,36.2 45.4,40.3 48.1,44.1 50.8,47.9 53.5,51.4 56.2,54.8 58.9,58.1 61.6,61.2 64.3,64.2 67,67.1 69.7,69.9 72.4,72.5 75.1,75.1 77.8,77.5 80.5,79.9 83.2,82.1 85.9,84.2 88.6,86.3 91.3,88.3 94,90.2 96.7,92 99.4,93.7 102.2,95.4 104.9,97 107.6,98.5 110.3,100 113,101.4 115.7,102.7 118.4,104 121.1,105.3 123.8,106.4 126.5,107.6 129.2,108.7 131.9,109.7 134.6,110.7 137.3,111.7 140,112.6 142.7,113.5 145.4,114.3 148.1,115.2 150.8,115.9 153.5,116.7 156.2,117.4 158.9,118.1 161.6,118.7 164.3,119.4 167,120 169.7,120.6 172.4,121.1 175.1,121.6 177.8,122.2 180.5,122.6 183.2,123.1 185.9,123.6 188.6,124 191.3,124.4 194,124.8 196.7,125.2 199.4,125.6 202.1,125.9 204.8,126.2 207.5,126.6 210.2,126.9 212.9,127.2 215.6,127.4 218.3,127.7 221,128 223.8,128.2 226.5,128.5 229.2,128.7 231.9,128.9 234.6,129.1 237.3,129.3 240,129.5 242.7,129.7 245.4,129.9 248.1,130 250.8,130.2 253.5,130.4 256.2,130.5 258.9,130.7 261.6,130.8 264.3,130.9 267,131.1 269.7,131.2 272.4,131.3 275.1,131.4 277.8,131.5 280.5,131.6 283.2,131.7" fill="none" stroke="#acce57" stroke-width="2.4" stroke-linejoin="round"/><line x1="40" y1="32" x2="91.2" y2="113.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/><text x="283.2" y="148" font-size="10" text-anchor="end" fill="#d15c3e">θ ext = 20 °C</text><circle cx="104" cy="96.5" r="3.4" fill="currentColor"/><text x="110" y="90.5" font-size="10" text-anchor="start" fill="currentColor" font-weight="bold">42 °C à 10 min</text></svg><figcaption>La température tend vers celle du milieu, de plus en plus lentement.</figcaption></figure>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Une boisson à 80 °C refroidit dans une pièce à 20 °C, avec <math><mi>k</mi><mo>=</mo><mn>0,1</mn></math> par minute. Quelle est sa température au bout de 10 minutes ?</p><p><math><mrow><mi>θ</mi><mo stretchy="false">(</mo><mn>10</mn><mo stretchy="false">)</mo><mo>=</mo><mn>20</mn><mo>+</mo><mn>60</mn><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>≈</mo><mn>20</mn><mo>+</mo><mn>22,1</mn><mo>=</mo><mn>42,1</mn></mrow></math> °C.</p></div>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li><math><mi>y</mi><mo>′</mo><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></math> : <math><mrow><mi>y</mi><mo>=</mo><mi>C</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>a</mi><mi>t</mi></mrow></msup><mo>−</mo><mfrac><mrow><mi>b</mi></mrow><mrow><mi>a</mi></mrow></mfrac></mrow></math>.</li><li>La condition initiale fixe <math><mi>C</mi></math>.</li><li>Refroidissement : <math><mrow><mi>θ</mi><mo>=</mo><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo>+</mo><mo stretchy="false">(</mo><msub><mrow><mi>θ</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>−</mo><msub><mrow><mi>θ</mi></mrow><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mo>−</mo><mi>k</mi><mi>t</mi></mrow></msup></mrow></math>.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-tpcm-3&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · Physique-chimie et mathématiques · Terminale STI2D</h2>
+  <a href="/fiches/l-etude-de-fonctions-exponentielle-et-logarithme">L’étude de fonctions : exponentielle et logarithme</a>
+  <a href="/fiches/le-calcul-integral-bac-sti2d-physique-chimie-et-mathematiques">Le calcul intégral</a>
+  <a href="/fiches/les-nombres-complexes">Les nombres complexes</a>
+  <a href="/fiches/l-energie-electrique-et-son-stockage">L’énergie électrique et son stockage</a>
+  <a href="/fiches/l-oxydoreduction-et-les-piles">L’oxydoréduction et les piles</a>
+  <a href="/fiches/les-ondes-electromagnetiques">Les ondes électromagnétiques</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>

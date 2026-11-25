@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Le calcul intégral · Fiche de révision Mathématiques, Terminale · Coef</title>
+<meta name="description" content="L’intégrale d’une fonction positive sur [a ; b] est l’aire sous sa courbe. Elle se calcule avec une primitive : ∫ de a à b f(x) dx = F(b) - F(a).">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/le-calcul-integral-bac-mathematiques">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-tm-7&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/le-calcul-integral-bac-mathematiques">
+<meta property="og:title" content="Le calcul intégral">
+<meta property="og:description" content="Fiche de révision · Mathématiques · Terminale · 12 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Le calcul intégral","description":"L’intégrale d’une fonction positive sur [a ; b] est l’aire sous sa courbe. Elle se calcule avec une primitive : ∫ de a à b f(x) dx = F(b) - F(a).","url":"https://coef-app.github.io/fiches/le-calcul-integral-bac-mathematiques","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"Mathématiques","educationalLevel":"Terminale","timeRequired":"PT12M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · Mathématiques · Terminale · 12 min</p>
+<h1>Le calcul intégral</h1>
+<p class="essentiel">L’intégrale d’une fonction positive sur <math><mo stretchy="false">[</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false">]</mo></math> est l’aire sous sa courbe. Elle se calcule avec une primitive : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></math>.</p>
+<section>
+<h2>La définition</h2>
+<figure class="schema" style="max-width:375px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="Une courbe au-dessus de l’axe des abscisses. La surface comprise entre la courbe, l’axe des abscisses et les deux droites verticales x = a et x = b est coloriée : son aire est l’intégrale de a à b de f." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210"><line x1="15" y1="180" x2="294.4" y2="180" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="300,180 293.7,183 293.7,177" fill="currentColor"/><line x1="30" y1="192" x2="30" y2="29.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="30,24 33,30.3 27,30.3" fill="currentColor"/><text x="296" y="173" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">x</text><text x="40" y="28" font-size="13" text-anchor="start" fill="currentColor" font-style="italic">y</text><polygon points="80,180 80,137.2 82.7,134.9 85.3,132.7 88,130.4 90.7,128.2 93.3,126 96,123.9 98.7,121.8 101.3,119.7 104,117.7 106.7,115.8 109.3,113.9 112,112 114.7,110.3 117.3,108.5 120,106.9 122.7,105.3 125.3,103.8 128,102.4 130.7,101 133.3,99.7 136,98.5 138.7,97.3 141.3,96.3 144,95.3 146.7,94.3 149.3,93.5 152,92.7 154.7,92 157.3,91.4 160,90.8 162.7,90.3 165.3,89.9 168,89.5 170.7,89.2 173.3,88.9 176,88.7 178.7,88.5 181.3,88.4 184,88.3 186.7,88.3 189.3,88.3 192,88.3 194.7,88.3 197.3,88.4 200,88.5 202.7,88.5 205.3,88.6 208,88.7 210.7,88.7 213.3,88.8 216,88.8 218.7,88.8 221.3,88.8 224,88.7 226.7,88.6 229.3,88.4 232,88.2 234.7,88 237.3,87.7 240,87.3 240,180" fill="#acce57" fill-opacity="0.22" stroke="#acce57" stroke-width="0" stroke-linejoin="round"/><polyline points="35,173.2 38.1,171.1 41.2,168.9 44.4,166.7 47.5,164.3 50.6,161.9 53.8,159.4 56.9,156.9 60,154.3 63.1,151.6 66.2,149 69.4,146.3 72.5,143.6 75.6,140.9 78.8,138.3 81.9,135.6 85,132.9 88.1,130.3 91.2,127.7 94.4,125.2 97.5,122.7 100.6,120.3 103.8,117.9 106.9,115.6 110,113.4 113.1,111.3 116.2,109.2 119.4,107.3 122.5,105.4 125.6,103.6 128.8,102 131.9,100.4 135,98.9 138.1,97.6 141.2,96.3 144.4,95.1 147.5,94.1 150.6,93.1 153.8,92.2 156.9,91.5 160,90.8 163.1,90.2 166.2,89.7 169.4,89.3 172.5,89 175.6,88.7 178.8,88.5 181.9,88.4 185,88.3 188.1,88.3 191.2,88.3 194.4,88.3 197.5,88.4 200.6,88.5 203.8,88.6 206.9,88.6 210,88.7 213.1,88.8 216.2,88.8 219.4,88.8 222.5,88.7 225.6,88.6 228.8,88.5 231.9,88.3 235,87.9 238.1,87.5 241.2,87 244.4,86.5 247.5,85.7 250.6,84.9 253.7,84 256.9,82.9 260,81.7 263.1,80.3 266.2,78.8 269.4,77.1 272.5,75.3 275.6,73.3 278.8,71.2 281.9,68.8 285,66.3" fill="none" stroke="#acce57" stroke-width="2.4" stroke-linejoin="round"/><line x1="80" y1="180" x2="80" y2="137.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="240" y1="180" x2="240" y2="87.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><text x="80" y="196" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">a</text><text x="240" y="196" font-size="13" text-anchor="middle" fill="currentColor" font-style="italic">b</text><text x="283" y="58.3" font-size="11" text-anchor="end" fill="#d15c3e">courbe de f</text></svg><figcaption>L’aire coloriée, en unités d’aire, vaut l’intégrale de a à b de f.</figcaption></figure>
+<div class="encadre"><strong>Intégrale</strong>Pour <math><mi>f</mi></math> continue et positive sur <math><mo stretchy="false">[</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false">]</mo></math>, <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></math> est l’aire, en unités d’aire, du domaine compris entre la courbe, l’axe des abscisses et les droites <math><mi>x</mi><mo>=</mo><mi>a</mi></math> et <math><mi>x</mi><mo>=</mo><mi>b</mi></math>. Si <math><mi>F</mi></math> est une primitive de <math><mi>f</mi></math> : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mo stretchy="false">[</mo><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msubsup><mrow><mo stretchy="false">]</mo></mrow><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></math>.</div>
+</section>
+<section>
+<h2>Les propriétés</h2>
+<ul><li>Linéarité : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mo stretchy="false">(</mo><mi>α</mi><mi>f</mi><mo>+</mo><mi>β</mi><mi>g</mi><mo stretchy="false">)</mo><mo>=</mo><mi>α</mi><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo>+</mo><mi>β</mi><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>g</mi></mrow></math>.</li><li>Chasles : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo>+</mo><msubsup><mo movablelimits="true">∫</mo><mrow><mi>b</mi></mrow><mrow><mi>c</mi></mrow></msubsup><mi>f</mi><mo>=</mo><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>c</mi></mrow></msubsup><mi>f</mi></mrow></math>.</li><li>Positivité : si <math><mi>f</mi><mo>≥</mo><mn>0</mn></math> sur <math><mo stretchy="false">[</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false">]</mo></math> avec <math><mi>a</mi><mo>≤</mo><mi>b</mi></math>, alors <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo>≥</mo><mn>0</mn></mrow></math> ; et si <math><mi>f</mi><mo>≤</mo><mi>g</mi></math>, <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo>≤</mo><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>g</mi></mrow></math>.</li><li>L’aire entre deux courbes, quand <math><mi>f</mi><mo>≥</mo><mi>g</mi></math> sur <math><mo stretchy="false">[</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false">]</mo></math> : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></math>.</li><li>La valeur moyenne de <math><mi>f</mi></math> sur <math><mo stretchy="false">[</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false">]</mo></math> : <math><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mi>b</mi><mo>−</mo><mi>a</mi></mrow></mfrac><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></math>.</li></ul>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Calcule <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mn>0</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo stretchy="false">(</mo><mn>3</mn><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></math>.</p><p>Une primitive est <math><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msup><mo>−</mo><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>+</mo><mi>x</mi></mrow></math>. Donc l’intégrale vaut <math><mi>F</mi><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>8</mn><mo>−</mo><mn>4</mn><mo>+</mo><mn>2</mn><mo stretchy="false">)</mo><mo>−</mo><mn>0</mn><mo>=</mo><mn>6</mn></math>.</p></div>
+</section>
+<section>
+<h2>L’intégration par parties</h2>
+<div class="encadre"><strong>Formule</strong>Pour <math><mi>u</mi></math> et <math><mi>v</mi></math> dérivables, de dérivées continues : <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>u</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>v</mi><mo>′</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>v</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msubsup><mrow><mo stretchy="false">]</mo></mrow><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mo>−</mo><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>u</mi><mo>′</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>v</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></math>.</div>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Calcule <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mn>0</mn></mrow><mrow><mn>1</mn></mrow></msubsup><mi>x</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi></mrow></math>.</p><p>On pose <math><mi>u</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></math> et <math><mrow><mi>v</mi><mo>′</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup></mrow></math>, donc <math><mi>u</mi><mo>′</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></math> et <math><mrow><mi>v</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup></mrow></math>. Alors <math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mn>0</mn></mrow><mrow><mn>1</mn></mrow></msubsup><mi>x</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mo stretchy="false">[</mo><mi>x</mi><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup><msubsup><mrow><mo stretchy="false">]</mo></mrow><mrow><mn>0</mn></mrow><mrow><mn>1</mn></mrow></msubsup><mo>−</mo><msubsup><mo movablelimits="true">∫</mo><mrow><mn>0</mn></mrow><mrow><mn>1</mn></mrow></msubsup><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mi>e</mi><mo>−</mo><mo stretchy="false">[</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>x</mi></mrow></msup><msubsup><mrow><mo stretchy="false">]</mo></mrow><mrow><mn>0</mn></mrow><mrow><mn>1</mn></mrow></msubsup><mo>=</mo><mi>e</mi><mo>−</mo><mo stretchy="false">(</mo><mi>e</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow></math>.</p></div>
+<p>On choisit pour <math><mi>u</mi></math> la fonction qui se simplifie en la dérivant (<math><mi>x</mi></math>, ou <math><mrow><mi mathvariant="normal">ln</mi><mi>x</mi></mrow></math>), et pour <math><mi>v</mi><mo>′</mo></math> celle dont on connaît une primitive.</p>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li><math><mrow><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></math>.</li><li>Pour une fonction positive, c’est une aire, en unités d’aire.</li><li>Valeur moyenne : <math><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mi>b</mi><mo>−</mo><mi>a</mi></mrow></mfrac><msubsup><mo movablelimits="true">∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi></mrow></math>.</li><li>Par parties : <math><mrow><mo movablelimits="true">∫</mo><mi>u</mi><mi>v</mi><mo>′</mo><mo>=</mo><mo stretchy="false">[</mo><mi>u</mi><mi>v</mi><mo stretchy="false">]</mo><mo>−</mo><mo movablelimits="true">∫</mo><mi>u</mi><mo>′</mo><mi>v</mi></mrow></math>.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-tm-7&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · Mathématiques · Terminale</h2>
+  <a href="/fiches/les-probabilites-conditionnelles-bac-mathematiques">Les probabilités conditionnelles</a>
+  <a href="/fiches/variables-aleatoires-et-loi-binomiale">Variables aléatoires et loi binomiale</a>
+  <a href="/fiches/sommes-de-variables-aleatoires-et-loi-des-grands-nombres">Sommes de variables aléatoires et loi des grands nombres</a>
+  <a href="/fiches/le-denombrement">Le dénombrement</a>
+  <a href="/fiches/vecteurs-droites-et-plans-de-l-espace">Vecteurs, droites et plans de l’espace</a>
+  <a href="/fiches/orthogonalite-et-produit-scalaire-dans-l-espace">Orthogonalité et produit scalaire dans l’espace</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>

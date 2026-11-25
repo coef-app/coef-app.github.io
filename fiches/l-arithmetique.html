@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>L’arithmétique · Fiche de révision Mathématiques, Brevet · Coef</title>
+<meta name="description" content="L’arithmétique étudie les nombres entiers : leurs diviseurs, leurs multiples, et les nombres premiers, avec lesquels tout entier se décompose.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/l-arithmetique">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-bm-15&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/l-arithmetique">
+<meta property="og:title" content="L’arithmétique">
+<meta property="og:description" content="Fiche de révision · Mathématiques · Brevet · 9 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"L’arithmétique","description":"L’arithmétique étudie les nombres entiers : leurs diviseurs, leurs multiples, et les nombres premiers, avec lesquels tout entier se décompose.","url":"https://coef-app.github.io/fiches/l-arithmetique","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"Mathématiques","educationalLevel":"Brevet","timeRequired":"PT9M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · Mathématiques · Brevet · 9 min</p>
+<h1>L’arithmétique</h1>
+<p class="essentiel">L’arithmétique étudie les nombres entiers : leurs diviseurs, leurs multiples, et les nombres premiers, avec lesquels tout entier se décompose.</p>
+<section>
+<h2>Diviseurs et multiples</h2>
+<div class="encadre"><strong>Définition</strong>Pour deux entiers <math><mi>a</mi></math> et <math><mi>b</mi></math> (<math><mi>b</mi></math> non nul), <math><mi>a</mi></math> est un multiple de <math><mi>b</mi></math>, et <math><mi>b</mi></math> un diviseur de <math><mi>a</mi></math>, s’il existe un entier <math><mi>k</mi></math> tel que <math><mi>a</mi><mo>=</mo><mi>b</mi><mo>×</mo><mi>k</mi></math> : la division de <math><mi>a</mi></math> par <math><mi>b</mi></math> tombe juste.</div>
+<p>La division euclidienne de <math><mi>a</mi></math> par <math><mi>b</mi></math> s’écrit <math><mi>a</mi><mo>=</mo><mi>b</mi><mo>×</mo><mi>q</mi><mo>+</mo><mi>r</mi></math>, avec un reste <math><mi>r</mi></math> entre 0 et <math><mi>b</mi><mo>−</mo><mn>1</mn></math> : <math><mn>87</mn><mo>=</mo><mn>6</mn><mo>×</mo><mn>14</mn><mo>+</mo><mn>3</mn></math>. Si le reste est nul, <math><mi>b</mi></math> divise <math><mi>a</mi></math>.</p>
+<ul><li>Divisible par 2 : le chiffre des unités est pair.</li><li>Par 3 : la somme des chiffres est divisible par 3.</li><li>Par 5 : le chiffre des unités est 0 ou 5.</li><li>Par 9 : la somme des chiffres est divisible par 9.</li><li>Par 10 : le chiffre des unités est 0.</li></ul>
+</section>
+<section>
+<h2>Les nombres premiers</h2>
+<div class="encadre"><strong>Nombre premier</strong>Un nombre premier a exactement deux diviseurs : 1 et lui-même. Les premiers sont 2, 3, 5, 7, 11, 13, 17, 19, 23, 29… 1 n’est pas premier.</div>
+<figure class="schema" style="max-width:263px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="La décomposition de 360 par divisions successives : 360 divisé par 2 donne 180, par 2 donne 90, par 2 donne 45, par 3 donne 15, par 3 donne 5, par 5 donne 1. Les diviseurs premiers utilisés, 2, 2, 2, 3, 3 et 5, sont écrits à droite du trait." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 190"><line x1="110" y1="14" x2="110" y2="180" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><text x="98" y="30" font-size="15" text-anchor="end" fill="currentColor">360</text><text x="122" y="30" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">2</text><text x="98" y="54" font-size="15" text-anchor="end" fill="currentColor">180</text><text x="122" y="54" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">2</text><text x="98" y="78" font-size="15" text-anchor="end" fill="currentColor">90</text><text x="122" y="78" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">2</text><text x="98" y="102" font-size="15" text-anchor="end" fill="currentColor">45</text><text x="122" y="102" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">3</text><text x="98" y="126" font-size="15" text-anchor="end" fill="currentColor">15</text><text x="122" y="126" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">3</text><text x="98" y="150" font-size="15" text-anchor="end" fill="currentColor">5</text><text x="122" y="150" font-size="15" text-anchor="start" fill="#acce57" font-weight="bold">5</text><text x="98" y="174" font-size="15" text-anchor="end" fill="currentColor">1</text></svg><figcaption>On divise par le plus petit nombre premier possible, jusqu’à obtenir 1.</figcaption></figure>
+<p>Tout entier supérieur ou égal à 2 se décompose d’une seule façon en produit de facteurs premiers : <math><mrow><mn>360</mn><mo>=</mo><msup><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></msup><mo>×</mo><msup><mrow><mn>3</mn></mrow><mrow><mn>2</mn></mrow></msup><mo>×</mo><mn>5</mn></mrow></math>.</p>
+</section>
+<section>
+<h2>À quoi ça sert</h2>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Rends la fraction <math><mfrac><mrow><mn>84</mn></mrow><mrow><mn>126</mn></mrow></mfrac></math> irréductible.</p><p><math><mrow><mn>84</mn><mo>=</mo><msup><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msup><mo>×</mo><mn>3</mn><mo>×</mo><mn>7</mn></mrow></math> et <math><mrow><mn>126</mn><mo>=</mo><mn>2</mn><mo>×</mo><msup><mrow><mn>3</mn></mrow><mrow><mn>2</mn></mrow></msup><mo>×</mo><mn>7</mn></mrow></math>. Leurs facteurs communs donnent <math><mn>2</mn><mo>×</mo><mn>3</mn><mo>×</mo><mn>7</mn><mo>=</mo><mn>42</mn></math> : <math><mrow><mfrac><mrow><mn>84</mn></mrow><mrow><mn>126</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mo>×</mo><mn>42</mn></mrow><mrow><mn>3</mn><mo>×</mo><mn>42</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac></mrow></math>.</p></div>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Un fleuriste a 84 roses et 126 tulipes. Il veut faire le plus grand nombre possible de bouquets identiques, en utilisant toutes les fleurs. Combien de bouquets, et que contient chacun ?</p><p>Le nombre de bouquets doit diviser 84 et 126 : c’est leur plus grand diviseur commun, 42 (vu ci-dessus). Il fait 42 bouquets de <math><mn>84</mn><mo>÷</mo><mn>42</mn><mo>=</mo><mn>2</mn></math> roses et <math><mn>126</mn><mo>÷</mo><mn>42</mn><mo>=</mo><mn>3</mn></math> tulipes.</p></div>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li><math><mi>b</mi></math> divise <math><mi>a</mi></math> quand la division tombe juste.</li><li>2, 3, 5, 9, 10 : les critères de divisibilité.</li><li>Premier : exactement deux diviseurs ; 1 ne l’est pas.</li><li>Décomposition : on divise par 2, 3, 5, 7… jusqu’à 1.</li><li>« Le plus grand nombre de lots identiques » : le plus grand diviseur commun.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-bm-15&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · Mathématiques · Brevet</h2>
+  <a href="/fiches/l-algorithmique-et-scratch">L’algorithmique et Scratch</a>
+  <a href="/fiches/les-nombres-relatifs-et-les-fractions">Les nombres relatifs et les fractions</a>
+  <a href="/fiches/les-puissances-et-la-notation-scientifique">Les puissances et la notation scientifique</a>
+  <a href="/fiches/le-calcul-litteral">Le calcul littéral</a>
+  <a href="/fiches/les-equations-et-les-inequations">Les équations et les inéquations</a>
+  <a href="/fiches/la-proportionnalite-et-les-pourcentages">La proportionnalité et les pourcentages</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>

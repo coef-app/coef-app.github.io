@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Les suites · Fiche de révision Maths de spécialité, Première · Coef</title>
+<meta name="description" content="Une suite associe un nombre u indice n à chaque entier naturel n, par une formule en n ou par récurrence. Arithmétique : on ajoute toujours la même raison r.…">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://coef-app.github.io/fiches/les-suites">
+<link rel="icon" href="/icone.png">
+<link rel="apple-touch-icon" href="/icone.png">
+<meta name="apple-itunes-app" content="app-id=6805438755, app-argument=coef://fiches/fiche-revision?id=f-pm-2&amp;de=partage">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Coef">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://coef-app.github.io/fiches/les-suites">
+<meta property="og:title" content="Les suites">
+<meta property="og:description" content="Fiche de révision · Maths de spécialité · Première · 12 min">
+<meta property="og:image" content="https://coef-app.github.io/icone.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Les suites","description":"Une suite associe un nombre u indice n à chaque entier naturel n, par une formule en n ou par récurrence. Arithmétique : on ajoute toujours la même raison r.…","url":"https://coef-app.github.io/fiches/les-suites","inLanguage":"fr","isAccessibleForFree":true,"learningResourceType":"Fiche de révision","about":"Maths de spécialité","educationalLevel":"Première","timeRequired":"PT12M","publisher":{"@type":"Organization","name":"Coef","url":"https://coef-app.github.io/"}}</script>
+<style>
+:root{--plan:#F3F1EC;--surface:#FFFFFF;--eleve:#F1EFE9;--encre:#0A0A0B;--encre2:#44444B;--discret:#6B6B74;--grille:#E9E7E1;--axe:#C2C1BB;--accent:#0A0A0B;--sur-accent:#FFFFFF;--teinte:#B5872E;--teinte-fond:#eae1d0;--teinte-encre:#795b22;--critique:#be4e3a}
+@media (prefers-color-scheme:dark){:root{--plan:#121212;--surface:#242424;--eleve:#2C2C2C;--encre:#FFFFFF;--encre2:#DCDCDC;--discret:#A6A6A6;--grille:#383838;--axe:#5A5A5A;--accent:#DCDCDC;--sur-accent:#0A0A0B;--teinte:#C99A3F;--teinte-fond:#372d1b;--teinte-encre:#C99A3F;--critique:#d96f5c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plan);color:var(--encre);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
+header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+.surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
+h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
+.essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-0.3px;margin:34px 0 12px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin:0 0 6px}
+li::marker{color:var(--teinte-encre)}
+.encadre{border-left:3px solid var(--teinte);background:var(--teinte-fond);border-radius:6px;padding:12px 16px;margin:0 0 14px}
+.encadre strong{display:block;color:var(--teinte-encre);margin-bottom:4px}
+.exemple{background:var(--surface);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+.exemple strong{display:block;margin-bottom:4px}
+.exemple .enonce{color:var(--discret)}
+.exemple p:last-child{margin-bottom:0}
+.piege strong{color:var(--critique)}
+.etapes{list-style:none;padding:0;counter-reset:etape}
+.etapes li{display:flex;gap:14px;margin:0 0 12px}
+.etapes li::before{counter-increment:etape;content:counter(etape);font-weight:700;font-size:20px;line-height:1.25;color:var(--teinte-encre);min-width:14px}
+.tableau{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:15.5px;min-width:60%}
+th,td{border:1px solid var(--axe);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--grille);font-weight:600}
+pre{background:var(--eleve);border:1px solid var(--grille);border-radius:8px;padding:12px 14px;overflow-x:auto;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:0 0 14px}
+figure{margin:6px 0 16px;text-align:center;color:var(--encre)}
+figure svg{width:100%;height:auto}
+figcaption{color:var(--discret);font-size:14px;margin-top:6px}
+.schema [fill="#acce57"]{fill:var(--teinte)}
+.schema [stroke="#acce57"]{stroke:var(--teinte)}
+.schema [fill="#d15c3e"]{fill:var(--discret)}
+.schema [stroke="#d15c3e"]{stroke:var(--discret)}
+.retenir{border:1.5px solid var(--teinte-encre);border-radius:14px;padding:14px 18px 4px;margin:34px 0 0}
+.retenir h2{margin:0 0 10px;font-size:18px;color:var(--teinte-encre)}
+math{font-size:1.05em}
+.coef{background:var(--surface);border-radius:24px;padding:20px;margin:40px 0 0}
+.coef h2{margin:0 0 8px}
+.coef p{color:var(--encre2)}
+.bouton{display:inline-block;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;border-radius:28px;padding:13px 22px;margin:6px 8px 4px 0}
+.bouton.contour{background:transparent;color:var(--encre);border:1.5px solid var(--axe)}
+.ouvrir{display:inline-block;margin-top:10px;color:var(--discret);font-size:14.5px;font-weight:600}
+.voir{margin:30px 0 0}
+.voir h2{font-size:16px;color:var(--discret);margin:0 0 8px}
+.voir a{display:block;padding:9px 0;font-weight:600;text-decoration:none;color:var(--encre);border-top:1px solid var(--grille)}
+footer.site{margin-top:44px;color:var(--discret);font-size:13px;line-height:1.7}
+footer.site a{color:var(--discret)}
+</style>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="marque" href="/">Coef</a>
+  <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
+</header>
+<article>
+<p class="surtitre">Fiche de révision · Maths de spécialité · Première · 12 min</p>
+<h1>Les suites</h1>
+<p class="essentiel">Une suite associe un nombre <math><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></math> à chaque entier naturel <math><mi>n</mi></math>, par une formule en <math><mi>n</mi></math> ou par récurrence. Arithmétique : on ajoute toujours la même raison <math><mi>r</mi></math>. Géométrique : on multiplie toujours par la même raison <math><mi>q</mi></math>.</p>
+<section>
+<h2>Définir une suite</h2>
+<ul><li>Explicitement : <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></math>, et l’on calcule directement n’importe quel terme. Avec <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow></math>, <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>10</mn></mrow></msub><mo>=</mo><mn>99</mn></mrow></math>.</li><li>Par récurrence : le premier terme et une relation <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math>. Avec <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>=</mo><mn>2</mn></mrow></math> et <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>−</mo><mn>1</mn></mrow></math> : <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>5</mn></mrow></math>, <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>14</mn></mrow></math>, <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>3</mn></mrow></msub><mo>=</mo><mn>41</mn></mrow></math> ; pour <math><msub><mrow><mi>u</mi></mrow><mrow><mn>10</mn></mrow></msub></math>, il faut tous les termes d’avant.</li><li>Dans un repère, une suite se représente par les points de coordonnées <math><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>;</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> : un nuage de points, pas une courbe.</li></ul>
+</section>
+<section>
+<h2>Le sens de variation</h2>
+<div class="encadre"><strong>Définition</strong><math><mrow><mo stretchy="false">(</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> est croissante si <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math> pour tout <math><mi>n</mi></math>, décroissante si <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math> pour tout <math><mi>n</mi></math>.</div>
+<ul><li>On étudie le signe de <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>.</li><li>Si tous les termes sont strictement positifs, on peut comparer <math><mfrac><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></mfrac></math> à 1.</li><li>Si <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></math> et que <math><mi>f</mi></math> est croissante sur <math><mo stretchy="false">[</mo><mn>0</mn><mo>;</mo><mo>+</mo><mi>∞</mi><mo stretchy="false">[</mo></math>, la suite est croissante ; de même pour décroissante.</li></ul>
+<div class="exemple"><strong>Exemple</strong><p class="enonce"><math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>=</mo><mn>5</mn></mrow></math> et <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>+</mo><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>+</mo><mn>1</mn></mrow></math>. Quel est le sens de variation de <math><mrow><mo stretchy="false">(</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> ?</p><p><math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>+</mo><mn>1</mn></mrow></math>, strictement positif pour tout <math><mi>n</mi></math> : la suite est strictement croissante.</p></div>
+</section>
+<section>
+<h2>Les suites arithmétiques</h2>
+<div class="encadre"><strong>Définition et terme général</strong><math><mrow><mo stretchy="false">(</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> est arithmétique de raison <math><mi>r</mi></math> si <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>+</mo><mi>r</mi></mrow></math> pour tout <math><mi>n</mi></math>. Alors <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>+</mo><mi>n</mi><mi>r</mi></mrow></math>, et plus généralement <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>p</mi></mrow></msub><mo>+</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo><mi>r</mi></mrow></math>.</div>
+<ul><li>Elle est croissante si <math><mi>r</mi><mo>&gt;</mo><mn>0</mn></math>, décroissante si <math><mi>r</mi><mo>&lt;</mo><mn>0</mn></math>, et ses points sont alignés.</li><li><math><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mo>⋯</mo><mo>+</mo><mi>n</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></math>.</li><li>Plus généralement, une somme de termes consécutifs vaut le nombre de termes multiplié par la moyenne du premier et du dernier.</li></ul>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">Une location coûte 600 € la première année, puis 15 € de plus chaque année. Combien aura-t-on payé en tout sur 10 ans ?</p><p>C’est une suite arithmétique de premier terme 600 et de raison 15 ; la dixième année coûte <math><mn>600</mn><mo>+</mo><mn>9</mn><mo>×</mo><mn>15</mn><mo>=</mo><mn>735</mn></math> €. Le total vaut <math><mrow><mn>10</mn><mo>×</mo><mfrac><mrow><mn>600</mn><mo>+</mo><mn>735</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo><mn>6675</mn></mrow></math> €.</p></div>
+</section>
+<section>
+<h2>Les suites géométriques</h2>
+<div class="encadre"><strong>Définition et terme général</strong><math><mrow><mo stretchy="false">(</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math> est géométrique de raison <math><mi>q</mi></math> si <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>q</mi><mo>×</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math> pour tout <math><mi>n</mi></math>. Alors <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>×</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi></mrow></msup></mrow></math>, et plus généralement <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>p</mi></mrow></msub><mo>×</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi><mo>−</mo><mi>p</mi></mrow></msup></mrow></math>.</div>
+<ul><li>Avec <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>&gt;</mo><mn>0</mn></mrow></math> : la suite est croissante si <math><mi>q</mi><mo>&gt;</mo><mn>1</mn></math>, décroissante si <math><mn>0</mn><mo>&lt;</mo><mi>q</mi><mo>&lt;</mo><mn>1</mn></math>.</li><li>Si <math><mi>q</mi><mo>≠</mo><mn>1</mn></math> : <math><mrow><mn>1</mn><mo>+</mo><mi>q</mi><mo>+</mo><msup><mrow><mi>q</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi></mrow></msup><mo>=</mo><mfrac><mrow><mrow><mn>1</mn><mo>−</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow></mrow><mrow><mn>1</mn><mo>−</mo><mi>q</mi></mrow></mfrac></mrow></math>.</li><li>Une hausse de <math><mi>t</mi></math> % par an multiplie chaque année par <math><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><mi>t</mi></mrow><mrow><mn>100</mn></mrow></mfrac></mrow></math> : c’est une suite géométrique. Une hausse de 3 % multiplie par 1,03, une baisse de 3 % par 0,97.</li></ul>
+<figure class="schema" style="max-width:413px;margin-left:auto;margin-right:auto"><svg role="img" aria-label="Deux nuages de points, les termes de deux suites placés au-dessus des entiers 0 à 6. À gauche, une suite arithmétique : ses points sont alignés sur une droite en pointillés, chaque terme dépasse le précédent du même écart. À droite, une suite géométrique de raison plus grande que 1 : les points montent de plus en plus vite, les écarts grandissent." xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 172"><line x1="14" y1="130" x2="148.5" y2="130" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="154,130 147.5,133 147.5,127" fill="currentColor"/><line x1="18" y1="134" x2="18" y2="23.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="18,18 21,24.5 15,24.5" fill="currentColor"/><text x="150" y="123" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">n</text><text x="26" y="24" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">uₙ</text><line x1="12.3" y1="123.9" x2="139.6" y2="32.8" stroke="#d15c3e" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="5 4"/><line x1="18" y1="127" x2="18" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="18" cy="119.8" r="3.6" fill="#acce57"/><line x1="37" y1="127" x2="37" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="37" cy="106.2" r="3.6" fill="#acce57"/><line x1="56" y1="127" x2="56" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="56" cy="92.6" r="3.6" fill="#acce57"/><line x1="75" y1="127" x2="75" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="75" cy="79" r="3.6" fill="#acce57"/><line x1="94" y1="127" x2="94" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="94" cy="65.4" r="3.6" fill="#acce57"/><line x1="113" y1="127" x2="113" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="113" cy="51.8" r="3.6" fill="#acce57"/><line x1="132" y1="127" x2="132" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="132" cy="38.2" r="3.6" fill="#acce57"/><text x="84" y="152" font-size="11.5" text-anchor="middle" fill="currentColor" font-weight="bold">arithmétique</text><text x="84" y="166" font-size="10.5" text-anchor="middle" fill="#d15c3e">des points alignés</text><line x1="180" y1="130" x2="314.5" y2="130" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="320,130 313.5,133 313.5,127" fill="currentColor"/><line x1="184" y1="134" x2="184" y2="23.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polygon points="184,18 187,24.5 181,24.5" fill="currentColor"/><text x="316" y="123" font-size="12" text-anchor="middle" fill="currentColor" font-style="italic">n</text><text x="192" y="24" font-size="12" text-anchor="start" fill="currentColor" font-style="italic">uₙ</text><line x1="184" y1="127" x2="184" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="184" cy="121.5" r="3.6" fill="#acce57"/><line x1="203" y1="127" x2="203" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="203" cy="117.2" r="3.6" fill="#acce57"/><line x1="222" y1="127" x2="222" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="222" cy="110.9" r="3.6" fill="#acce57"/><line x1="241" y1="127" x2="241" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="241" cy="101.3" r="3.6" fill="#acce57"/><line x1="260" y1="127" x2="260" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="260" cy="87" r="3.6" fill="#acce57"/><line x1="279" y1="127" x2="279" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="279" cy="65.5" r="3.6" fill="#acce57"/><line x1="298" y1="127" x2="298" y2="133" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="298" cy="33.2" r="3.6" fill="#acce57"/><text x="250" y="152" font-size="11.5" text-anchor="middle" fill="currentColor" font-weight="bold">géométrique, q > 1</text><text x="250" y="166" font-size="10.5" text-anchor="middle" fill="#d15c3e">des écarts qui grandissent</text></svg><figcaption>Les points d’une suite arithmétique sont alignés ; ceux d’une suite géométrique de raison plus grande que 1 montent de plus en plus vite.</figcaption></figure>
+<div class="exemple"><strong>Exemple</strong><p class="enonce">2 000 bactéries doublent chaque heure. Combien sont-elles au bout de 10 heures ? Et combien de bactéries sont nées en tout pendant les 10 heures ?</p><p><math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mn>2000</mn><mo>×</mo><msup><mrow><mn>2</mn></mrow><mrow><mi>n</mi></mrow></msup></mrow></math>, donc <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>10</mn></mrow></msub><mo>=</mo><mn>2000</mn><mo>×</mo><mn>1024</mn></mrow></math>, soit 2 048 000 bactéries. Il en est né <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mn>10</mn></mrow></msub><mo>−</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>=</mo><mn>2000</mn><mo>×</mo><mo stretchy="false">(</mo><msup><mrow><mn>2</mn></mrow><mrow><mn>10</mn></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></math>, soit 2 046 000.</p></div>
+</section>
+<section>
+<h2>Vers la limite</h2>
+<ul><li>Quand <math><mi>n</mi></math> devient très grand, <math><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi></mrow></msup></math> devient aussi grand que l’on veut si <math><mi>q</mi><mo>&gt;</mo><mn>1</mn></math>, et se rapproche de 0 si <math><mn>0</mn><mo>&lt;</mo><mi>q</mi><mo>&lt;</mo><mn>1</mn></math> : la suite tend vers <math><mo>+</mo><mi>∞</mi></math>, ou vers 0.</li><li>Un algorithme de seuil cherche le premier rang <math><mi>n</mi></math> où <math><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></math> dépasse une valeur : on calcule les termes un à un, tant que le seuil n’est pas franchi (la fiche sur l’algorithmique en donne le programme).</li></ul>
+</section>
+<section class="retenir">
+<h2>À retenir</h2>
+<ul><li>Le sens de variation : le signe de <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>.</li><li>Arithmétique : <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>+</mo><mi>n</mi><mi>r</mi></mrow></math> ; <math><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mo>⋯</mo><mo>+</mo><mi>n</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></math>.</li><li>Géométrique : <math><mrow><msub><mrow><mi>u</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>0</mn></mrow></msub><mo>×</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi></mrow></msup></mrow></math> ; <math><mrow><mn>1</mn><mo>+</mo><mi>q</mi><mo>+</mo><mo>⋯</mo><mo>+</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi></mrow></msup><mo>=</mo><mfrac><mrow><mrow><mn>1</mn><mo>−</mo><msup><mrow><mi>q</mi></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow></mrow><mrow><mn>1</mn><mo>−</mo><mi>q</mi></mrow></mfrac></mrow></math>.</li><li>Une hausse de <math><mi>t</mi></math> % : une suite géométrique de raison <math><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><mi>t</mi></mrow><mrow><mn>100</mn></mrow></mfrac></mrow></math>.</li></ul>
+</section>
+</article>
+<aside class="coef" aria-labelledby="titre-coef">
+  <h2 id="titre-coef">Révise avec Coef</h2>
+  <p>Cette fiche vient de Coef, l’app de révisions gratuite et sans publicité&#8239;: des centaines de fiches comme celle-ci, des sujets du brevet et du bac corrigés, et tes moyennes calculées avec les coefficients.</p>
+  <a class="bouton" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger Coef sur l’App Store</a>
+  <a class="bouton contour" href="/android.html">Sur Android : rejoindre le test</a><br>
+  <a class="ouvrir" href="coef://fiches/fiche-revision?id=f-pm-2&amp;de=partage">Déjà sur Coef&#8239;? Ouvrir la fiche</a>
+</aside>
+<nav class="voir" aria-labelledby="titre-voir">
+  <h2 id="titre-voir">Autres fiches · Maths de spécialité · Première</h2>
+  <a href="/fiches/la-derivation">La dérivation</a>
+  <a href="/fiches/la-fonction-exponentielle-premiere-maths">La fonction exponentielle</a>
+  <a href="/fiches/la-trigonometrie-premiere-maths">La trigonométrie</a>
+  <a href="/fiches/le-produit-scalaire-et-la-geometrie-reperee">Le produit scalaire et la géométrie repérée</a>
+  <a href="/fiches/probabilites-conditionnelles-et-variables-aleatoires">Probabilités conditionnelles et variables aléatoires</a>
+  <a href="/fiches/l-algorithmique-en-python">L’algorithmique en Python</a>
+</nav>
+<footer class="site">
+  Coef : révisions et moyennes · <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a><br>
+  <a href="/confidentialite.html">Politique de confidentialité</a> · <a href="/conditions.html">Conditions d’utilisation</a> · <a href="/aide.html">Aide et contact</a><br>
+  Éditeur et directeur de la publication : Noé Guérin — contact : <a href="mailto:coef.app.contact@gmail.com">coef.app.contact@gmail.com</a>.<br>
+  Hébergeur du site : GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis.
+</footer>
+</main>
+<script>
+// Sur Android, « Télécharger » mène au test d'Android plutôt qu'à l'App Store.
+if (/Android/i.test(navigator.userAgent)) document.getElementById('obtenir').href = '/android.html';
+</script>
+<script>
+(() => {
+  try {
+    if (navigator.globalPrivacyControl || navigator.doNotTrack === '1' || navigator.webdriver) return;
+    try {
+      const choix = new URLSearchParams(location.search).get('mesure');
+      if (choix === 'non') localStorage.setItem('coef.mesure.site', 'non');
+      if (choix === 'oui') localStorage.removeItem('coef.mesure.site');
+      if (localStorage.getItem('coef.mesure.site') === 'non') return;
+    } catch (e) { /* sans stockage, la visite compte comme avant */ }
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|inspectiontool|facebookexternalhit|chatgpt-user|perplexity-user|google-read-aloud/i.test(navigator.userAgent)) return;
+    const page = '/fiches.html';
+    const utm = new URLSearchParams(location.search).get('utm_source') || '';
+    let origine = utm.toLowerCase();
+    if (!origine && document.referrer) origine = new URL(document.referrer).hostname.toLowerCase();
+    const provenances = [
+      ['chatgpt', /chatgpt|openai/], ['perplexity', /perplexity/], ['copilot', /copilot/], ['gemini', /gemini/],
+      ['claude', /claude\.ai/], ['google', /google\./], ['bing', /bing\./], ['duckduckgo', /duckduckgo/],
+      ['ecosia', /ecosia/], ['qwant', /qwant/], ['yahoo', /yahoo/], ['instagram', /instagram/], ['tiktok', /tiktok/],
+      ['youtube', /youtube|youtu\.be/], ['snapchat', /snapchat/], ['facebook', /facebook|fb\.com/],
+      ['reddit', /reddit/], ['x', /(^|\.)x\.com$|twitter|(^|\.)t\.co$/], ['app-store', /apps\.apple\.com/],
+      ['coef', /coef-app\.github\.io/],
+    ];
+    const source = origine ? ((provenances.find(([, motif]) => motif.test(origine)) || ['autre'])[0]) : 'direct';
+    const envoyer = (fonction, corps) => fetch('https://mhwwczsawkikddqkvlir.supabase.co/rest/v1/rpc/' + fonction, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9', Authorization: 'Bearer sb_publishable_4FvZEOa3m4OUUQaoT6QBwA_x6p_GJr9' },
+      body: JSON.stringify(corps),
+    }).catch(() => {});
+    envoyer('compter_visite_site', { p_page: page, p_source: source });
+    const telephone = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const francais = /^fr\b/i.test(navigator.language || '');
+    envoyer('compter_evenements_site', { p_page: page, p_evenements: [telephone ? 'telephone' : 'ordinateur', francais ? 'francais' : 'autre_langue'] });
+    const deja = new Set();
+    const une = (evenement) => {
+      if (deja.has(evenement)) return;
+      deja.add(evenement);
+      envoyer('compter_evenements_site', { p_page: page, p_evenements: [evenement] });
+    };
+    document.addEventListener('click', (e) => {
+      const lien = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!lien) return;
+      if (/apps\.apple\.com/.test(lien.href)) une('app_store');
+      else if (/\/android\.html$/.test(lien.pathname) || /play\.google\.com/.test(lien.href)) une('android');
+    }, true);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) une('lu_en_entier');
+    }, { passive: true });
+  } catch (e) { /* une mesure qui échoue ne gêne jamais la page */ }
+})();
+</script>
+</body>
+</html>
