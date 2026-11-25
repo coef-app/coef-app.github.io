@@ -6,7 +6,6 @@
 <meta name="color-scheme" content="light dark">
 <title>Poser une question et dire non · Fiche de révision Anglais · Coef</title>
 <meta name="description" content="En anglais, une question et une négation passent par un auxiliaire : do, does ou did aux temps simples, sinon l’auxiliaire déjà là (be, have, can, will).…">
-<meta name="robots" content="noindex">
 <link rel="canonical" href="https://coef-app.github.io/fiches/poser-une-question-et-dire-non">
 <link rel="icon" href="/icone.png">
 <link rel="apple-touch-icon" href="/icone.png">
@@ -29,9 +28,14 @@ body{margin:0;background:var(--plan);color:var(--encre);
   font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased}
 main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
-header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
-header.site .marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;color:var(--encre);text-decoration:none}
-header.site .obtenir{background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 15px}
+/* Le bandeau du haut (25/11, Noé : « le mettre tout en haut […] des centaines de fiches comme ça sur l'appli ») :
+   la forme de la bannière de Safari, que les navigateurs d'Instagram, de Snapchat ou de WhatsApp n'affichent pas. */
+header.bandeau{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:20px;padding:10px 12px;margin:0 0 28px}
+header.bandeau img{display:block;width:44px;height:44px;border-radius:10px}
+header.bandeau .texte{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+header.bandeau .marque{font-weight:700;font-size:16px;color:var(--encre);text-decoration:none}
+header.bandeau span{font-size:13.5px;color:var(--encre2)}
+header.bandeau .obtenir{flex-shrink:0;background:var(--accent);color:var(--sur-accent);text-decoration:none;font-weight:600;font-size:14.5px;border-radius:20px;padding:7px 14px}
 .surtitre{font-size:13.5px;font-weight:600;color:var(--teinte-encre);margin:0 0 6px;letter-spacing:0.1px}
 h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 14px;color:var(--teinte-encre)}
 .essentiel{font-size:18.5px;line-height:1.5;margin:0 0 8px}
@@ -80,8 +84,9 @@ footer.site a{color:var(--discret)}
 </head>
 <body>
 <main>
-<header class="site">
-  <a class="marque" href="/">Coef</a>
+<header class="bandeau">
+  <a href="/"><img src="/icone.png" alt="" width="44" height="44"></a>
+  <div class="texte"><a class="marque" href="/">Coef</a><span>Des centaines de fiches comme celle-ci, gratuites.</span></div>
   <a class="obtenir" id="obtenir" href="https://apps.apple.com/app/apple-store/id6805438755?pt=129314230&ct=partage&mt=8">Télécharger</a>
 </header>
 <article>
