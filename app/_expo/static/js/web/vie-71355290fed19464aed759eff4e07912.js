@@ -1,0 +1,2 @@
+var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="c8c0646b-81e1-4b17-a8ce-a7e105d602e8",_sentryDebugIdIdentifier="sentry-dbid-c8c0646b-81e1-4b17-a8ce-a7e105d602e8")}catch(e){}
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return u}});var t=r(d[0]),n=r(d[1]);function u(){return(0,n.jsx)(t.PageVieEcole,{})}},774,[1152,7]);
