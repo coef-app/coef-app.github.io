@@ -1,0 +1,2 @@
+var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="d45b0083-0c33-4942-868e-2ef6b01a7757",_sentryDebugIdIdentifier="sentry-dbid-d45b0083-0c33-4942-868e-2ef6b01a7757")}catch(e){}
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.PageFavoris}});var t=r(d[0])},784,[1159]);
