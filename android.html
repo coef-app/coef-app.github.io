@@ -27,7 +27,8 @@ body{margin:0;background:var(--plan);color:var(--encre);
   -webkit-font-smoothing:antialiased}
 main{max-width:520px;margin:0 auto;padding:28px 16px 64px}
 a{color:inherit}
-.marque{font-weight:700;font-size:20px;letter-spacing:-0.4px;margin-bottom:28px}
+/* Le logo (26/11) : un masque sur le dessin, pour qu'il prenne l'encre du thème, clair ou sombre ; « Coef » reste le texte du lien. */
+.marque{width:63px;height:17px;margin-bottom:28px;background:var(--encre);-webkit-mask:url(/marque.svg) center/contain no-repeat;mask:url(/marque.svg) center/contain no-repeat;font-size:0;color:transparent}
 h1{font-size:32px;line-height:1.15;letter-spacing:-0.9px;font-weight:700;margin:0 0 10px}
 .intro{color:var(--encre2);font-size:16.5px;margin:0 0 6px}
 .progres-guide{display:flex;gap:6px;margin:20px 0 6px}

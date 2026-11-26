@@ -33,7 +33,8 @@ main{max-width:680px;margin:0 auto;padding:20px 20px 64px}
 header.bandeau{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:20px;padding:10px 12px;margin:0 0 28px}
 header.bandeau img{display:block;width:44px;height:44px;border-radius:10px}
 header.bandeau .texte{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
-header.bandeau .marque{font-weight:700;font-size:16px;color:var(--encre);text-decoration:none}
+/* Le logo (26/11) : un masque sur le dessin, pour qu'il prenne l'encre du thème, clair ou sombre ; « Coef » reste le texte du lien. */
+header.bandeau .marque{display:block;width:48px;height:13px;margin:2px 0 5px;background:var(--encre);-webkit-mask:url(/marque.svg) center/contain no-repeat;mask:url(/marque.svg) center/contain no-repeat;font-size:0;color:transparent;text-decoration:none}
 header.bandeau span{font-size:13.5px;color:var(--encre2)}
 /* « celle-ci » ne se coupe pas à son trait d'union. */
 .ns{white-space:nowrap}
