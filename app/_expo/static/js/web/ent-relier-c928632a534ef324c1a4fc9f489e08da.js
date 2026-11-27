@@ -1,0 +1,2 @@
+var _sentryDebugIds,_sentryDebugIdIdentifier;void 0===_sentryDebugIds&&(_sentryDebugIds={});try{var stack=(new Error).stack;stack&&(_sentryDebugIds[stack]="28df4988-fd0e-4acf-a129-ea20e6696035",_sentryDebugIdIdentifier="sentry-dbid-28df4988-fd0e-4acf-a129-ea20e6696035")}catch(e){}
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return u}});var t=r(d[0]),n=r(d[1]);function u(){return(0,n.jsx)(t.RelierEcole,{mode:"reglages"})}},871,[1430,7]);
